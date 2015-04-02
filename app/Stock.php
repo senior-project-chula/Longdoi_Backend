@@ -35,7 +35,7 @@ class Stock extends Model {
 		// 						LIMIT 3) AS r3
 		// 					INNER JOIN `stock`
 		// 					ON `r3`.Stock_ID=`stock`.Stock_ID");
-		return Stock::select('Stock_ID','Stock_Name',DB::raw('SUM(Cat_Total) AS Total')
+		return Stock::select('Stock_ID','Stock_Name',DB::raw('SUM(Cat_Total) AS Total'))
 			->whereHas('recommendation',function($query)
 		{
 			$query->select('Stock_ID','recommendation',DB::raw('COUNT(*) AS Cat_Total'))->whereHas('research',function($query2)
