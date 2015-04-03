@@ -10,13 +10,15 @@ class Broker extends Model {
 	 */
 	protected $table = 'broker';
 	protected $primaryKey = 'Broker_ID';
+	public $timestamps = false;
 
 	public function brokeraccuracies(){
 		return $this->hasMany('App\Brokeraccuracy','Broker_ID','Broker_ID');
 	}
 
+
 	public static function getBestBroker(){
-		return DB::select("SELECT `Broker_ID`,`Broker_Name`,COALESCE(`accAGRO` / NULLIF(`totalAGRO`,0), 0) AS 'ARGO', 
+		$bestBroker= DB::select("SELECT `Broker_ID`,`Broker_Name`,COALESCE(`accAGRO` / NULLIF(`totalAGRO`,0), 0) AS 'ARGO', 
 			COALESCE(`accCONSUMP` / NULLIF(`totalCONSUMP`,0), 0) AS 'CONSUMP',
 			COALESCE(`accFINCIAL` / NULLIF(`totalFINCIAL`,0), 0) AS 'FINCIAL',
 			COALESCE(`accINDUS` / NULLIF(`totalINDUS`,0), 0) AS 'INDUS',
@@ -28,6 +30,7 @@ class Broker extends Model {
 			FROM `broker`
 			ORDER BY Total DESC
 			LIMIT 1");
+		return $bestBroker[0];
 	}
 	public static function getBestBrokerPastM(){
 		//get broker having highest total score in the past month

@@ -10,6 +10,7 @@ class Research extends Model {
 	 */
 	protected $table = 'research';
 	protected $primaryKey = 'Research_ID';
+	public $timestamps = false;
 
 	public function recommendations(){
 		return $this->hasMany('App\Recommendation','Research_ID','Research_ID');

@@ -10,6 +10,7 @@ class Brokeraccuracy extends Model {
 	 */
 	protected $table = 'brokeraccuracy';
 	protected $primaryKey = 'Accuracy_ID';
+	public $timestamps = false;
 
 	public function brokers(){
 		return $this->belongsTo('App\Broker');

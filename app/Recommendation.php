@@ -11,6 +11,7 @@ class Recommendation extends Model {
 	 */
 	protected $table = 'recommendation';
 	protected $primaryKey = 'Recommendation_ID';
+	public $timestamps = false;
 
 	public function research(){
 		return $this->belongsTo('App\Research');
