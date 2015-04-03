@@ -33,4 +33,18 @@ class Recommendation extends Model {
 		->orderBy('Stock_ID')
 		->get();
 	}
+
+	public static function getRecFrom($broker_id){
+		return Recommendation::whereHas('research',function($query) use ($broker_id)
+		{
+			$today=new DateTime('today');
+			$today->modify('-14 days');
+			$ending_today=new DateTime('today');
+			$ending_today->modify('-14 days');
+			$ending_today->modify('+23 hours +59 minutes +59 seconds');				
+			$query->whereBetween('Date',array($today,$ending_today))
+			->where('Broker_ID','=',$broker_id);
+		})
+		->get();
+	}
 }
