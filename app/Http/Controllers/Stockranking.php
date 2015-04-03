@@ -14,8 +14,9 @@ class Stockranking extends Controller {
 	 */
 	public function index()
 	{
-		//
-		
+		//Getting broker ranking
+		//getting month list
+
 	}
 
 	/**
