@@ -34,6 +34,7 @@
                 <div class="col-md-12">
                     <!-- Block Tabs -->
                     <div class="block full border-radius" style="background-color:white;padding:10px 20px;border-style:none">
+                        <h1 class="text-center" style="color:black;margin-bottom:20px;"><strong>BTS</strong> 1.80<br><small>(+0.13)<br>(+0.82%)</small></h1>
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- Classic Chart Block -->
@@ -53,7 +54,7 @@
                             </div>
                         </div>
                         <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
-                        <h1 class="text-center" style="color:black;margin-bottom:20px;"><strong>BTS</strong> 1.80<br><small>(+0.13)<br>(+0.82%)</small></h1>
+                        
                         <!-- Block Tabs Title -->
                         <div class="block-title">
                             <div class="block-options pull-right" style="width:50%">
@@ -61,16 +62,16 @@
                                 <!-- Time and Date Pickers Content -->
                                 <form action="page_forms_components.html" method="post" class="form-horizontal" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
                                     <fieldset>
-                                        <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
+                                        <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; margin-bottom: 0px;">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-4 col-sm-6 hidden-xs">
                                                 <a href="stock.html"><button type="button" class="btn btn-sm btn-default"><i class="fa fa-angle-left" style=" margin-top: 2px; "></i> Daily Recommendations</button></a>
                                             </div>
-                                            <label class="col-md-1 control-label hidden-sm hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
-                                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                            <label class="col-md-1 control-label hidden-sm hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;margin-bottom: 0px;padding-top: 0px;">DATE: </label>
+                                            <div class="col-md-3 col-sm-4 col-xs-6" style=" margin-top: 3px; ">
                                                 <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
                                             </div>
-                                            <button type="submit" class="btn btn-sm btn-primary" style=" margin-top: 2px; "><i class="fa fa-angle-right"></i> Go</button>
+                                            <button type="submit" class="btn btn-sm btn-primary" style=" margin-top: -1px; padding-top: 5px; padding-bottom: 5px;"><i class="fa fa-angle-right"></i> Go</button>
                                         </div>
                                     </fieldset>
                                 </form>
@@ -85,7 +86,7 @@
 
                         <!-- Tabs Content -->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="example-tabs2-summary">
+                            <div class="tab-pane active " id="example-tabs2-summary">
                                 <!-- Responsive Full Block -->
 
                                 <!-- Search Styles Block -->
@@ -93,7 +94,7 @@
 
 
                                     <!-- Search Styles Content -->
-                                    <div class="tab-content">
+                                    <div class="tab-content ">
                                         <!-- Projects Search -->
                                         <div class="tab-pane active" id="search-tab-projects">
 
@@ -343,10 +344,10 @@
                                         </div>
                                     </div>
                                     <div class="widget-header text-center" id="firstplace">
-                                        <h3 class="widget-content-light h2 site-heading" style="">
+                                        <h3 class="widget-content-light h2 site-heading" style="color:black;">
                                             <strong><a href="page_ready_user_profile.html">SIRI</a></strong><br>
-                                            <i class="fa fa-money"></i> 1.81 <br>
-                                            <small>(+12.00)</small> <small>(+2.00%)</small>
+                                            <i class="fa fa-money black" ></i> 1.81 <br>
+                                            <small ><font color="black">(+12.00)</font></small> <small><font color="black">(+2.00%)</font></small>
                                         </h3>
                                     </div>
                                     <!-- END Widget Header -->
@@ -397,10 +398,10 @@
                                         </div>
                                     </div>
                                     <div class="widget-header text-center" id="secondplace">
-                                        <h3 class="widget-content-light h2 site-heading">
+                                        <h3 class="widget-content-light h2 site-heading" style="color:black">
                                             <strong><a href="page_ready_user_profile.html">KBANK</a></strong><br>
-                                            <i class="fa fa-money"></i> 1.81 <br>
-                                            <small>(+12.00)</small> <small>(+2.00%)</small>
+                                            <i class="fa fa-money black" ></i> 1.81 <br>
+                                            <small ><font color="black">(+12.00)</font></small> <small><font color="black">(+2.00%)</font></small>
                                         </h3>
                                     </div>
                                     <!-- END Widget Header -->
@@ -451,10 +452,10 @@
                                         </div>
                                     </div>
                                     <div class="widget-header text-center" id="thirdplace">
-                                        <h3 class="widget-content-light h2 site-heading">
+                                        <h3 class="widget-content-light h2 site-heading" style="color:black">
                                             <strong><a href="page_ready_user_profile.html">BTS</a></strong><br>
-                                            <i class="fa fa-money"></i> 1.81 <br>
-                                            <small>(+12.00)</small> <small>(+2.00%)</small>
+                                            <i class="fa fa-money black" ></i> 1.81 <br>
+                                            <small ><font color="black">(+12.00)</font></small> <small><font color="black">(+2.00%)</font></small>
                                         </h3>
                                     </div>
                                     <!-- END Widget Header -->

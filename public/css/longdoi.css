@@ -29,6 +29,7 @@
         }
         #stock-head{
             padding: 40px 0px;
+            margin-bottom: 40px;
             background-color: #C8FAD4;
         }
         #broker-head{
@@ -78,4 +79,7 @@
     }
     .no-border{
         border-style: none;
+    }
+    .black{
+        color: black;
     }
