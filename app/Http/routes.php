@@ -15,7 +15,11 @@
 
 Route::get('home', 'HomeController@index');
 
+
+
 Route::get('/','IndexController@test');
+
+
 
 Route::get('stockResult','IndexController@graph');
 Route::controllers([
@@ -23,4 +27,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/test', 'Stockranking@index');
+Route::get('/test', 'RecommendationController@index');
+Route::get('/test2','Stockranking@index');
+// Route::post('testPOST', 'Stockranking@index');
