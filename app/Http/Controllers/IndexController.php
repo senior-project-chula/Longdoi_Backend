@@ -5,6 +5,7 @@ use App\Stock;
 use App\Recommendation;
 use App\Price;
 use DB;
+
 class IndexController extends Controller {
 
 	/*
@@ -47,6 +48,12 @@ class IndexController extends Controller {
 
 
 	}
-
-
+	public function test()
+	{
+		return view('stockResult');
+	}
+	public function graph()
+	{
+		return view('stockResult');
+	}
 }
