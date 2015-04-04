@@ -45,7 +45,7 @@ class IndexController extends Controller {
 		//["Stock_ID"]=> string(1) "2" ["Total"]=> string(1) "8" ["_Cat_Total"]=> string(19) "BUY 6,HOLD 1,SELL 1" ["Stock_Name"]=> string(6) "ADVANC" ["Word"]=> NULL ["Type"]=> string(4) "TECH" ["Is_Index"]=> string(1) "0"
 		//top3array[0]->Stock_ID return 2
 		
-
+		return view('index');
 
 	}
 	public function test()

@@ -85,10 +85,11 @@
 
                             <!-- check current url and add the class "active" -->
                             <li class="active">
-                                <a href="#">Home</a>
+                                <a href="/">Home</a>
+                            
                             </li>
                             <li>
-                                <a href="brokerRanking.html">Broker Ranking</a>
+                                <a href="/brokerRanking">Broker Ranking</a>
                             </li>
                             <li>
                                 <a href="stock.html">Recommendation</a>

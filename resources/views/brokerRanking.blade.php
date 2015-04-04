@@ -47,10 +47,10 @@
                                 </form>
                             </div>
                             <ul class="nav nav-tabs" data-toggle="tabs">
-                                <li class="active"><a href="#example-tabs2-overall">Overall</a></li>
+                                <li ><a href="#example-tabs2-overall">Overall</a></li>
                                 <li><a href="#example-tabs2-6months">6 months</a></li>
                                 <li><a href="#example-tabs2-3months">3 months</a></li>
-                                <li><a href="#example-tabs2-1month">1 month</a></li> 
+                                <li class="active"><a href="#example-tabs2-1month">1 month</a></li> 
                             </ul>
                         </div>
                         <!-- END Block Tabs Title -->
@@ -73,8 +73,8 @@
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
                                                     <th>Broker</th>
-                                                    <th>ARGO</th>
-                                                    <th>COMSUMP</th>
+                                                    <th>AGRO</th>
+                                                    <th>CONSUMP</th>
                                                     <th>FINCIAL</th>
                                                     <th>INDUS</th>
                                                     <th>PROPCON</th>
@@ -86,104 +86,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            {{-- {!!dd($all)!!} --}}
+                                            
+                                            @foreach($one as $brokerName=>$data)
+
                                                 <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td><a href="analysisResult.html">broker1</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
+                                                    <td class="text-center">{{++$i}}</td>
+                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
+                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">2</td>
-                                                    <td><a href="#">broker2</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">3</td>
-                                                    <td><a href="#">broker3</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">4</td>
-                                                    <td><a href="#">broker4</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">5</td>
-                                                    <td><a href="#">broker5</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">6</td>
-                                                    <td><a href="#">broker6</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">7</td>
-                                                    <td><a href="#">broker7</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -220,104 +141,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=0; ?>
+                                                @foreach($three as $brokerName=>$data)
                                                 <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td><a href="analysisResult.html">broker1</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
+                                                    <td class="text-center">{{++$i}}</td>
+                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
+                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">2</td>
-                                                    <td><a href="#">broker2</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">3</td>
-                                                    <td><a href="#">broker3</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">4</td>
-                                                    <td><a href="#">broker4</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">5</td>
-                                                    <td><a href="#">broker5</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">6</td>
-                                                    <td><a href="#">broker6</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">7</td>
-                                                    <td><a href="#">broker7</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -354,104 +194,24 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=0; ?>
+                                                @foreach($six as $brokerName=>$data)
                                                 <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td><a href="analysisResult.html">broker1</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
+                                                    <td class="text-center">{{++$i}}</td>
+                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
+                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">2</td>
-                                                    <td><a href="#">broker2</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">3</td>
-                                                    <td><a href="#">broker3</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">4</td>
-                                                    <td><a href="#">broker4</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">5</td>
-                                                    <td><a href="#">broker5</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">6</td>
-                                                    <td><a href="#">broker6</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">7</td>
-                                                    <td><a href="#">broker7</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
+                                            @endforeach
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -488,104 +248,24 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php $i=0; ?>
+                                                @foreach($all as $brokerName=>$data)
                                                 <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td><a href="analysisResult.html">broker1</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
+                                                    <td class="text-center">{{++$i}}</td>
+                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
+                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">2</td>
-                                                    <td><a href="#">broker2</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">3</td>
-                                                    <td><a href="#">broker3</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">4</td>
-                                                    <td><a href="#">broker4</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">5</td>
-                                                    <td><a href="#">broker5</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">6</td>
-                                                    <td><a href="#">broker6</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">7</td>
-                                                    <td><a href="#">broker7</a></td>
-                                                    <td class="text-center">74.23%</td>
-                                                    <td class="text-center">33.33%</td>
-                                                    <td class="text-center">52.14%</td>
-                                                    <td class="text-center">71.89%</td>
-                                                    <td class="text-center">12.65%</td>
-                                                    <td class="text-center">30.22%</td>
-                                                    <td class="text-center">32.21%</td>
-                                                    <td class="text-center">1.23%</td>
-                                                    <td class="text-center text-success">38.49%</td>
-                                                    <td class="text-center">432</td>
-                                                </tr>
+                                            @endforeach
+                                                
                                             </tbody>
                                         </table>
                                     </div>

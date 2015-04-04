@@ -17,7 +17,7 @@ Route::get('home', 'HomeController@index');
 
 
 
-Route::get('/','IndexController@test');
+Route::get('/','IndexController@index');
 
 
 
@@ -28,5 +28,5 @@ Route::controllers([
 ]);
 
 Route::get('/test', 'RecommendationController@index');
-Route::get('/test2','Stockranking@index');
+Route::get('/brokerRanking','Stockranking@index');
 // Route::post('testPOST', 'Stockranking@index');
