@@ -23,6 +23,10 @@ class Analysis extends Controller {
 			$recommendations=Recommendation::getRecFrom($broker_id);
 			return view('analysisResult')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
 		}
+		else{
+			$recommendations=Recommendation::getTodayRec();
+			return view('analysis')->with('recommendations',$recommendations);
+		}
 	}
 
 	/**

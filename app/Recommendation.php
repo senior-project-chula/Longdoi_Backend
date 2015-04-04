@@ -35,16 +35,47 @@ class Recommendation extends Model {
 	}
 
 	public static function getRecFrom($broker_id){
-		return Recommendation::whereHas('research',function($query) use ($broker_id)
-		{
-			$today=new DateTime('today');
-			$today->modify('-14 days');
+		
+		$today=new DateTime('today');
 			$ending_today=new DateTime('today');
-			$ending_today->modify('-14 days');
-			$ending_today->modify('+23 hours +59 minutes +59 seconds');				
-			$query->whereBetween('Date',array($today,$ending_today))
-			->where('Broker_ID','=',$broker_id);
-		})
+			$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
+		->whereBetween('Date',array($today,$ending_today))
+		->where('research.Broker_ID','=',$broker_id)
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
 		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = strtotime($recommendation->Date);
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		return $recommendations2;
+	}
+
+	public static function getTodayRec(){
+		// $time = microtime(TRUE);
+		// $mem = memory_get_usage();
+		$today=new DateTime('today');
+		$ending_today=new DateTime('today');
+		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
+		->whereBetween('Date',array($today,$ending_today))
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = strtotime($recommendation->Date);
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		// print_r(array(
+		//   'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
+		//   'seconds' => microtime(TRUE) - $time
+		// ));
+		// echo("</br>");
+		return $recommendations2;
 	}
 }
