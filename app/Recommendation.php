@@ -35,47 +35,55 @@ class Recommendation extends Model {
 	}
 
 	public static function getRecFrom($broker_id){
-		
+		$yesterday=new DateTime('today');
 		$today=new DateTime('today');
 			$ending_today=new DateTime('today');
 			$ending_today->modify('+23 hours +59 minutes +59 seconds');	
-		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
-		->whereBetween('Date',array($today,$ending_today))
+		$recommendations=Recommendation::select('Description','Recommendation','Research_ID','Stock_ID')
+		->join('research','research.Research_ID','=','recommendation.Research_ID')
+		->whereBetween('research.Date',array($today,$ending_today))
 		->where('research.Broker_ID','=',$broker_id)
+		->select('research.Date','research.Link','research.Broker_ID')
 		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->join('stock','stock.Stock_ID','=','recommendation.Stock_ID')
+		->join('price','price.Stock_ID','=','stock.Stock_ID')
+		->where('price.Date','=',$yesterday)
+		->select('Description','Recommendation','research.Date','research.Link','broker.Broker_Name','Stock_Name','price.Closing_price as Price')
 		->get();
 		$ord = array();
 		$recommendations2 = array();
 		foreach ($recommendations as $recommendation){
 			$recommendations2[] = $recommendation;
-		    $ord[] = strtotime($recommendation->Date);
+		    $ord[] = $recommendation->Date;
 		}
 		array_multisort($ord, SORT_DESC, $recommendations2);
 		return $recommendations2;
 	}
 
 	public static function getTodayRec(){
-		// $time = microtime(TRUE);
-		// $mem = memory_get_usage();
+		$yesterday=new DateTime('today');
 		$today=new DateTime('today');
 		$ending_today=new DateTime('today');
 		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
-		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
-		->whereBetween('Date',array($today,$ending_today))
+		$recommendations=Recommendation::select('Description','Recommendation','Research_ID','Stock_ID')
+		->join('research','research.Research_ID','=','recommendation.Research_ID')
+		->whereBetween('research.Date',array($today,$ending_today))
+		->select('research.Date','research.Link','research.Broker_ID')
 		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->join('stock','stock.Stock_ID','=','recommendation.Stock_ID')
+		->join('price','price.Stock_ID','=','stock.Stock_ID')
+		->where('price.Date','=',$yesterday)
+		->select('Description','Recommendation','research.Date','research.Link','broker.Broker_Name','Stock_Name','price.Closing_price as Price')
 		->get();
 		$ord = array();
 		$recommendations2 = array();
 		foreach ($recommendations as $recommendation){
 			$recommendations2[] = $recommendation;
-		    $ord[] = strtotime($recommendation->Date);
+		    $ord[] = $recommendation->Date;
 		}
 		array_multisort($ord, SORT_DESC, $recommendations2);
-		// print_r(array(
-		//   'memory' => (memory_get_usage() - $mem) / (1024 * 1024),
-		//   'seconds' => microtime(TRUE) - $time
-		// ));
-		// echo("</br>");
 		return $recommendations2;
 	}
 }

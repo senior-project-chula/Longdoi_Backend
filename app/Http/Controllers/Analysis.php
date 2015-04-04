@@ -27,6 +27,9 @@ class Analysis extends Controller {
 			$recommendations=Recommendation::getTodayRec();
 			return view('analysis')->with('recommendations',$recommendations);
 		}
+		// in view:::
+		// foreach ($recommendations as $recommendation => $value) {}
+		// useable attribute: Description, Recommendation, Date, Link, Brker_Name, Stock_Name, Price
 	}
 
 	/**
