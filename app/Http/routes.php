@@ -16,8 +16,12 @@
 Route::get('home', 'HomeController@index');
 
 
-Route::get('/','IndexController@index');
 
+Route::get('/','IndexController@test');
+
+
+
+Route::get('stockResult','IndexController@graph');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

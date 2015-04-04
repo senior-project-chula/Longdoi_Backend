@@ -52,8 +52,5 @@ class IndexController extends Controller {
 	{
 		return view('stockResult');
 	}
-	public function graph()
-	{
-		return view('stockResult');
-	}
+	
 }
