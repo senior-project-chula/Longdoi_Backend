@@ -15,7 +15,7 @@
 <!-- Promo #3 -->
 <section class="site-content site-section site-slide-content">
     <div class="container">
-        <div class="row row-items text-center" style="margin: 30px 0px">
+        <div class="row row-items text-center space-30">
             <div class="col-sm-4 col-md-4">
                 {{-- <img src="img/ing.jpg" alt="Photo" class="img-circle TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeIn" data-element-offset="-64">  --}}
                 {!! HTML::image('img/ing.jpg', 'Photo', array('class' => 'img-circle TOTAL-none visibility-none','data-toggle'=>'animation-appear', 'data-animation-class'=>'animation-fadeIn','data-element-offset'=>'-64')) !!}

@@ -34,10 +34,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Block Tabs -->
-                    <div class="block full border-radius" style="background-color:white;padding:10px 20px;">
+                    <div class="block full border-radius container-box">
                         <!-- Block Tabs Title -->
                         <div class="block-title" style="margin-bottom:20px">
-                            <h1 class="text-center" id="analysis-head" style="color:black"><i class="gi gi-stats"></i> <strong>Daily Analysis</strong></h1>
+                            <h1 class="text-center black" id="analysis-head" ><i class="gi gi-stats"></i> <strong>Daily Analysis</strong></h1>
                             <div class="block-options pull-right" style="width:30%">
                                 <!-- Time and Date Pickers Content -->
                                 <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
@@ -62,7 +62,7 @@
                             <div class="tab-pane active" id="search-tab-projects">
 
                                 <!-- Projects Results -->
-                                <table class="table table-striped table-vcenter" style="color:black">
+                                <table class="table table-striped table-vcenter black">
                                     <thead>
                                         <tr>
                                             <th class="text-center" style="width: 5%;">DATE</th>

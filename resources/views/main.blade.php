@@ -41,10 +41,11 @@
 
         {!! HTML::style('css/longdoi.css') !!}
 
+        <!-- stockResult page ONLY -->
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-        @if(Request::url() === 'http://localhost:8890')
+       {{--  @if(Request::url() === 'http://localhost:8890')
             {!! HTML::style('css-backendProUI/main.css') !!}
-        @endif
+        @endif --}}
 
         <!-- Modernizr (browser feature detection library) & Respond.js (enables responsive CSS code on browsers that don't support it, eg IE8) -->
         {!! HTML::script('js/vendor/modernizr-respond.min.js') !!}
@@ -82,6 +83,7 @@
                             </li>
                             <!-- END Menu Toggle -->
 
+                            <!-- check current url and add the class "active" -->
                             <li class="active">
                                 <a href="#">Home</a>
                             </li>
@@ -139,9 +141,8 @@
         <!-- END Page Container -->
 
         <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
-        @if(Request::url() != 'http://localhost:8890')
-            <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
-        @endif
+        <!-- remove if stockResult page -->
+        <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
 
 
         <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file -->
@@ -154,9 +155,10 @@
         {!! HTML::script('js/plugins.js') !!}
         {!! HTML::script('js/app.js') !!}
 
-        {!! HTML::script('js/vendor/bootstrap.min.js') !!}
+        <!-- stockResult page ONLY -->
+       {{--  {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {!! HTML::script('js2/plugins.js') !!}
-        {!! HTML::script('js2/app.js') !!}
+        {!! HTML::script('js2/app.js') !!} --}}
 
 
 

@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Block Tabs -->
-                        <div class="block full border-radius" style="background-color:white;padding:10px 20px;">
+                        <div class="block full border-radius container-box">
                             <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
                             <!-- Block Tabs Title -->
                             <div class="block-title">
@@ -64,12 +64,8 @@
                                 <div class="tab-pane active" id="example-tabs2-summary">
                                     <!-- Responsive Full Block -->
                                     <!-- Search Styles Block -->
-                                    <div class="block" style="background-color:white;color:black">
-                                        <!-- Search Styles Title -->
-                                                        <!-- <div class="block-title text-center">
-                                                            <h2 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations Summary</h2>
-                                                        </div> -->
-                                                        <!-- END Search Styles Title -->
+                                    <div class="block white-bg black">
+                                  
 
                                                         <!-- Search Styles Content -->
                                                         <div class="tab-content">
@@ -366,7 +362,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 col-md-5 site-block TOTAL-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                                    <h1 class="col-md-6" id="setindex"><strong>SET</strong></h1><h1 class="col-md-6 text-right text-danger" id="setindex">1495.22</h1>
+                                    <h1 class="col-md-6 font-big"><strong>SET</strong></h1><h1 class="col-md-6 text-right text-danger font-big" >1495.22</h1>
                                     <p class="promo-content text-right text-danger">(-1.19)<br>(-0.02%)</p>
                                     <h3 class="col-md-6">
                                         <strong>Market Status</strong><br><br>
