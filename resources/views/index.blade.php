@@ -4,11 +4,11 @@
 
 
     <!-- Intro -->
-    <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/16353695-media_httpdldropboxco_pedhu2.jpg');height:100vh;">
+    <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/16353695-media_httpdldropboxco_pedhu2.jpg');">
         <div class="container">
-            <h1 class="animation-slideDown hidden-xs" style="font-size:60px;">Let's get down the DOI, go <strong style="color:#9AFEFF">LongDOI</strong>.</h1>
-            <h1 class="text-center animation-slideDown hidden-lg hidden-md hidden-sm" style="font-size:60px;"><strong>Let's get down the DOI</strong></h1>
-            <h2 class="text-right animation-slideUp push" style="font-size:30px">Are you tired to read numerous investment researches in the morning?</h2>
+            <h1 class="animation-slideDown hidden-xs font-big">Let's get down the DOI, go <strong style="color:#9AFEFF">LongDOI</strong>.</h1>
+            <h1 class="text-center animation-slideDown hidden-lg hidden-md hidden-sm font-big"><strong>Let's get down the DOI</strong></h1>
+            <h2 class="text-right animation-slideUp push font-small">Are you tired to read numerous investment researches in the morning?</h2>
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">
@@ -97,7 +97,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-5 hidden-sm site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight hidden-xs" data-element-offset="-180">
-                    <h1 class="col-xs-6 col-md-6" id="setindex"><strong>SET</strong></h1><h1 class="col-xs-6 col-md-6 text-right text-danger" id="setindex">1495.22</h1>
+                    <h1 class="col-xs-6 col-md-6 font-big" ><strong>SET</strong></h1><h1 class="col-xs-6 col-md-6 text-right text-danger font-big" >1495.22</h1>
                     <p class="promo-content text-right text-danger">(-1.19)<br>(-0.02%)</p>
                     <h3 class="col-xs-6 col-md-6">
                         <strong>Last Updated</strong><br><br>

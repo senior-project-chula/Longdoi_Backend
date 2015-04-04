@@ -20,12 +20,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Block Tabs -->
-                    <div class="block full border-radius" style="background-color:white;padding:10px 20px;">
-                        <h1 class="text-center" id="broker-head" style="color:black"><i class="fa fa-trophy"></i> <strong>Broker Ranking</strong></h1>
+                    <div class="block full border-radius container-box">
+                        <h1 class="text-center black" id="broker-head"><i class="fa fa-trophy"></i> <strong>Broker Ranking</strong></h1>
                         <!-- Block Tabs Title -->
                         <div class="block-title">
-                            <div class="block-options pull-right" style="width:50%">
-                                <form action="" method="post" class="form-horizontal form-bordered " style=" margin-top: 0px; margin-bottom: 0px; ">
+                            <div class="block-options pull-right half-box">
+                                <form action="" method="post" class="form-horizontal form-bordered" style=" margin-top: 0px; margin-bottom: 0px; ">
                                     <fieldset>
                                         <div class="form-group" style=" padding-top: 0px; padding-bottom: 0px; ">
                                             <label class="col-md-8 control-label" style="color:black">SORT BY:</label>
@@ -47,10 +47,10 @@
                                 </form>
                             </div>
                             <ul class="nav nav-tabs" data-toggle="tabs">
-                                <li class="active"><a href="#example-tabs2-1month">1 month</a></li>
-                                <li><a href="#example-tabs2-3months">3 months</a></li>
+                                <li class="active"><a href="#example-tabs2-overall">Overall</a></li>
                                 <li><a href="#example-tabs2-6months">6 months</a></li>
-                                <li><a href="#example-tabs2-overall">Overall</a></li>
+                                <li><a href="#example-tabs2-3months">3 months</a></li>
+                                <li><a href="#example-tabs2-1month">1 month</a></li> 
                             </ul>
                         </div>
                         <!-- END Block Tabs Title -->
@@ -59,7 +59,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="example-tabs2-1month">
                                 <!-- Responsive Full Block -->
-                                <div class="block" style="background-color:white;color:black">
+                                <div class="block black white-bg">
                                     <!-- Responsive Full Title -->
 
                                     <!-- END Responsive Full Title -->
@@ -193,7 +193,7 @@
                             </div>
                             <div class="tab-pane" id="example-tabs2-3months">
                                 <!-- Responsive Full Block -->
-                                <div class="block" style="background-color:white;color:black">
+                                <div class="block white-bg black">
                                     <!-- Responsive Full Title -->
 
                                     <!-- END Responsive Full Title -->
@@ -327,7 +327,7 @@
                             </div>
                             <div class="tab-pane" id="example-tabs2-6months">
                                 <!-- Responsive Full Block -->
-                                <div class="block" style="background-color:white;color:black">
+                                <div class="block white-bg black">
                                     <!-- Responsive Full Title -->
 
                                     <!-- END Responsive Full Title -->
@@ -461,7 +461,7 @@
                             </div>
                             <div class="tab-pane" id="example-tabs2-overall">
                                 <!-- Responsive Full Block -->
-                                <div class="block" style="background-color:white;color:black">
+                                <div class="block white-bg black">
                                     <!-- Responsive Full Title -->
 
                                     <!-- END Responsive Full Title -->
@@ -607,8 +607,5 @@
     </div>
 </section>
 <!-- END Intro -->
-<!-- Load and execute javascript code used only in this page -->
 
-{!! HTML::script('js2/pages/compCharts.js') !!}
-<script>$(function(){ CompCharts.init(); });</script>
 @stop

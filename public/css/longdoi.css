@@ -5,9 +5,6 @@
         .widget-header{
             padding:20px 0;
         }
-        #setindex{
-            font-size: 60px;
-        }
         .text-right{
             text-align: right;
         }
@@ -29,6 +26,7 @@
         }
         #stock-head{
             padding: 40px 0px;
+            margin-bottom: 40px;
             background-color: #C8FAD4;
         }
         #broker-head{
@@ -78,4 +76,29 @@
     }
     .no-border{
         border-style: none;
+    }
+    .black{
+        color: black;
+    }
+    .fit-browser{
+        height:100vh;
+    }
+    .font-big{
+        font-size: 60px;
+    }
+    .font-small{
+        font-size: 30px;
+    }
+    .container-box{
+        background-color:white;
+        padding:10px 20px;
+    }
+    .half-box{
+        width: 50%;
+    }
+    .white-bg{
+        background-color: white;
+    }
+    .space-30{
+        margin:30px 0;
     }

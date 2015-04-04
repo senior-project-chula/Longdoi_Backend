@@ -959,7 +959,7 @@ a.sidebar-title:focus {
     margin: 0 0 10px;
     padding: 20px 15px 1px;
     background-color: #ffffff;
-    border: 1px solid #dbe1e8;
+   /* border: 1px solid #dbe1e8;*/
 }
 
 .block.full {
