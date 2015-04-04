@@ -3,6 +3,26 @@
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * App\Price
+ *
+ * @property-read \App\Stock $stocks 
+ */
+/**
+ * App\Price
+ *
+ * @property integer $Price_ID 
+ * @property float $Opening_Price 
+ * @property float $Closing_Price 
+ * @property string $Date 
+ * @property integer $Stock_ID 
+ * @property-read \App\Stock $stocks 
+ * @method static \Illuminate\Database\Query\Builder|\App\Price wherePriceID($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Price whereOpeningPrice($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Price whereClosingPrice($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Price whereDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Price whereStockID($value)
+ */
 class Price extends Model {
 
 	/**

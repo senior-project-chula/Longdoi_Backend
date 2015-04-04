@@ -3,6 +3,28 @@
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use DateTime;
+/**
+ * App\Stock
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Price[] $prices 
+ * @property-read \App\Recommendation $recommendation 
+ */
+/**
+ * App\Stock
+ *
+ * @property integer $Stock_ID 
+ * @property string $Stock_Name 
+ * @property string $Word 
+ * @property string $Type 
+ * @property boolean $Is_Index 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Price[] $prices 
+ * @property-read \App\Recommendation $recommendation 
+ * @method static \Illuminate\Database\Query\Builder|\App\Stock whereStockID($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Stock whereStockName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Stock whereWord($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Stock whereType($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Stock whereIsIndex($value)
+ */
 class Stock extends Model {
 	/**
 	 * The database table used by the model.
@@ -41,10 +63,18 @@ class Stock extends Model {
 								LIMIT 3) AS r3
 							INNER JOIN `stock`
 							ON `r3`.Stock_ID=`stock`.Stock_ID");
+	}
+	public function getLastPrice(){
+		$lastPrice = $this->prices()->orderBy('Date','DESC')->take(2)->get();
+		$todayPrice = $lastPrice[0];
+		$ytdPrice = $lastPrice[1];
+		var_dump($lastPrice);
+		echo '<br><br>';
+
+	}
 		
 
 		
-	}
 
 }
 
