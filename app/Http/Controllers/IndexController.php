@@ -50,7 +50,7 @@ class IndexController extends Controller {
 	}
 	public function test()
 	{
-		return view('team');
+		return view('analysis');
 	}
 
 }
