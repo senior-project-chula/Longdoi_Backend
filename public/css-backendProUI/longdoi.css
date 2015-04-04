@@ -1,0 +1,74 @@
+        #champion{
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        .widget-header{
+            padding:20px 0;
+        }
+        #setindex{
+            font-size: 60px;
+        }
+        .text-right{
+            text-align: right;
+        }
+        #firstplace{
+            background-color: #FFF399;
+        }
+        #secondplace{
+            background-color: #E5E6E4;
+        }
+        #thirdplace{
+            background-color: #FCCC9C;
+        }
+        #firstplace,#secondplace,#thirdplace{
+            margin-top: 10px;
+            padding: 20px 0 5px 0;
+        }
+        #topbrokerheader{
+            margin-top:60px;
+        }
+        #stock-head{
+            padding: 40px 0px;
+            background-color: #C8FAD4;
+        }
+        #broker-head{
+            padding: 40px 0px;
+            background-color: #FFF399;
+        }
+        #analysis-head{
+            padding: 40px 0px;
+            background-color: #C2FCF1;
+        }
+        .tab-content{
+            padding: 10px 40px;
+        }
+        h4 small{
+            font-size: 1.5em;
+        }
+        .block-title li a {
+          /*  color: white;*/
+        }
+        .border-radius{
+            border-radius: 10px 10px 10px 10px;
+            -moz-border-radius: 10px 10px 10px 10px;
+            -webkit-border-radius: 10px 10px 10px 10px;
+        }
+        .border-radius-top{
+            border-radius: 10px 10px 0px 0px;
+            -moz-border-radius: 10px 10px 0px 0px;
+            -webkit-border-radius: 10px 10px 0px 0px;
+        }
+        .center-svg{
+                display:block;
+                margin:auto;
+            }
+            .report{
+                width:320px;
+                height: 320px;
+            }
+            .investor{
+                width: 320px;
+            }
+            .small-svg{
+                width: 150px;
+            }
