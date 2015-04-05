@@ -1,5 +1,18 @@
 @extends('main')
 
+@section('css-backend')
+    {!! HTML::style('css-backendProUI/main.css') !!}
+@stop
+
+@section('js-backend')
+         {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+        {!! HTML::script('js2/plugins.js') !!}
+        {!! HTML::script('js2/app.js') !!}
+
+         {!! HTML::script('js2/pages/compCharts.js') !!}
+        <script>$(function(){ CompCharts.init(); });</script>
+@stop
+
 @section('content')
 <!-- Stylesheets -->
      
