@@ -105,7 +105,6 @@
                                             <td class="text-center">
                                                 {{$data->PDF_Name}}
                                             </td>
-                                            
                                             <td class="text-center">
                                                 <a href="{{$data->Link}}">{{$data->Link}}</a>
                                             </td>

@@ -100,11 +100,11 @@ class Recommendation extends Model {
 
 	public static function getTodayRec(){
 		$yesterday=new DateTime('today');
-			$yesterday->modify('-5 days');
+			// $yesterday->modify('-10 days');
 		$today=new DateTime('today');
-			$today->modify('-5 days');
+			// $today->modify('-10 days');
 		$ending_today=new DateTime('today');
-			$ending_today->modify('-5 days');
+			// $ending_today->modify('-10 days');
 		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
 		$recommendations=Recommendation::select('Description','Recommendation','Research_ID','Stock_ID')
 		->join('research','research.Research_ID','=','recommendation.Research_ID')
