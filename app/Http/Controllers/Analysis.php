@@ -128,10 +128,10 @@ class Analysis extends Controller {
 			if($request->input('isOneBroker')==1){
 				$broker_id=$request->input('broker_id');
 				$recommendations=Research::getResearchFromSpecDate($broker_id,$date);
-				return view('analysis')->with('recommendations',$recommendations)->with('isOneBroker',1)->with('broker_id',$broker_id);
+				return view('analysis')->with('input_analysis',Broker::find($broker_id)->Broker_Name." ".$date)->with('recommendations',$recommendations)->with('isOneBroker',1)->with('broker_id',$broker_id);
 			}else{
 				$recommendations=Research::getResearchSpecDate($date);
-				return view('analysis')->with('recommendations',$recommendations)->with('isOneBroker',0);
+				return view('analysis')->with('input_analysis',$date)->with('recommendations',$recommendations)->with('isOneBroker',0);
 			}
 		}
 		$recommendations=Research::getTodayResearch();
