@@ -50,7 +50,18 @@ class IndexController extends Controller {
 	}
 	public function test()
 	{
-		return view('analysis');
+		return view('team');
 	}
-
+	public function recommendations()
+	{
+		return view('stock');
+	}
+	public function team()
+	{
+		return view('team');
+	}
+	public function stockResult()
+	{
+		return view('stockResult');
+	}
 }

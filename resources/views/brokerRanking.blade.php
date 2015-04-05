@@ -47,17 +47,17 @@
                                 </form>
                             </div>
                             <ul class="nav nav-tabs" data-toggle="tabs">
-                                <li ><a href="#example-tabs2-overall">Overall</a></li>
+                                <li class="active"><a href="#example-tabs2-overall">Overall</a></li>
                                 <li><a href="#example-tabs2-6months">6 months</a></li>
                                 <li><a href="#example-tabs2-3months">3 months</a></li>
-                                <li class="active"><a href="#example-tabs2-1month">1 month</a></li> 
+                                <li><a href="#example-tabs2-1month">1 month</a></li> 
                             </ul>
                         </div>
                         <!-- END Block Tabs Title -->
 
                         <!-- Tabs Content -->
                         <div class="tab-content">
-                            <div class="tab-pane active" id="example-tabs2-1month">
+                            <div class="tab-pane" id="example-tabs2-1month">
                                 <!-- Responsive Full Block -->
                                 <div class="block black white-bg">
                                     <!-- Responsive Full Title -->
@@ -87,13 +87,36 @@
                                             </thead>
                                             <tbody>
                                             {{-- {!!dd($all)!!} --}}
-                                            
+                                            <style type="text/css">
+                                                span.text-content span {
+                                                  display: table-cell;
+                                                  text-align: center;
+                                                  vertical-align: middle;
+                                                }
+                                                span.text-content {
+                                                  background: rgba(0,0,0,0.5);
+                                                  color: white;
+                                                  cursor: pointer;
+                                                  display: table;
+                                                  height: 150px;
+                                                  left: 0;
+                                                  position: absolute;
+                                                  top: 0;
+                                                  width: 150px;
+                                                  opacity: 0;
+                                                }
+                                                 
+                                                td:hover span.text-content {
+                                                  opacity: 1;
+                                                }
+                                            </style>
                                             @foreach($one as $brokerName=>$data)
 
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
                                                     <td><a href="#">{{$brokerName}}</a></td>
-                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%
+                                                    <span class="text-content">test</span></td>
                                                     <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
                                                     <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
                                                     <td class="text-center">{{$data['INDUS']['percent']}}%</td>
@@ -219,7 +242,7 @@
                                 </div>
                                 <!-- END Responsive Full Block -->
                             </div>
-                            <div class="tab-pane" id="example-tabs2-overall">
+                            <div class="tab-pane active" id="example-tabs2-overall">
                                 <!-- Responsive Full Block -->
                                 <div class="block white-bg black">
                                     <!-- Responsive Full Title -->
