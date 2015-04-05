@@ -1,5 +1,14 @@
     @extends('main')
 
+    @section('js-backend')
+    {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+    {!! HTML::script('js2/plugins.js') !!}
+    {!! HTML::script('js2/app.js') !!}
+
+    {!! HTML::script('js2/pages/compCharts.js') !!}
+    <script>$(function(){ CompCharts.init(); });</script>
+    @stop
+
     @section('content')
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
@@ -86,6 +95,53 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
+                                                            </td>
+                                                            <td class="text-center "
+                                                            <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                        </td>
+                                                        
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">4</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center hidden-xs">
+                                                            <h3 class="animation-pullDown text-success"><strong>6</strong></h3>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
+                                                            
+                                                        </td>
+                                                        <td class="text-center "
+                                                        <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">2</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center hidden-xs">
+                                                        <h3 class="animation-pullDown text-success"><strong>2</strong></h3>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END Projects Results -->
+                                    </div>
+                                    <!-- END Projects Search -->
 
                                                         @foreach($sumRec as $stockName=>$recData)
                                                         <tr>

@@ -43,7 +43,9 @@
 
         <!-- stockResult page ONLY -->
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-        @yield('css-backend')
+        @if(Route::getCurrentRoute()->getPath()=='/stockResult')
+            {!! HTML::style('css-backendProUI/main.css') !!}
+        @endif
 
         <!-- Modernizr (browser feature detection library) & Respond.js (enables responsive CSS code on browsers that don't support it, eg IE8) -->
         {!! HTML::script('js/vendor/modernizr-respond.min.js') !!}
@@ -145,7 +147,7 @@
 
         <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
         <!-- remove if stockResult page -->
-        @yield('button-to-top')
+        <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
 
 
         <!-- Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file -->
@@ -159,11 +161,14 @@
         {!! HTML::script('js/app.js') !!}
 
         <!-- stockResult page ONLY -->
-        
-        @yield('js-backend')
+       {{--  {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+        {!! HTML::script('js2/plugins.js') !!}
+        {!! HTML::script('js2/app.js') !!} --}}
+
 
 
         <!-- Load and execute javascript code used only in this page -->
-       
+        {!! HTML::script('js2/pages/compCharts.js') !!}
+        <script>$(function(){ CompCharts.init(); });</script>
     </body>
     </html>
