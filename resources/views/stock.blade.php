@@ -13,7 +13,7 @@
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
         <div class="container">
-            <h1 class="text-center animation-slideDown"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
+            <h1 class="text-center animation-slideDown hidden-xs"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
             <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
             <div class="site-block text-center">
                 <form action="stockResult.html" method="post" class="form-horizontal" >
