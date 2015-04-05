@@ -116,7 +116,7 @@
                                             @foreach($one as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td>{{$brokerName}}</td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
                                                     </a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
@@ -170,7 +170,7 @@
                                                 @foreach($three as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td>{{$brokerName}}</td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
                                                     </a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
@@ -224,7 +224,7 @@
                                                 @foreach($six as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td>{{$brokerName}}</td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
                                                     </a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
@@ -279,7 +279,7 @@
                                                 @foreach($all as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td>{{$brokerName}}</td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
                                                     </a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
