@@ -61,7 +61,7 @@
                                 {!! Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                            @if(isset($input_analysis)) <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">{{$input_analysis}} </label> @endif
+                                      {{--       @if(isset($input_analysis)) <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">{{$input_analysis}} </label> @endif --}}
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
                                                  @if(isset($broker_id)) <input name="broker_id" type="hidden" value="{!! $broker_id !!}" /> @endif
@@ -73,7 +73,7 @@
                                     </fieldset>
                                 </form>
                             </div>
-                            <div class="block-options pull-left" style="width:30%">
+                            <div class="block-options black col-xs-4 col-xs-offset-1" style="width:30%">
                                 @if(isset($input_analysis)) <p>Keyword: {{$input_analysis}}</p> @endif
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                                 <table class="table table-striped table-vcenter black">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="width: 5%;">DATE</th>
+                                            <th class="text-center" style="width: 10%;">DATE</th>
                                             <th class="text-center" style="width: 10%;">BROKER</th>
                                             <th class="text-center" style="width: 15%;">RESEARCH</th>
                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
