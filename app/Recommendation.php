@@ -10,7 +10,7 @@ use DB;
  * @property-read \App\Stock $stock 
  */
 /**
- * App\Recommendation
+
  *
  * @property integer $Recommendation_ID 
  * @property float $Accuracy 

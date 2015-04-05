@@ -29,7 +29,7 @@ Route::controllers([
 
 Route::get('/test', 'IndexController@test');
 Route::get('/brokerRanking','Stockranking@index');
-// Route::post('testPOST', 'Stockranking@index');
+Route::post('brokerRanking', 'Stockranking@search');
 Route::get('/recommendations','IndexController@recommendations');
 Route::get('/analysis','Analysis@index');
 Route::get('/team','IndexController@team');

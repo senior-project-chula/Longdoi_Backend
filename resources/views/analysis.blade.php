@@ -139,7 +139,7 @@
                                             </td>
                                             
                                             <td class="text-center">
-                                                <a href="{{$data->Link}}">{{$data->Link}}</a>
+                                                <a href="{{$data->Link}}" target="_blank">Link</a>
                                             </td>
                                         </tr>
                                         @endforeach
