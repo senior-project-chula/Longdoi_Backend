@@ -22,7 +22,7 @@
         <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Do you wanna see more? <strong>Search</strong>!</h2>
         <div class="site-block text-center">
-            {{-- {!! Form::open(array('action'=>'Analysis@search','method'=>'post','class'=>'form-horizontal')) !!} --}}
+            {!! Form::open(array('action'=>'Analysis@search','method'=>'post','class'=>'form-horizontal')) !!}
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                         <label class="sr-only" for="register-email">a broker</label>
@@ -58,12 +58,13 @@
                             <div class="block-options pull-right" style="width:30%">
                                 <!-- Time and Date Pickers Content -->
                                 
-                                {{-- {{ Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) }} --}}
+                                {!! Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
+                                            @if(isset($input_analysis)) <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">{{$input_analysis}} </label> @endif
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
-                                                {{-- <input name="broker_id" type="hidden" value="{!! $recommendations[0]->Broker_ID !!}" /> --}}
+                                                 @if(isset($broker_id)) <input name="broker_id" type="hidden" value="{!! $broker_id !!}" /> @endif
                                                 <input name="isOneBroker" type="hidden" value="{!! $isOneBroker !!}" />
                                                 <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
                                             </div>
@@ -72,7 +73,6 @@
                                     </fieldset>
                                 </form>
                             </div>
-                            
                         </div>
                         <!-- END Block Tabs Title -->
 
@@ -87,7 +87,7 @@
                                         <tr>
                                             <th class="text-center" style="width: 5%;">DATE</th>
                                             <th class="text-center" style="width: 10%;">BROKER</th>
-                                            <th class="text-center" style="width: 15%;">DESCRIPTION</th>
+                                            <th class="text-center" style="width: 15%;">Research</th>
                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
                                             
                                         </tr>
@@ -103,7 +103,7 @@
                                                 {{$data->Broker_Name}}
                                             </td>
                                             <td class="text-center">
-                                                {{$data->Description}}
+                                                {{$data->PDF_Name}}
                                             </td>
                                             
                                             <td class="text-center">

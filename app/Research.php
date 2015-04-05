@@ -44,6 +44,90 @@ class Research extends Model {
 			->max('Date');
 		return new DateTime($date_time);
 	}
+	public static function getResearchFrom($broker_id){
+		$today=new DateTime('today');
+		$ending_today=new DateTime('today');
+		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
+		->whereBetween('research.Date',array($today,$ending_today))
+		->where('research.Broker_ID','=',$broker_id)
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->select('research.Date','research.PDF_Name','research.Link','broker.Broker_Name')
+		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = $recommendation->Date;
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		return $recommendations2;
+	}
+
+	public static function getTodayResearch(){
+		$yesterday=new DateTime('today');
+		$today=new DateTime('today');
+		$ending_today=new DateTime('today');
+		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
+		->whereBetween('research.Date',array($today,$ending_today))
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->select('research.Date','research.PDF_Name','research.Link','broker.Broker_Name')
+		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = $recommendation->Date;
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		return $recommendations2;
+	}
+
+	public static function getResearchFromSpecDate($broker_id,$date){
+		$d =DateTime::createFromFormat('d/m/y', $date);
+		$today = new DateTime($d->format('Y-m-d'));
+		$ending_today=new DateTime($d->format('Y-m-d'));
+		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
+		->whereBetween('research.Date',array($today,$ending_today))
+		->where('research.Broker_ID','=',$broker_id)
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->select('research.Date','research.PDF_Name','research.Link','broker.Broker_Name')
+		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = $recommendation->Date;
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		return $recommendations2;
+	}
+
+	public static function getResearchSpecDate($date){
+		$d =DateTime::createFromFormat('d/m/y', $date);
+		$today = new DateTime($d->format('Y-m-d'));
+		$ending_today=new DateTime($d->format('Y-m-d'));
+		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
+		->whereBetween('research.Date',array($today,$ending_today))
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->select('research.Date','research.PDF_Name','research.Link','broker.Broker_Name')
+		->get();
+		$ord = array();
+		$recommendations2 = array();
+		foreach ($recommendations as $recommendation){
+			$recommendations2[] = $recommendation;
+		    $ord[] = $recommendation->Date;
+		}
+		array_multisort($ord, SORT_DESC, $recommendations2);
+		return $recommendations2;
+	}
 
 	
 
