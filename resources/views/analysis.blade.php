@@ -19,7 +19,7 @@
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/16353695-media_httpdldropboxco_pedhu2.jpg');">
     <div class="container">
-        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Do you wanna see more? <strong>Search</strong>!</h2>
         <div class="site-block text-center">
             {!! Form::open(array('action'=>'Analysis@search','method'=>'post','class'=>'form-horizontal')) !!}
@@ -61,7 +61,6 @@
                                 {!! Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                      {{--       @if(isset($input_analysis)) <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">{{$input_analysis}} </label> @endif --}}
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
                                                  @if(isset($broker_id)) <input name="broker_id" type="hidden" value="{!! $broker_id !!}" /> @endif
