@@ -34,7 +34,7 @@
             <div class="block full">
                 <!-- Working Tabs Title -->
                 <div class="block-title">
-                    
+
                 </div>
                 <!-- END Working Tabs Title -->
 
@@ -74,7 +74,7 @@
                                     <!-- Responsive Full Block -->
                                     <!-- Search Styles Block -->
                                     <div class="block white-bg black">
-                                      
+
 
                                         <!-- Search Styles Content -->
                                         <div class="tab-content">
@@ -86,7 +86,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-                                                            
+
                                                             <th class="text-center" style="width: 15%;">PRICE</th>
                                                             <th class="text-center" style="width: 10%;">BUY</th>
                                                             <th class="text-center" style="width: 10%;">HOLD</th>
@@ -99,10 +99,10 @@
                                                             <td>
                                                                 <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
                                                             </td>
-                                                            <td class="text-center "
+                                                            <td class="text-center ">
                                                             <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
                                                         </td>
-                                                        
+
                                                         <td class="text-center">
                                                             <h3 class="animation-pullDown">4</h3>
                                                         </td>
@@ -119,9 +119,9 @@
                                                     <tr>
                                                         <td>
                                                             <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
-                                                            
+
                                                         </td>
-                                                        <td class="text-center "
+                                                        <td class="text-center ">
                                                         <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
                                                     </td>
                                                     <td class="text-center">

@@ -87,7 +87,7 @@
                                         <tr>
                                             <th class="text-center" style="width: 5%;">DATE</th>
                                             <th class="text-center" style="width: 10%;">BROKER</th>
-                                            <th class="text-center" style="width: 15%;">DESCRIPTION</th>
+                                            <th class="text-center" style="width: 15%;">REPORT</th>
                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
                                             
                                         </tr>
