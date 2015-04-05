@@ -52,8 +52,8 @@
                                 <form action="" method="post" class="form-horizontal form-bordered" style=" margin-top: 0px; margin-bottom: 0px; ">
                                     <fieldset>
                                         <div class="form-group" style=" padding-top: 0px; padding-bottom: 0px; ">
-                                            <label class="col-md-8 control-label" style="color:black">SORT BY:</label>
-                                            <div class="col-md-4">
+                                            <label class="col-sm-8 control-label" style="color:black">SORT BY:</label>
+                                            <div class="col-sm-4">
                                                 <select class="form-control">
                                                     <option value="overall">Overall</option>
                                                     <option value="agro">AGRO</option>
