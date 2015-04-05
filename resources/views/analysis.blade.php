@@ -73,6 +73,12 @@
                                     </fieldset>
                                 </form>
                             </div>
+                            <div class="block-options pull-left black" style="width:30%">
+                                <!-- Time and Date Pickers Content -->
+                                
+                                <text>Keyword: </text>
+                                <text>Search result: </text>
+                            </div>
                         </div>
                         <!-- END Block Tabs Title -->
 
@@ -87,11 +93,7 @@
                                         <tr>
                                             <th class="text-center" style="width: 5%;">DATE</th>
                                             <th class="text-center" style="width: 10%;">BROKER</th>
-<<<<<<< HEAD
-                                            <th class="text-center" style="width: 15%;">REPORT</th>
-=======
-                                            <th class="text-center" style="width: 15%;">Research</th>
->>>>>>> bf3b2c4e8c3924c141fe8a59fb600d0bedc0bef1
+                                            <th class="text-center" style="width: 15%;">RESEARCH</th>
                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
                                             
                                         </tr>
@@ -109,7 +111,6 @@
                                             <td class="text-center">
                                                 {{$data->PDF_Name}}
                                             </td>
-                                            
                                             <td class="text-center">
                                                 <a href="{{$data->Link}}">{{$data->Link}}</a>
                                             </td>
