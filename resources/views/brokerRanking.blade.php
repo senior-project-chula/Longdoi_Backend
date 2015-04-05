@@ -16,14 +16,12 @@
             cursor: default;
         }
     </style>
-
 @stop
+
 @section('js-backend')
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {!! HTML::script('js2/plugins.js') !!}
         {!! HTML::script('js2/app.js') !!}
-
-        
 @stop
 
 @section('content')
@@ -94,31 +92,32 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th width="7%">Broker</th>
-                                                    <th width="7%">AGRO</th>
-                                                    <th width="7%">CONSUMP</th>
-                                                    <th width="7%">FINCIAL</th>
-                                                    <th width="7%">INDUS</th>
-                                                    <th width="7%">PROPCON</th>
-                                                    <th width="7%">RESOURC</th>
-                                                    <th width="7%">SERVICE</th>
-                                                    <th width="7%">TECH</th>
-                                                    <th width="7%">Overall</th>
-                                                    <th class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Reports</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             {{-- {!!dd($all)!!} --}}
+                                            <?php $i=0; ?>
                                             @foreach($one as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
                                                     <td>{{$brokerName}}</td>
-                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
-                                                    </a></td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%
+                                                    </td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
@@ -148,21 +147,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th width="7%">Broker</th>
-                                                    <th width="7%">AGRO</th>
-                                                    <th width="7%">CONSUMP</th>
-                                                    <th width="7%">FINCIAL</th>
-                                                    <th width="7%">INDUS</th>
-                                                    <th width="7%">PROPCON</th>
-                                                    <th width="7%">RESOURC</th>
-                                                    <th width="7%">SERVICE</th>
-                                                    <th width="7%">TECH</th>
-                                                    <th width="7%">Overall</th>
-                                                    <th class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Reports</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -202,21 +201,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
-                                                    <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th width="7%">Broker</th>
-                                                    <th width="7%">AGRO</th>
-                                                    <th width="7%">CONSUMP</th>
-                                                    <th width="7%">FINCIAL</th>
-                                                    <th width="7%">INDUS</th>
-                                                    <th width="7%">PROPCON</th>
-                                                    <th width="7%">RESOURC</th>
-                                                    <th width="7%">SERVICE</th>
-                                                    <th width="7%">TECH</th>
-                                                    <th width="7%">Overall</th>
-                                                    <th class="text-center">No. of Reports</th>
+                                                   <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Reports</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -257,21 +256,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th width="7%">Broker</th>
-                                                    <th width="7%">AGRO</th>
-                                                    <th width="7%">CONSUMP</th>
-                                                    <th width="7%">FINCIAL</th>
-                                                    <th width="7%">INDUS</th>
-                                                    <th width="7%">PROPCON</th>
-                                                    <th width="7%">RESOURC</th>
-                                                    <th width="7%">SERVICE</th>
-                                                    <th width="7%">TECH</th>
-                                                    <th width="7%">Overall</th>
-                                                    <th class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Reports</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>

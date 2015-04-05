@@ -2,6 +2,7 @@
 
 @section('css-backend')
     {!! HTML::style('css-backendProUI/main.css') !!}
+
 @stop
 
 @section('js-backend')

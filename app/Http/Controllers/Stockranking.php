@@ -30,8 +30,8 @@ class Stockranking extends Controller {
 		// 	echo Request::input('sortBy');
 
 		// }
-		$i=0;
-		return view('brokerRanking')->with(array('one'=>$onemonth,'three'=>$threemonth,'six'=>$sixmonth,'all'=>$allscore,'i'=>$i));
+		
+		return view('brokerRanking')->with(array('one'=>$onemonth,'three'=>$threemonth,'six'=>$sixmonth,'all'=>$allscore));
 
 
 	}
