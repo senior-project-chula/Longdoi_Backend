@@ -73,12 +73,6 @@
                                     </fieldset>
                                 </form>
                             </div>
-                            <div class="block-options pull-left black" style="width:30%">
-                                <!-- Time and Date Pickers Content -->
-                                
-                                <text>Keyword: </text>
-                                <text>Search result: </text>
-                            </div>
                         </div>
                         <!-- END Block Tabs Title -->
 
