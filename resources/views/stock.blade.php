@@ -21,7 +21,8 @@
                         <div class="col-md-6 col-md-offset-3">
                             <label class="sr-only" for="register-email">a stock..</label>
                             <div class="input-group input-group-lg">
-                                <input type="text" id="input_stock" name="input_stock" class="form-control" placeholder="a stock..">
+                                
+                                <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                                 </div>

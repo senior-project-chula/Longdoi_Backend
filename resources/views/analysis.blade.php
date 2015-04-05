@@ -27,8 +27,8 @@
                     <div class="col-md-6 col-md-offset-3">
                         <label class="sr-only" for="register-email">a broker</label>
                         <div class="input-group input-group-lg">
-                            <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
-                            <input type="text" id="input_analysis" name="input_analysis" class="form-control" placeholder="Which broker?">
+                            <input name="_token" type="hidden" value="{!! csrf_token() !!}">
+                            <input type="text" id="input_analysis" name="input_analysis" class="form-control input-typeahead-brokers" autocomplete="off" placeholder="Search Brokers..">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                             </div>
@@ -74,49 +74,55 @@
                                 </form>
                             </div>
                             <div class="block-options black col-xs-4 col-xs-offset-1" style="width:30%">
-                                @if(isset($input_analysis)) <p>Keyword: {{$input_analysis}}</p> @endif
+                                @if(isset($input_analysis)) <p style="margin-top: 6px;margin-bottom: 5px;">Keyword: {{$input_analysis}}</p> @endif
+                                
                             </div>
+
                         </div>
+                        @if(empty($recommendations))
+                        <div class="row black text-center" style="margin:40px auto;">
+                             <h3>No Result.</h3> 
+                        </div>
+                        @endif
                         <!-- END Block Tabs Title -->
 
                         <!-- Search Styles Content -->
                         <div class="tab-content">
                             <!-- Projects Search -->
                             <div class="tab-pane active" id="search-tab-projects">
-
+                                @if(!empty($recommendations))
                                 <!-- Projects Results -->
-                                <table class="table table-striped table-vcenter black">
+                                <table class="table table-striped table-vcenter black" style="table-layout:fixed">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="width: 10%;">DATE</th>
-                                            <th class="text-center" style="width: 10%;">BROKER</th>
-                                            <th class="text-center" style="width: 15%;">RESEARCH</th>
-                                            <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
-                                            
+                                            <th class="text-center" style="min-width: 100px; width: 10%;">DATE</th>
+                                            <th class="text-center" style="width: 20%;">BROKER</th>
+                                            <th class="text-center" style="width: 60%;">RESEARCH</th>
+                                        
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {{-- {{ $recommendations }} --}}
+                                        
                                         @foreach($recommendations as $recommendation => $data)
                                         <tr>
                                             <td class="text-center">
                                                 {{$data->Date}}
                                             </td>
-                                            <td class="text-center ">
+                                            <td class="text-center">
                                                 {{$data->Broker_Name}}
                                             </td>
-                                            <td class="text-center">
-                                                {{$data->PDF_Name}}
+                                            <td >
+                                                <a href="{{$data->Link}}">{{$data->PDF_Name}}</a>
                                             </td>
-                                            <td class="text-center">
-                                                <a href="{{$data->Link}}">{{$data->Link}}</a>
-                                            </td>
+                                          
                                         </tr>
                                         @endforeach
                                         
                                     </tbody>
                                 </table>
                                 <!-- END Projects Results -->
+                                @endif
                             </div>
                             <!-- END Projects Search -->
 
