@@ -4,7 +4,7 @@
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
         <div class="container">
-            <h1 class="text-center animation-slideDown"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
+            <h1 class="text-center animation-slideDown hidden-xs"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
             <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
             <div class="site-block text-center">
                 <form action="stockResult.html" method="post" class="form-horizontal" >
@@ -12,7 +12,8 @@
                         <div class="col-md-6 col-md-offset-3">
                             <label class="sr-only" for="register-email">a stock..</label>
                             <div class="input-group input-group-lg">
-                                <input type="text" id="input_stock" name="input_stock" class="form-control" placeholder="a stock..">
+                                
+                                <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                                 </div>
@@ -25,7 +26,7 @@
             <div class="block full">
                 <!-- Working Tabs Title -->
                 <div class="block-title">
-                    
+
                 </div>
                 <!-- END Working Tabs Title -->
 
@@ -65,7 +66,7 @@
                                     <!-- Responsive Full Block -->
                                     <!-- Search Styles Block -->
                                     <div class="block white-bg black">
-                                      
+
 
                                         <!-- Search Styles Content -->
                                         <div class="tab-content">
@@ -77,7 +78,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-                                                            
+
                                                             <th class="text-center" style="width: 15%;">PRICE</th>
                                                             <th class="text-center" style="width: 10%;">BUY</th>
                                                             <th class="text-center" style="width: 10%;">HOLD</th>
@@ -92,6 +93,7 @@
                                                             <td>
                                                                 <h3><a href="javascript:void(0)"><strong>{{$stockName}}</strong></a></h3>
                                                             </td>
+<<<<<<< HEAD
                                                             <td class="text-center "
                                                             <h3 class="animation-pullDown">
                                                                 {{$recData['Price']['price']}}
@@ -151,6 +153,51 @@
                                                 <!-- END Projects Results -->
                                             </div>
                                             <!-- END Projects Search -->
+=======
+                                                            <td class="text-center ">
+                                                            <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                        </td>
+
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">4</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center hidden-xs">
+                                                            <h3 class="animation-pullDown text-success"><strong>6</strong></h3>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
+
+                                                        </td>
+                                                        <td class="text-center ">
+                                                        <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">2</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center hidden-xs">
+                                                        <h3 class="animation-pullDown text-success"><strong>2</strong></h3>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END Projects Results -->
+                                    </div>
+                                    <!-- END Projects Search -->
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
 
                                         </div>
                                         <!-- END Search Styles Content -->

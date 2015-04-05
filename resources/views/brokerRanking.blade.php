@@ -1,11 +1,38 @@
 @extends('main')
 
+<<<<<<< HEAD
+=======
+
+@section('button-to-top')
+    <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
+@stop
+
+@section('css-backend')
+    <style type="text/css">
+        td a{
+            text-decoration: none;
+            color: black;
+        }
+        td a:hover{
+            text-decoration: none;
+            cursor: default;
+        }
+    </style>
+@stop
+
+@section('js-backend')
+         {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+        {!! HTML::script('js2/plugins.js') !!}
+        {!! HTML::script('js2/app.js') !!}
+@stop
+
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
 @section('content')
 
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/Research.gif');">
     <div class="container">
-        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
 
         <!-- Working Tabs Block -->
@@ -29,6 +56,7 @@
                                     {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px;')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-top: 0px; padding-bottom: 0px; ">
+<<<<<<< HEAD
                                             <label class="col-md-8 control-label" style="color:black">SORT BY:</label>
                                             <div class="col-md-4">
                                                 <select class="form-control" onchange="this.form.submit()" name="sortBy">
@@ -41,6 +69,20 @@
                                                     <option @if($selected=="RESOURC") {{"selected"}} @endif value="RESOURC">RESOURC</option>
                                                     <option @if($selected=="SERVICE") {{"selected"}} @endif value="SERVICE">SERVICE</option>
                                                     <option @if($selected=="TECH") {{"selected"}} @endif value="TECH">TECH</option>
+=======
+                                            <label class="col-sm-8 control-label" style="color:black">SORT BY:</label>
+                                            <div class="col-sm-4">
+                                                <select class="form-control">
+                                                    <option value="overall">Overall</option>
+                                                    <option value="agro">AGRO</option>
+                                                    <option value="consump">CONSUMP</option>
+                                                    <option value="fincial">FINCIAL</option>
+                                                    <option value="indus">INDUS</option>
+                                                    <option value="propcon">PROPCON</option>
+                                                    <option value="resourc">RESOURC</option>
+                                                    <option value="service">SERVICE</option>
+                                                    <option value="tech">TECH</option>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                 </select>
                                             </div>
                                         </div>
@@ -69,10 +111,11 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+<<<<<<< HEAD
                                                     <th>Broker</th>
                                                     <th>AGRO</th>
                                                     <th>CONSUMP</th>
@@ -84,10 +127,24 @@
                                                     <th>TECH</th>
                                                     <th>Overall</th>
                                                     <th style="width: 150px;" class="text-center">No. of Reports</th>
+=======
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             {{-- {!!dd($all)!!} --}}
+<<<<<<< HEAD
                                             <style type="text/css">
                                                 span.text-content span {
                                                   display: table-cell;
@@ -112,10 +169,14 @@
                                                 }
                                             </style>
                                             {!! $i=0 !!}
+=======
+                                            <?php $i=0; ?>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                             @foreach($one as $brokerName=>$data)
 
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
+<<<<<<< HEAD
                                                     <td><a href="#">{{$brokerName}}</a></td>
                                                     <td class="text-center">{{$data['AGRO']['percent']}}%
                                                     <span class="text-content">test</span></td>
@@ -127,6 +188,19 @@
                                                     <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
                                                     <td class="text-center">{{$data['TECH']['percent']}}%</td>
                                                     <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+=======
+                                                    <td>{{$brokerName}}</td>
+                                                    <td class="text-center">{{$data['AGRO']['percent']}}%
+                                                    </td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['PROPCON']['acc']}}, Total: {{$data['PROPCON']['total']}}">{{$data['PROPCON']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['RESOURC']['acc']}}, Total: {{$data['RESOURC']['total']}}">{{$data['RESOURC']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['SERVICE']['acc']}}, Total: {{$data['SERVICE']['total']}}">{{$data['SERVICE']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['TECH']['acc']}}, Total: {{$data['TECH']['total']}}">{{$data['TECH']['percent']}}%</a></td>
+                                                    <td class="text-center text-success"><a  data-toggle="tooltip" title="Correct: {{$data['Overall']['acc']}}, Total: {{$data['Overall']['total']}}">{{$data['Overall']['percent']}}%</a></td>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                     <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
                                             @endforeach
@@ -148,10 +222,11 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+<<<<<<< HEAD
                                                     <th>Broker</th>
                                                     <th>ARGO</th>
                                                     <th>COMSUMP</th>
@@ -163,6 +238,19 @@
                                                     <th>TECH</th>
                                                     <th>Overall</th>
                                                     <th style="width: 150px;" class="text-center">No. of Reports</th>
+=======
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -201,9 +289,10 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
+<<<<<<< HEAD
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
                                                     <th>Broker</th>
                                                     <th>ARGO</th>
@@ -216,6 +305,20 @@
                                                     <th>TECH</th>
                                                     <th>Overall</th>
                                                     <th style="width: 150px;" class="text-center">No. of Reports</th>
+=======
+                                                   <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -255,10 +358,11 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+<<<<<<< HEAD
                                                     <th>Broker</th>
                                                     <th>ARGO</th>
                                                     <th>COMSUMP</th>
@@ -270,6 +374,19 @@
                                                     <th>TECH</th>
                                                     <th>Overall</th>
                                                     <th style="width: 150px;" class="text-center">No. of Reports</th>
+=======
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
                                                 </tr>
                                             </thead>
                                             <tbody>

@@ -41,6 +41,7 @@ class Stockranking extends Controller {
 
 	}
 
+<<<<<<< HEAD
 	public function search(Request $request){
 		//Getting broker ranking
 		//getting month list
@@ -69,6 +70,11 @@ class Stockranking extends Controller {
 			$sixmonth = $this->getMonthScore($distinctDate,6);
 			$allscore = $this->getOverAllScore();
 		}
+=======
+		// }
+		
+		return view('brokerRanking')->with(array('one'=>$onemonth,'three'=>$threemonth,'six'=>$sixmonth,'all'=>$allscore));
+>>>>>>> d490d17ffe881a20bafb5a036819944e241c53a5
 
 		$param = array('one'=>$onemonth,'three'=>$threemonth,'six'=>$sixmonth,'all'=>$allscore);
 		foreach($param as $key=>&$array){
