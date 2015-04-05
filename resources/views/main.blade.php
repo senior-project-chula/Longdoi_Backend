@@ -43,9 +43,9 @@
 
         <!-- stockResult page ONLY -->
         <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-       {{--  @if(Request::url() === 'http://localhost:8890')
+        @if(Route::getCurrentRoute()->getPath()=='/stockResult')
             {!! HTML::style('css-backendProUI/main.css') !!}
-        @endif --}}
+        @endif
 
         <!-- Modernizr (browser feature detection library) & Respond.js (enables responsive CSS code on browsers that don't support it, eg IE8) -->
         {!! HTML::script('js/vendor/modernizr-respond.min.js') !!}
@@ -84,20 +84,25 @@
                             <!-- END Menu Toggle -->
 
                             <!-- check current url and add the class "active" -->
-                            <li class="active">
-                                <a href="#">Home</a>
+                            @if(Route::getCurrentRoute()->getPath()=='/') <li class="active">
+                            @else <li> @endif
+                                {!! HTML::linkAction('IndexController@index', 'Home') !!}
                             </li>
-                            <li>
-                                <a href="brokerRanking.html">Broker Ranking</a>
+                            @if(Route::getCurrentRoute()->getPath()=='brokerRanking') <li class="active">
+                            @else <li> @endif
+                                {!! HTML::linkAction('Stockranking@index', 'Broker Ranking') !!}
                             </li>
-                            <li>
-                                <a href="stock.html">Recommendation</a>
+                            @if(Route::getCurrentRoute()->getPath()=='recommendations') <li class="active">
+                            @else <li> @endif
+                                <a href="/recommendations">Recommendation</a>
                             </li>
-                            <li>
-                                <a href="analysis.html">Analysis</a>
+                            @if(Route::getCurrentRoute()->getPath()=='analysis') <li class="active">
+                            @else <li> @endif
+                                {!! HTML::linkAction('Analysis@index', 'Analysis') !!}
                             </li>
-                            <li>
-                                <a href="team.html">team</a>
+                            @if(Route::getCurrentRoute()->getPath()=='team') <li class="active">
+                            @else <li> @endif
+                                {!! HTML::linkAction('IndexController@team', 'team') !!}
                             </li>
                         </ul>
                         <!-- END Main Menu -->

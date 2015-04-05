@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-
+use Input;
+use App\Broker;
+use App\Recommendation;
 class Analysis extends Controller {
 
 	/**
@@ -16,15 +18,23 @@ class Analysis extends Controller {
 	{
 		//
 		if(Input::has('input_analysis')){
-			$input_analysis = Input::post('input_analysis');
+			$input_analysis = Input::input('input_analysis');
+			$input_analysis=strtoupper($input_analysis);
 			$broker=Broker::where('Broker_Name','LIKE',"%$input_analysis%")
 			->take(1)->get();
-			$broker_id=$broker[0]->Broker_ID;
-			$recommendations=Recommendation::getRecFrom($broker_id);
-			return view('analysisResult')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
+			if(sizeof($broker)>0){
+				$broker_id=$broker[0]->Broker_ID;
+				$recommendations=Recommendation::getRecFrom($broker_id);
+				echo "search<br>";
+				return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
+			}else{ 
+				$recommendations=Recommendation::getTodayRec();
+				return view('analysis')->with('input_analysis',$input_analysis." not found.")->with('recommendations',$recommendations);
+			}
 		}
 		else{
 			$recommendations=Recommendation::getTodayRec();
+             // dd($recommendations);
 			return view('analysis')->with('recommendations',$recommendations);
 		}
 		// in view:::
@@ -83,6 +93,20 @@ class Analysis extends Controller {
 	public function update($id)
 	{
 		//
+		if(Input::has('input_analysis')){
+			$input_analysis = Input::post('input_analysis');
+			$broker=Broker::where('Broker_Name','LIKE',"%$input_analysis%")
+			->take(1)->get();
+			$broker_id=$broker[0]->Broker_ID;
+			$recommendations=Recommendation::getRecFrom($broker_id);
+			echo "search<br>";
+			return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
+		}
+		else{
+			$recommendations=Recommendation::getTodayRec();
+             // dd($recommendations);
+			return view('analysis')->with('recommendations',$recommendations);
+		}
 	}
 
 	/**

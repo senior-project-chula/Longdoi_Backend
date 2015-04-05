@@ -76,8 +76,9 @@
                                                                 <table class="table table-striped table-vcenter">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th><i class="hi hi-stats"></i> STOCK</th>
-                                                                            <th class="text-center" style="width: 10%;">PRICE</th>
+                                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
+                                                                         
+                                                                            <th class="text-center" style="width: 15%;">PRICE</th>
                                                                             <th class="text-center" style="width: 10%;">BUY</th>
                                                                             <th class="text-center" style="width: 10%;">HOLD</th>
                                                                             <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
@@ -88,12 +89,11 @@
                                                                         <tr>
                                                                             <td>
                                                                                 <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
-                                                                                
-                                                                                <p class="hidden-xs"><em>Bankok Mass Transit System Public Company Limited.</em></p>
                                                                             </td>
                                                                             <td class="text-center "
                                                                             <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
                                                                         </td>
+                                                            
                                                                         <td class="text-center">
                                                                             <h3 class="animation-pullDown">4</h3>
                                                                         </td>
@@ -110,8 +110,7 @@
                                                                     <tr>
                                                                         <td>
                                                                             <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
-                                                                            
-                                                                            <p class="hidden-xs"><em>Bangkok Metro Public Company Limited.</em></p>
+                                   
                                                                         </td>
                                                                         <td class="text-center "
                                                                         <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
@@ -161,7 +160,8 @@
                                                                         <tr>
                                                                             <th class="text-center" style="width: 5%;">DATE</th>
                                                                             <th class="text-center" style="width: 10%;">BROKER</th>
-                                                                            <th class="text-center" style="width: 15%;">RECOMMENDATION</th>
+                                                                            <th class="text-center" style="width: 10%;">RECOMMENDATION</th>
+                                                                            <th class="text-center" style="width: 15%;">DESCRIPTION</th>
                                                                             <th class="text-center" style="width: 10%;">STOCK</th>
                                                                             <th class="text-center" style="width: 10%;">PRICE<br><small>(on released date)</small></th>
                                                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
@@ -178,6 +178,9 @@
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 SELL
+                                                                            </td>
+                                                                            <td class="text-center">
+                                                                                SELL description
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 BTS
@@ -200,6 +203,9 @@
                                                                                 BUY
                                                                             </td>
                                                                             <td class="text-center">
+                                                                                BUY description
+                                                                            </td>
+                                                                            <td class="text-center">
                                                                                 BTS
                                                                             </td>
                                                                             <td class="text-center">
@@ -220,24 +226,7 @@
                                                                                 BUY
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                BTS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                Asia Plus Securities
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
+                                                                                BUY description
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 BTS
@@ -249,86 +238,7 @@
                                                                                 <a href="www.settrade.or.th">link to resource</a>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                DBS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                HOLD
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BTS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                Bualuang Securities
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BTS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                Bualuang Securities
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BMCL
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                Maybank
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BMCL
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
+                                                                        
                                                                     </tbody>
                                                                 </table>
                                                                 <!-- END Projects Results -->

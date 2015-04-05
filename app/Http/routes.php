@@ -17,7 +17,7 @@ Route::get('home', 'HomeController@index');
 
 
 
-Route::get('/','IndexController@test');
+Route::get('/','IndexController@index');
 
 
 
@@ -27,6 +27,10 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/test', 'RecommendationController@index');
-Route::get('/test2','Stockranking@index');
+Route::get('/test', 'IndexController@test');
+Route::get('/brokerRanking','Stockranking@index');
 // Route::post('testPOST', 'Stockranking@index');
+Route::get('/recommendations','IndexController@recommendations');
+Route::get('/analysis','Analysis@index');
+Route::get('/team','IndexController@team');
+Route::get('/stockResult','IndexController@stockResult');

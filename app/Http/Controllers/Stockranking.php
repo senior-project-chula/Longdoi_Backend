@@ -24,12 +24,14 @@ class Stockranking extends Controller {
 		$threemonth = $this->getMonthScore($distinctDate,3);
 		$sixmonth = $this->getMonthScore($distinctDate,6);
 		$allscore = $this->getOverAllScore();
-		dd($threemonth);
+		// dd($threemonth);
 
-		if(Request::has('sortBy')){
-			echo Request::input('sortBy');
+		// if(Request::has('sortBy')){
+		// 	echo Request::input('sortBy');
 
-		}
+		// }
+		$i=0;
+		return view('brokerRanking')->with(array('one'=>$onemonth,'three'=>$threemonth,'six'=>$sixmonth,'all'=>$allscore,'i'=>$i));
 
 
 	}
@@ -139,14 +141,19 @@ class Stockranking extends Controller {
 			$total = $tempArray['total'.$measure];
 			if($tempArray['total'.$measure]!=0){
 				$value = ($acc/$total)*100;
-				$tempRow[$measure] = array('percent'=>$value,'total'=>$total,'acc'=>$acc);
+				$tempRow[$measure] = array('percent'=>number_format($value,2,'.',''),'total'=>$total,'acc'=>$acc);
 				$sumAcc = $sumAcc+$acc;$sumTotal=$sumTotal+$total;
 			} else {
 				$tempRow[$measure] = array('percent'=>0,'total'=>$total,'acc'=>$acc);
 			}
 		}
-		$totalPercent = ($sumAcc/$sumTotal)*100;
-		$tempRow['Overall'] = array('percent'=>$totalPercent,'total'=>$sumTotal,'acc'=>$sumAcc);
+		if($sumTotal!=0){
+			$totalPercent = ($sumAcc/$sumTotal)*100;
+		}else{
+			$totalPercent = 0;
+		}
+
+		$tempRow['Overall'] = array('percent'=>number_format($totalPercent,2,'.',''),'total'=>$sumTotal,'acc'=>$sumAcc);
 		return $tempRow;
 	}
 
