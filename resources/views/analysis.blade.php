@@ -9,8 +9,6 @@
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {!! HTML::script('js2/plugins.js') !!}
         {!! HTML::script('js2/app.js') !!}
-
-    
 @stop
 
 @section('content')
