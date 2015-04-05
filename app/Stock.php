@@ -68,8 +68,12 @@ class Stock extends Model {
 		$lastPrice = $this->prices()->orderBy('Date','DESC')->take(2)->get();
 		$todayPrice = $lastPrice[0];
 		$ytdPrice = $lastPrice[1];
-		var_dump($lastPrice);
-		echo '<br><br>';
+		// var_dump($lastPrice);
+		// echo '<br><br>';
+		$priceDiff = $todayPrice->Closing_Price - $ytdPrice->Closing_Price;
+		$percentDiff = ($priceDiff/$ytdPrice->Closing_Price)*100;
+		$percentDiff = number_format($percentDiff,2,'.','');
+		return array('price'=>$todayPrice->Closing_Price,'percenDiff'=>$percentDiff,'priceDiff'=>$priceDiff);
 
 	}
 		

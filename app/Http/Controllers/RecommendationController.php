@@ -21,16 +21,26 @@ class RecommendationController extends Controller {
 		//
 		$lastDate=Research::getMaxDate();
 		$query = Recommendation::getRecFromDate(date_format($lastDate,'Y-m-d'))->get();
+		// dd($query);
 		$allRec = array();
 		foreach($query as $row){
-			$allRec[$row->Stock_Name] = array($row->Recommendation=>$row->count);
-			if(!isset($allRec[$row->Stock_Name]["Price"])){
-				$row->stock()->first()->getLastPrice();
+			if(!isset($allRec[$row->Stock_Name])){
+				$allRec[$row->Stock_Name] = array($row->Recommendation=>$row->count);
+				$allRec[$row->Stock_Name]['total']=$row->count;
+
+			} else {
+				$allRec[$row->Stock_Name][$row->Recommendation] = $row->count;
+				$allRec[$row->Stock_Name]['total'] = $allRec[$row->Stock_Name]['total']+$row->count;
+				// var_dump($allRec[$row->Stock_Name]);
+				// echo $row->Stock_Name;
 				
 			}
-			// dd(Stock::find(1)->prices);
-
+			if(!isset($allRec[$row->Stock_Name]["Price"])){
+				$allRec[$row->Stock_Name]["Price"] = $row->stock()->first()->getLastPrice();
+				//return price Array with $priceArray['percentDiff'],['price'],['priceDiff']
+			}
 		}
+		
 	}
 
 	/**
