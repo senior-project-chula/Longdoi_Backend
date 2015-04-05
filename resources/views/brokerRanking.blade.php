@@ -106,7 +106,7 @@
                                                     <th width="7%"><span>SERVICE</span></th>
                                                     <th width="7%"><span>TECH</span></th>
                                                     <th width="7%"><span>Overall</span></th>
-                                                    <th class="text-center"><span>No. of Reports</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -161,7 +161,7 @@
                                                     <th width="7%"><span>SERVICE</span></th>
                                                     <th width="7%"><span>TECH</span></th>
                                                     <th width="7%"><span>Overall</span></th>
-                                                    <th class="text-center"><span>No. of Reports</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -215,7 +215,7 @@
                                                     <th width="7%"><span>SERVICE</span></th>
                                                     <th width="7%"><span>TECH</span></th>
                                                     <th width="7%"><span>Overall</span></th>
-                                                    <th class="text-center"><span>No. of Reports</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -270,7 +270,7 @@
                                                     <th width="7%"><span>SERVICE</span></th>
                                                     <th width="7%"><span>TECH</span></th>
                                                     <th width="7%"><span>Overall</span></th>
-                                                    <th class="text-center"><span>No. of Reports</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
