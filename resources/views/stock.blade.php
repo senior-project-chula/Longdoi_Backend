@@ -1,5 +1,14 @@
     @extends('main')
 
+    @section('js-backend')
+    {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+    {!! HTML::script('js2/plugins.js') !!}
+    {!! HTML::script('js2/app.js') !!}
+
+    {!! HTML::script('js2/pages/compCharts.js') !!}
+    <script>$(function(){ CompCharts.init(); });</script>
+    @stop
+
     @section('content')
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
@@ -65,85 +74,85 @@
                                     <!-- Responsive Full Block -->
                                     <!-- Search Styles Block -->
                                     <div class="block white-bg black">
-                                  
+                                      
 
-                                                        <!-- Search Styles Content -->
-                                                        <div class="tab-content">
-                                                            <!-- Projects Search -->
-                                                            <div class="tab-pane active" id="search-tab-projects">
+                                        <!-- Search Styles Content -->
+                                        <div class="tab-content">
+                                            <!-- Projects Search -->
+                                            <div class="tab-pane active" id="search-tab-projects">
 
-                                                                <!-- Projects Results -->
-                                                                <table class="table table-striped table-vcenter">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-                                                                         
-                                                                            <th class="text-center" style="width: 15%;">PRICE</th>
-                                                                            <th class="text-center" style="width: 10%;">BUY</th>
-                                                                            <th class="text-center" style="width: 10%;">HOLD</th>
-                                                                            <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
-                                                                            <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
-                                                                            </td>
-                                                                            <td class="text-center "
-                                                                            <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
-                                                                        </td>
+                                                <!-- Projects Results -->
+                                                <table class="table table-striped table-vcenter">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
                                                             
-                                                                        <td class="text-center">
-                                                                            <h3 class="animation-pullDown">4</h3>
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            <h3 class="animation-pullDown">1</h3>
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            <h3 class="animation-pullDown">1</h3>
-                                                                        </td>
-                                                                        <td class="text-center hidden-xs">
-                                                                            <h3 class="animation-pullDown text-success"><strong>6</strong></h3>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
-                                   
-                                                                        </td>
-                                                                        <td class="text-center "
-                                                                        <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <h3 class="animation-pullDown">2</h3>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <h3 class="animation-pullDown">0</h3>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <h3 class="animation-pullDown">0</h3>
-                                                                    </td>
-                                                                    <td class="text-center hidden-xs">
-                                                                        <h3 class="animation-pullDown text-success"><strong>2</strong></h3>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!-- END Projects Results -->
-                                                    </div>
-                                                    <!-- END Projects Search -->
+                                                            <th class="text-center" style="width: 15%;">PRICE</th>
+                                                            <th class="text-center" style="width: 10%;">BUY</th>
+                                                            <th class="text-center" style="width: 10%;">HOLD</th>
+                                                            <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
+                                                            <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
+                                                            </td>
+                                                            <td class="text-center "
+                                                            <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                        </td>
+                                                        
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">4</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">1</h3>
+                                                        </td>
+                                                        <td class="text-center hidden-xs">
+                                                            <h3 class="animation-pullDown text-success"><strong>6</strong></h3>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
+                                                            
+                                                        </td>
+                                                        <td class="text-center "
+                                                        <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">2</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <h3 class="animation-pullDown">0</h3>
+                                                    </td>
+                                                    <td class="text-center hidden-xs">
+                                                        <h3 class="animation-pullDown text-success"><strong>2</strong></h3>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- END Projects Results -->
+                                    </div>
+                                    <!-- END Projects Search -->
 
-                                                </div>
-                                                <!-- END Search Styles Content -->
-                                            </div>
-                                            <!-- END Search Styles Block -->
-                                        </div>
-                                        <div class="tab-pane" id="example-tabs2-recommendations">
-                                            <!-- Responsive Full Block -->
-                                            <!-- Search Styles Block -->
-                                            <div class="block" style="background-color:white;color:black">
-                                                <!-- Search Styles Title -->
+                                </div>
+                                <!-- END Search Styles Content -->
+                            </div>
+                            <!-- END Search Styles Block -->
+                        </div>
+                        <div class="tab-pane" id="example-tabs2-recommendations">
+                            <!-- Responsive Full Block -->
+                            <!-- Search Styles Block -->
+                            <div class="block" style="background-color:white;color:black">
+                                <!-- Search Styles Title -->
                                                         <!-- <div class="block-title text-center">
                                                             <h1 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations</h1>
                                                         </div> -->

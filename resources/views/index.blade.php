@@ -1,5 +1,9 @@
 @extends('main')
 
+@section('button-to-top')
+    <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
+@stop
+
 @section('content')
 
 
