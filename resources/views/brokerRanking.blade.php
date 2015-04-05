@@ -29,7 +29,7 @@
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/Research.gif');">
     <div class="container">
-        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
 
         <!-- Working Tabs Block -->

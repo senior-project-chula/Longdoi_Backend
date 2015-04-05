@@ -19,7 +19,7 @@
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/16353695-media_httpdldropboxco_pedhu2.jpg');">
     <div class="container">
-        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Do you wanna see more? <strong>Search</strong>!</h2>
         <div class="site-block text-center">
             {!! Form::open(array('action'=>'Analysis@search','method'=>'post','class'=>'form-horizontal')) !!}
@@ -72,6 +72,9 @@
                                         </div>
                                     </fieldset>
                                 </form>
+                            </div>
+                            <div class="block-options pull-left" style="width:30%">
+                                @if(isset($input_analysis)) <p>Keyword: {{$input_analysis}}</p> @endif
                             </div>
                         </div>
                         <!-- END Block Tabs Title -->
