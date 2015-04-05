@@ -45,9 +45,10 @@ class Research extends Model {
 		return new DateTime($date_time);
 	}
 	public static function getResearchFrom($broker_id){
-		$today=new DateTime('today');
-		$ending_today=new DateTime('today');
-		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$today=Research::getMaxDate();
+		$today->setTime(0, 0, 0);
+		$ending_today=Research::getMaxDate();
+		$ending_today->setTime(23, 59, 59);
 		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
 		->whereBetween('research.Date',array($today,$ending_today))
 		->where('research.Broker_ID','=',$broker_id)
@@ -66,10 +67,10 @@ class Research extends Model {
 	}
 
 	public static function getTodayResearch(){
-		$yesterday=new DateTime('today');
-		$today=new DateTime('today');
-		$ending_today=new DateTime('today');
-		$ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$today=Research::getMaxDate();
+		$today->setTime(0, 0, 0);
+		$ending_today=Research::getMaxDate();
+		$ending_today->setTime(23, 59, 59);
 		$recommendations=Research::select('research.Date','research.Link','research.Broker_ID','research.PDF_Name')
 		->whereBetween('research.Date',array($today,$ending_today))
 		->join('broker','broker.Broker_ID','=','research.Broker_ID')
