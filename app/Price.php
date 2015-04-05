@@ -46,6 +46,6 @@ class Price extends Model {
 		$valueChange = ($todayIndex-$ytdIndex);
 		$percentChange = ($valueChange/$ytdIndex)*100;
 		$percentChange = number_format((float)$percentChange, 2, '.', '');
-		return array('Date'=>$query[0]->Date,'Index'=>$todayIndex,'PercentChange'=>$percentChange,'ValueChage'=>$valueChange);
+		return array('Date'=>$query[0]->Date,'Index'=>$todayIndex,'PercentChange'=>$percentChange,'ValueChange'=>$valueChange);
 	}
 }

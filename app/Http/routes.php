@@ -30,7 +30,9 @@ Route::controllers([
 Route::get('/test', 'IndexController@test');
 Route::get('/brokerRanking','Stockranking@index');
 Route::post('brokerRanking', 'Stockranking@search');
-Route::get('/recommendations','IndexController@recommendations');
+Route::get('/recommendations','RecommendationController@index');
 Route::get('/analysis','Analysis@index');
 Route::get('/team','IndexController@team');
 Route::get('/stockResult','IndexController@stockResult');
+
+Route::get('/test2','RecommendationController@index');

@@ -44,6 +44,11 @@ class Research extends Model {
 			->max('Date');
 		return new DateTime($date_time);
 	}
+	public static function getLastTwoDate(){
+		$date_time = Recommendation::join('research','recommendation.Research_ID','=','research.Research_ID')
+			->orderBy('Date','DESC')->selectRaw('DATE(Date) as Date')->distinct()->take(2)->get();
+		return array(new DateTime($date_time[0]->Date),new DateTime($date_time[1]->Date));
+	}
 
 	
 
