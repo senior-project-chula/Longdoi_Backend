@@ -10,8 +10,8 @@
         {!! HTML::script('js2/plugins.js') !!}
         {!! HTML::script('js2/app.js') !!}
 
-         {!! HTML::script('js2/pages/compCharts.js') !!}
-        <script>$(function(){ CompCharts.init(); });</script>
+         {!! HTML::script('js2/pages/compCharts2.js') !!}
+        <script>$(function(){ CompCharts2.init(2); });</script>
 @stop
 
 @section('content')

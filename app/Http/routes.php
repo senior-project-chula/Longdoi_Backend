@@ -19,7 +19,7 @@ Route::get('home', 'HomeController@index');
 
 Route::get('/','IndexController@index');
 
-
+Route::get('stockResult/GetPriceOf','StockResultController@GetPriceOf');
 
 Route::get('stockResult','IndexController@graph');
 Route::controllers([
@@ -30,11 +30,14 @@ Route::controllers([
 Route::get('/test', 'IndexController@test');
 Route::get('/brokerRanking','Stockranking@index');
 Route::post('brokerRanking', 'Stockranking@search');
+
 Route::get('/recommendations','RecommendationController@index');
+Route::post('/recommendations','RecommendationController@search');
+
 Route::get('/analysis','Analysis@index');
 Route::post('/analysis','Analysis@search');
 
 Route::get('/team','IndexController@team');
-Route::get('/stockResult','IndexController@stockResult');
+Route::get('/stock/{Stock_ID}','IndexController@stockResult');
 
 Route::get('/test2','RecommendationController@index');
