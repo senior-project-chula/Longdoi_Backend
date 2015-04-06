@@ -84,8 +84,8 @@ var CompCharts2 = function() {
                                 // axisLabelFontSizePixels: 12,
                                 // axisLabelFontFamily: 'Verdana, Arial',
                                 // axisLabelPadding: 5,
-                                min: miny-miny*0.01,
-                                max: parseFloat(maxy)+parseFloat(maxy)*0.01
+                                min: miny-miny*0.05,
+                                max: parseFloat(maxy)+parseFloat(maxy)* 0.05
                                
                             },
                             xaxis: {mode: "time", 
