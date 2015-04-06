@@ -47,7 +47,9 @@ class RecommendationController extends Controller {
 			$lastIndex=Price::getLastSetIndex();
 			$top3Array=Stock::getTopPick3();
 			// dd($todayRec);
-			return view('stock')->with(array('sumRec'=>$allRec,'todayRec'=>$theDayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
+			return view('stock')->with(array('sumRec'=>$allRec,'todayRec'=>$theDayRec,
+									'lastIndex'=>$lastIndex,'top3Array'=>$top3Array,
+									'dateSearch'=>$d->format('d/m/y')));
 	
 
 		} else {
