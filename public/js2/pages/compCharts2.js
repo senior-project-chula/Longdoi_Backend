@@ -43,7 +43,8 @@ var CompCharts2 = function() {
                             return obj.price > max ? obj.price : max;
                         }, 0);
                         var data1=[];
-                        data.forEach(function(obj) { data1.push([obj.time,obj.price]); });
+                        // data.forEach(function(obj) { data1.push([obj.time,obj.price,"BUY: "+obj.BUY+" HOLD: "+obj.HOLD+" SELL: "+obj.SELL]); });
+                        data.forEach(function(obj) { data1.push([obj.time,obj.price,0,obj.BUY,obj.HOLD,obj.SELL]); });
                         var options = {
                             lines: {
                                 show: true
@@ -86,7 +87,6 @@ var CompCharts2 = function() {
                                 max: maxx
                             }
                         };
-                        console.log(data1);
                         var data2=[
                             {
                                 label: 'Price',
@@ -105,16 +105,20 @@ var CompCharts2 = function() {
                     chartClassic.bind('plothover', function(event, pos, item) {
 
                         if (item) {
+                            // console.log(item);
                             if (previousPoint !== item.dataIndex) {
                                 previousPoint = item.dataIndex;
 
                                 $('#chart-tooltip').remove();
                                 var x = item.datapoint[0], y = item.datapoint[1];
-
+                                var buy = item.series.data[item.dataIndex][3];
+                                var hold = item.series.data[item.dataIndex][4];
+                                var sell = item.series.data[item.dataIndex][5];
+                                var date =new Date(x);
                                 if (item.seriesIndex === 1) {
-                                    ttlabel = '<strong>' + y + '</strong> sales';
+                                    ttlabel = '----<strong>' + y + '</strong> Baht BUY: '+buy+' HOLD: '+hold+' SELL: '+sell;
                                 } else {
-                                    ttlabel = '<strong>' + y + '</strong> Baht';
+                                    ttlabel = 'Date: '+date.getDate()+"/"+(date.getMonth()+1)+' Price: ' + y + ' Baht<br> BUY: '+buy+' HOLD: '+hold+' SELL: '+sell;
                                 }
 
                                 $('<div id="chart-tooltip" class="chart-tooltip">' + ttlabel + '</div>')
