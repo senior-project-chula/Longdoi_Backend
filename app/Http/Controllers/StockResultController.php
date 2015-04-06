@@ -2,6 +2,7 @@
 
 use App\Price;
 use App\Recommendation;
+use App\Stock;
 use Json;
 use Input;
 
@@ -33,10 +34,10 @@ class StockResultController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($stock_name)
 	{
-		$stock_id=1;
-		return view('stockResult')->with('stock_id',$stock_id);
+		$stock = Stock::where('Stock_Name','=',$stock_name)->first();
+		return view('stockResult')->with('stock_id',$stock->Stock_ID);
 	}
 
 
