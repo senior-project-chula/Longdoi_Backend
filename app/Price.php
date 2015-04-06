@@ -48,4 +48,7 @@ class Price extends Model {
 		$percentChange = number_format((float)$percentChange, 2, '.', '');
 		return array('Date'=>$query[0]->Date,'Index'=>$todayIndex,'PercentChange'=>$percentChange,'ValueChage'=>$valueChange);
 	}
+	public static function getPriceOf($stock_id){
+		return Price::where('Stock_ID','=',$stock_id)->orderBy('Date','DESC')->limit(30)->get();
+	}
 }
