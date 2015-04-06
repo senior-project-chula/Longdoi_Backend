@@ -130,9 +130,9 @@
                         <div class="col-sm-6 col-md-6 col-xs-6 text-right">
                             <h4 class="footer-heading">About Us</h4>
                             <ul class="footer-nav list-inline">
-                                <li><a href="about.html">Company</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="contact.html">Support</a></li>
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Support</a></li>
                             </ul>
                         </div>
                     </div>
