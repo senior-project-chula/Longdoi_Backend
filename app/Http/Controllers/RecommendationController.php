@@ -34,6 +34,15 @@ class RecommendationController extends Controller {
 		return view('stock')->with(array('sumRec'=>$sumRec,'todayRec'=>$todayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
 	}
 
+	public function search(Request $request)
+	{
+		if($request->has('date')){
+			$dateInput =  $request->input('date');
+		} else {
+			return redirect("/");
+		}
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

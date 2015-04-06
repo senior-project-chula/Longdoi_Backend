@@ -48,10 +48,7 @@
                         <div class="block-title">
                             <div class="block-options pull-right" style="width:30%">
                                 <!-- Time and Date Pickers Content -->
-                                    {{-- <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
-
-                                    --}}
-                                {!! Form::open(array('class')) !!}                                   
+                                {!! Form::open(array('class'=>'orm-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px;')) !!}                                   
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
