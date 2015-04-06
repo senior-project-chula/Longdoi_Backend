@@ -49,7 +49,7 @@ var CompCharts2 = function() {
 
                         console.log(obj.price);
                         console.log(maxy);
-                        maxy=maxy+0.01;
+                        // maxy=maxy+0.01;
                         console.log(maxy);
                         // data.forEach(function(obj) { data1.push([obj.time,obj.price,"BUY: "+obj.BUY+" HOLD: "+obj.HOLD+" SELL: "+obj.SELL]); });
                         data.forEach(function(obj) { data1.push([obj.time,obj.price,0,obj.BUY,obj.HOLD,obj.SELL]); });
