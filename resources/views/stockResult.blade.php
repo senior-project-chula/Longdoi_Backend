@@ -11,7 +11,7 @@
         {!! HTML::script('js2/app.js') !!}
 
          {!! HTML::script('js2/pages/compCharts2.js') !!}
-        <script>$(function(){ CompCharts2.init(5); });</script>
+        <script>$(function(){ CompCharts2.init(<?php echo $stock_id; ?>); });</script>
 @stop
 
 @section('content')

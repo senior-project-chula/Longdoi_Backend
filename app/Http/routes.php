@@ -18,10 +18,10 @@ Route::get('home', 'HomeController@index');
 
 
 Route::get('/','IndexController@index');
-
+Route::get('stockResult','StockResultController@index');
 Route::get('stockResult/GetPriceOf/','StockResultController@GetPriceOf');
 
-Route::get('stockResult','IndexController@graph');
+// Route::get('stockResult','IndexController@graph');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
