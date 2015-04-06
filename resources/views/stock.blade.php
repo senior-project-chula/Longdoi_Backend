@@ -2,12 +2,13 @@
 
     @section('js-backend')
     {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
-    {!! HTML::script('js2/plugins.js') !!}
+    {{-- {!! HTML::script('js/plugins copy.js') !!} --}}
     {{-- {!! HTML::script('js2/app.js') !!} --}}
 
     @stop
 
     @section('content')
+
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
         <div class="container">
@@ -48,12 +49,36 @@
                         <div class="block-title">
                             <div class="block-options pull-right" style="width:30%">
                                 <!-- Time and Date Pickers Content -->
-                                {!! Form::open(array('class'=>'orm-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px;')) !!}                                   
+                                    {{-- <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
+
+<<<<<<< HEAD
+                <!-- Working Tabs Content -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Block Tabs -->
+                        <div class="block full border-radius container-box">
+                            <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
+                            <!-- Block Tabs Title -->
+                            <div class="block-title">
+                                <div class="block-options pull-right" style="width:30%">
+                                    <!-- Time and Date Pickers Content -->
+                                    <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
+                                        <fieldset>
+                                            <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
+                                                <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                </div>
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
+=======
+                                    --}}
+                                {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>" margin-top: 0px; margin-bottom: 0px; ")) !!}                                   
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
-                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
                                         </div>
