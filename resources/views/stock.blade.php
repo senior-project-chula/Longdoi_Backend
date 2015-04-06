@@ -71,132 +71,140 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
 =======
-                                    --}}
-                                {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>" margin-top: 0px; margin-bottom: 0px; ")) !!}                                   
-                                    <fieldset>
-                                        <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                            <label class="col-md-3 col-xs-3 control-label  hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
-                                            <div class="col-md-5 col-xs-7">
-                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+--}}
+{!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>" margin-top: 0px; margin-bottom: 0px; ")) !!}                                   
+<fieldset>
+    <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
+        <label class="col-md-3 col-xs-3 control-label  hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
+        <div class="col-md-5 col-xs-7">
+            <input type="text" id="example-datepicker2" name="date" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; "
+            @if(isset($dateSearch)) {{"value=$dateSearch"}} @endif
+            >
 
-                                            </div>
-                                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <ul class="nav nav-tabs" data-toggle="tabs">
-                                <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
-                                <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
+    </div>
+</fieldset>
+</form>
+</div>
+<ul class="nav nav-tabs" data-toggle="tabs">
+    <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
+    <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
 
-                            </ul>
-                        </div>
-                        <!-- END Block Tabs Title -->
+</ul>
+</div>
+@if(isset($dateSearch)) 
+<div class="block-options black col-xs-12 col-xs-offset-12" style="width:30%">
+    <p style="margin-top: 6px;margin-bottom: 5px;">Keyword: {{$dateSearch}}</p>
 
-                        <!-- Tabs Content -->
-                        <div class="tab-content" style=" padding-left: 10px; padding-right: 10px; ">
-                            <div class="tab-pane active" id="example-tabs2-summary">
-                                <!-- Responsive Full Block -->
-                                <!-- Search Styles Block -->
-                                <div class="block white-bg black">
+</div>
+@endif
+<!-- END Block Tabs Title -->
+
+<!-- Tabs Content -->
+<div class="tab-content" style=" padding-left: 10px; padding-right: 10px; ">
+    <div class="tab-pane active" id="example-tabs2-summary">
+        <!-- Responsive Full Block -->
+        <!-- Search Styles Block -->
+        <div class="block white-bg black">
 
 
 
-                                    <!-- Search Styles Content -->
-                                    <div class="tab-content">
-                                        <!-- Projects Search -->
-                                        <div class="tab-pane active" id="search-tab-projects">
+            <!-- Search Styles Content -->
+            <div class="tab-content">
+                <!-- Projects Search -->
+                <div class="tab-pane active" id="search-tab-projects">
 
-                                            <!-- Projects Results -->
-                                            <table class="table table-condensed table-hover table-striped table-vcenter">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
+                    <!-- Projects Results -->
+                    <table class="table table-condensed table-hover table-striped table-vcenter">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
 
-                                                        <th class="text-center" style="width: 15%;">PRICE</th>
-                                                        <th class="text-center" style="width: 10%;">BUY</th>
-                                                        <th class="text-center" style="width: 10%;">HOLD</th>
-                                                        <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
-                                                        <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                <th class="text-center" style="width: 15%;">PRICE</th>
+                                <th class="text-center" style="width: 10%;">BUY</th>
+                                <th class="text-center" style="width: 10%;">HOLD</th>
+                                <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
+                                <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                                    @foreach($sumRec as $stockName=>$recData)
-                                                    <tr>
-                                                        <td>
-                                                            <h3><a href="{{$app->make('url')->to('/stock/'.$stockName)}}"><strong>{{$stockName}}</strong></a></h3>
-                                                        </td>
-                                                        <td class="text-center "
-                                                        <h3 class="animation-pullDown">
-                                                            {{$recData['Price']['price']}}
-                                                            <br><small>(
-                                                            @if($recData['Price']['priceDiff']>=0)
-                                                            {{"+"}}
-                                                            @endif
-                                                            {{$recData['Price']['priceDiff']}}
-                                                            )<br>(
-                                                            @if($recData['Price']['percentDiff']>=0)
-                                                            {{"+"}}
-                                                            @endif
-                                                            {{$recData['Price']['percentDiff']}}
-                                                            )</small></h3>
-                                                        </td>
+                            @foreach($sumRec as $stockName=>$recData)
+                            <tr>
+                                <td>
+                                    <h3><a href="{{$app->make('url')->to('/stock/'.$stockName)}}"><strong>{{$stockName}}</strong></a></h3>
+                                </td>
+                                <td class="text-center "
+                                <h3 class="animation-pullDown">
+                                    {{$recData['Price']['price']}}
+                                    <br><small>(
+                                    @if($recData['Price']['priceDiff']>=0)
+                                    {{"+"}}
+                                    @endif
+                                    {{$recData['Price']['priceDiff']}}
+                                    )<br>(
+                                    @if($recData['Price']['percentDiff']>=0)
+                                    {{"+"}}
+                                    @endif
+                                    {{$recData['Price']['percentDiff']}}
+                                    )</small></h3>
+                                </td>
 
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">
-                                                                @if(isset($recData['BUY']))
-                                                                {{$recData['BUY']}}
-                                                                @else
-                                                                0
-                                                                @endif
-                                                            </h3>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">
-                                                                @if(isset($recData['HOLD']))
-                                                                {{$recData['HOLD']}}
-                                                                @else
-                                                                0
-                                                                @endif
-                                                            </h3>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">
-                                                                @if(isset($recData['SELL']))
-                                                                {{$recData['SELL']}}
-                                                                @else
-                                                                0
-                                                                @endif
-                                                            </h3>
-                                                        </td>
-                                                        <td class="text-center hidden-xs">
-                                                            <h3 class="animation-pullDown text-success"><strong>
-                                                                @if(isset($recData['total']))
-                                                                {{$recData['total']}}
-                                                                @else
-                                                                0
-                                                                @endif
-                                                            </strong></h3>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                            <!-- END Projects Results -->
-                                        </div>
-                                        <!-- END Projects Search -->
+                                <td class="text-center">
+                                    <h3 class="animation-pullDown">
+                                        @if(isset($recData['BUY']))
+                                        {{$recData['BUY']}}
+                                        @else
+                                        0
+                                        @endif
+                                    </h3>
+                                </td>
+                                <td class="text-center">
+                                    <h3 class="animation-pullDown">
+                                        @if(isset($recData['HOLD']))
+                                        {{$recData['HOLD']}}
+                                        @else
+                                        0
+                                        @endif
+                                    </h3>
+                                </td>
+                                <td class="text-center">
+                                    <h3 class="animation-pullDown">
+                                        @if(isset($recData['SELL']))
+                                        {{$recData['SELL']}}
+                                        @else
+                                        0
+                                        @endif
+                                    </h3>
+                                </td>
+                                <td class="text-center hidden-xs">
+                                    <h3 class="animation-pullDown text-success"><strong>
+                                        @if(isset($recData['total']))
+                                        {{$recData['total']}}
+                                        @else
+                                        0
+                                        @endif
+                                    </strong></h3>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <!-- END Projects Results -->
+                </div>
+                <!-- END Projects Search -->
 
-                                    </div>
-                                    <!-- END Search Styles Content -->
-                                </div>
-                                <!-- END Search Styles Block -->
-                            </div>
-                            <div class="tab-pane" id="example-tabs2-recommendations">
-                                <!-- Responsive Full Block -->
-                                <!-- Search Styles Block -->
-                                <div class="block" style="background-color:white;color:black">
-                                    <!-- Search Styles Title -->
+            </div>
+            <!-- END Search Styles Content -->
+        </div>
+        <!-- END Search Styles Block -->
+    </div>
+    <div class="tab-pane" id="example-tabs2-recommendations">
+        <!-- Responsive Full Block -->
+        <!-- Search Styles Block -->
+        <div class="block" style="background-color:white;color:black">
+            <!-- Search Styles Title -->
 
                                                         <!-- <div class="block-title text-center">
                                                             <h1 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations</h1>
@@ -215,7 +223,7 @@
                                                                             <th class="text-center hidden-xs" >DATE</th>
                                                                             <th class="text-center" >BROKER</th>
                                                                             <th class="text-center " style="width: 10%;">RECOMMENDATION</th>
-                                                                          
+
                                                                             <th class="text-center visible-lg" >DESCRIPTION</th>
                                                                             <th class="text-center" >STOCK</th>
                                                                             <th class="text-center hidden-xs">PRICE<br><small>(on released date)</small></th>
