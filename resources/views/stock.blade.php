@@ -16,7 +16,7 @@
             <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
             <div class="site-block text-center">
                 {{-- <form action="stockResult.html" method="post" class="form-horizontal" > --}}
-                {!! Form::open(array('class'=>'form-horizontal')) !!}
+                {!! Form::open(array('url'=>$app->make('url')->to('/stock'),'class'=>'form-horizontal')) !!}
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
                         <label class="sr-only" for="register-email">a stock..</label>

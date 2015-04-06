@@ -50,11 +50,6 @@ class RecommendationController extends Controller {
 			return view('stock')->with(array('sumRec'=>$allRec,'todayRec'=>$theDayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
 	
 
-		} elseif ($request->has('input_stock')) {
-			# code...
-			$stockInput =  $request->input('input_stock');
-			return redirect('/stock/'.$stockInput);
-
 		} else {
 			return redirect("/recommendations");
 		}

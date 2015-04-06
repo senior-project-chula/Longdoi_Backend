@@ -18,14 +18,13 @@ Route::get('home', 'HomeController@index');
 
 
 Route::get('/','IndexController@index');
-Route::get('stock/{stock_name}','StockResultController@index');
-Route::get('stockResult/GetPriceOf/','StockResultController@GetPriceOf');
+Route::post('/stock','IndexController@searchStock');
+Route::get('/stock/{stock_name}','StockResultController@index');
+Route::post('/stock/{stock_name}','StockResultController@withDate');
+Route::get('/stockResult/GetPriceOf/','StockResultController@GetPriceOf');
 
 // Route::get('stockResult','IndexController@graph');
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+
 
 Route::get('/test', 'IndexController@test');
 Route::get('/brokerRanking','Stockranking@index');
@@ -38,6 +37,11 @@ Route::get('/analysis','Analysis@index');
 Route::post('/analysis','Analysis@search');
 
 Route::get('/team','IndexController@team');
-Route::get('/stock/{Stock_ID}','IndexController@stockResult');
+// Route::get('/stock/{Stock_ID}','IndexController@stockResult');
 
 Route::get('/test2','RecommendationController@index');
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);

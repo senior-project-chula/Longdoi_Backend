@@ -28,7 +28,7 @@
                 <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
 
                 <div class="site-block text-center">
-                    <form action="stockResult.html" method="post" class="form-horizontal" >
+                    {!! Form::open(array('url'=>$app->make('url')->to('/stock'),'class'=>'form-horizontal')) !!}
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
 
@@ -87,7 +87,8 @@
                                     <div class="block-options pull-right" style="width:50%">
 
                                         <!-- Time and Date Pickers Content -->
-                                        <form action="page_forms_components.html" method="post" class="form-horizontal" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
+                                        {{-- <form action="page_forms_components.html" method="post" class="form-horizontal" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; "> --}}
+                                        {!! Form::open(array('url'=>Request::url(),'class'=>'form-horizontal','syle'=>' margin-top: 0px; margin-bottom: 0px; ')) !!}
                                             <fieldset>
                                                 <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; margin-bottom: 0px;">
                                                     <div class="col-md-2"></div>
@@ -96,19 +97,28 @@
                                                     </div>
                                                     <label class="col-md-1 control-label hidden-sm hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;margin-bottom: 0px;padding-top: 0px;">DATE: </label>
                                                     <div class="col-md-3 col-sm-4 col-xs-6" style=" margin-top: 3px; ">
-                                                        <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                        <input type="text" id="example-datepicker2" name="date" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; "
+                                                        @if(isset($dateSearch)) {{"value=$dateSearch"}} @endif
+                                                        >
                                                     </div>
                                                     <button type="submit" class="btn btn-sm btn-primary" style=" margin-top: -1px; padding-top: 5px; padding-bottom: 5px;"><i class="fa fa-angle-right"></i> Go</button>
                                                 </div>
                                             </fieldset>
                                         </form>
                                     </div>
+
                                     <ul class="nav nav-tabs no-border" data-toggle="tabs">
                                         <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
                                         <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
 
                                     </ul>
                                 </div>
+                                @if(isset($dateSearch)) 
+                                <div class="block-options black col-xs-12 col-xs-offset-12" style="width:30%">
+                                    <p style="margin-top: 6px;margin-bottom: 5px;">Keyword: {{$dateSearch}}</p>
+
+                                </div>
+                                @endif
                                 <!-- END Block Tabs Title -->
 
                                 <!-- Tabs Content -->
