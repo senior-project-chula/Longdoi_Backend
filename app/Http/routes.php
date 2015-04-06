@@ -19,7 +19,7 @@ Route::get('home', 'HomeController@index');
 
 Route::get('/','IndexController@index');
 
-Route::get('stockResult/GetPriceOf','StockResultController@GetPriceOf');
+Route::get('stockResult/GetPriceOf/','StockResultController@GetPriceOf');
 
 Route::get('stockResult','IndexController@graph');
 Route::controllers([

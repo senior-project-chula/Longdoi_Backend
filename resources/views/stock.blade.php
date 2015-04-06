@@ -16,162 +16,165 @@
             <div class="site-block text-center">
                 {{-- <form action="stockResult.html" method="post" class="form-horizontal" > --}}
                 {!! Form::open(array('class'=>'form-horizontal')) !!}
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label class="sr-only" for="register-email">a stock..</label>
-                            <div class="input-group input-group-lg">
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <label class="sr-only" for="register-email">a stock..</label>
+                        <div class="input-group input-group-lg">
 
-                                <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
-                                </div>
+                            <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <!-- Working Tabs Block -->
-            <div class="block full">
-                <!-- Working Tabs Title -->
-                <div class="block-title">
-
                 </div>
-                <!-- END Working Tabs Title -->
+            </form>
+        </div>
+        <!-- Working Tabs Block -->
+        <div class="block full">
+            <!-- Working Tabs Title -->
+            <div class="block-title">
 
-                <!-- Working Tabs Content -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- Block Tabs -->
-                        <div class="block full border-radius container-box">
-                            <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
-                            <!-- Block Tabs Title -->
-                            <div class="block-title">
-                                <div class="block-options pull-right" style="width:30%">
-                                    <!-- Time and Date Pickers Content -->
-                                    <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
-                                        <fieldset>
-                                            <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                                <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
-                                                <div class="col-md-5">
-                                                    <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
-                                                </div>
-                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
+            </div>
+            <!-- END Working Tabs Title -->
+
+            <!-- Working Tabs Content -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Block Tabs -->
+                    <div class="block full border-radius container-box">
+                        <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
+                        <!-- Block Tabs Title -->
+                        <div class="block-title">
+                            <div class="block-options pull-right" style="width:30%">
+                                <!-- Time and Date Pickers Content -->
+                                    {{-- <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
+
+                                    --}}
+                                {!! Form::open(array('class')) !!}                                   
+                                    <fieldset>
+                                        <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
+                                            <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
+                                            <div class="col-md-5">
+                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
                                             </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <ul class="nav nav-tabs" data-toggle="tabs">
-                                    <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
-                                    <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
-                                    
-                                </ul>
-                            </div>
-                            <!-- END Block Tabs Title -->
-
-                            <!-- Tabs Content -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="example-tabs2-summary">
-                                    <!-- Responsive Full Block -->
-                                    <!-- Search Styles Block -->
-                                    <div class="block white-bg black">
-
-
-
-                                        <!-- Search Styles Content -->
-                                        <div class="tab-content">
-                                            <!-- Projects Search -->
-                                            <div class="tab-pane active" id="search-tab-projects">
-
-                                                <!-- Projects Results -->
-                                                <table class="table table-striped table-vcenter">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-                                                            
-                                                            <th class="text-center" style="width: 15%;">PRICE</th>
-                                                            <th class="text-center" style="width: 10%;">BUY</th>
-                                                            <th class="text-center" style="width: 10%;">HOLD</th>
-                                                            <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
-                                                            <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                        @foreach($sumRec as $stockName=>$recData)
-                                                        <tr>
-                                                            <td>
-                                                                <h3><a href="javascript:void(0)"><strong>{{$stockName}}</strong></a></h3>
-                                                            </td>
-                                                            <td class="text-center "
-                                                            <h3 class="animation-pullDown">
-                                                                {{$recData['Price']['price']}}
-                                                                <br><small>(
-                                                                @if($recData['Price']['priceDiff']>=0)
-                                                                {{"+"}}
-                                                                @endif
-                                                                {{$recData['Price']['priceDiff']}}
-                                                                )<br>(
-                                                                @if($recData['Price']['percentDiff']>=0)
-                                                                {{"+"}}
-                                                                @endif
-                                                                {{$recData['Price']['percentDiff']}}
-                                                                )</small></h3>
-                                                            </td>
-                                                            
-                                                            <td class="text-center">
-                                                                <h3 class="animation-pullDown">
-                                                                    @if(isset($recData['BUY']))
-                                                                    {{$recData['BUY']}}
-                                                                    @else
-                                                                    0
-                                                                    @endif
-                                                                </h3>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <h3 class="animation-pullDown">
-                                                                    @if(isset($recData['HOLD']))
-                                                                    {{$recData['HOLD']}}
-                                                                    @else
-                                                                    0
-                                                                    @endif
-                                                                </h3>
-                                                            </td>
-                                                            <td class="text-center">
-                                                                <h3 class="animation-pullDown">
-                                                                    @if(isset($recData['SELL']))
-                                                                    {{$recData['SELL']}}
-                                                                    @else
-                                                                    0
-                                                                    @endif
-                                                                </h3>
-                                                            </td>
-                                                            <td class="text-center hidden-xs">
-                                                                <h3 class="animation-pullDown text-success"><strong>
-                                                                    @if(isset($recData['total']))
-                                                                    {{$recData['total']}}
-                                                                    @else
-                                                                    0
-                                                                    @endif
-                                                                </strong></h3>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                                <!-- END Projects Results -->
-                                            </div>
-                                            <!-- END Projects Search -->
-
+                                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
                                         </div>
-                                        <!-- END Search Styles Content -->
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <ul class="nav nav-tabs" data-toggle="tabs">
+                                <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
+                                <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
+
+                            </ul>
+                        </div>
+                        <!-- END Block Tabs Title -->
+
+                        <!-- Tabs Content -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="example-tabs2-summary">
+                                <!-- Responsive Full Block -->
+                                <!-- Search Styles Block -->
+                                <div class="block white-bg black">
+
+
+
+                                    <!-- Search Styles Content -->
+                                    <div class="tab-content">
+                                        <!-- Projects Search -->
+                                        <div class="tab-pane active" id="search-tab-projects">
+
+                                            <!-- Projects Results -->
+                                            <table class="table table-striped table-vcenter">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
+
+                                                        <th class="text-center" style="width: 15%;">PRICE</th>
+                                                        <th class="text-center" style="width: 10%;">BUY</th>
+                                                        <th class="text-center" style="width: 10%;">HOLD</th>
+                                                        <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
+                                                        <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @foreach($sumRec as $stockName=>$recData)
+                                                    <tr>
+                                                        <td>
+                                                            <h3><a href="javascript:void(0)"><strong>{{$stockName}}</strong></a></h3>
+                                                        </td>
+                                                        <td class="text-center "
+                                                        <h3 class="animation-pullDown">
+                                                            {{$recData['Price']['price']}}
+                                                            <br><small>(
+                                                            @if($recData['Price']['priceDiff']>=0)
+                                                            {{"+"}}
+                                                            @endif
+                                                            {{$recData['Price']['priceDiff']}}
+                                                            )<br>(
+                                                            @if($recData['Price']['percentDiff']>=0)
+                                                            {{"+"}}
+                                                            @endif
+                                                            {{$recData['Price']['percentDiff']}}
+                                                            )</small></h3>
+                                                        </td>
+
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">
+                                                                @if(isset($recData['BUY']))
+                                                                {{$recData['BUY']}}
+                                                                @else
+                                                                0
+                                                                @endif
+                                                            </h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">
+                                                                @if(isset($recData['HOLD']))
+                                                                {{$recData['HOLD']}}
+                                                                @else
+                                                                0
+                                                                @endif
+                                                            </h3>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <h3 class="animation-pullDown">
+                                                                @if(isset($recData['SELL']))
+                                                                {{$recData['SELL']}}
+                                                                @else
+                                                                0
+                                                                @endif
+                                                            </h3>
+                                                        </td>
+                                                        <td class="text-center hidden-xs">
+                                                            <h3 class="animation-pullDown text-success"><strong>
+                                                                @if(isset($recData['total']))
+                                                                {{$recData['total']}}
+                                                                @else
+                                                                0
+                                                                @endif
+                                                            </strong></h3>
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            <!-- END Projects Results -->
+                                        </div>
+                                        <!-- END Projects Search -->
+
                                     </div>
-                                    <!-- END Search Styles Block -->
+                                    <!-- END Search Styles Content -->
                                 </div>
-                                <div class="tab-pane" id="example-tabs2-recommendations">
-                                    <!-- Responsive Full Block -->
-                                    <!-- Search Styles Block -->
-                                    <div class="block" style="background-color:white;color:black">
-                                        <!-- Search Styles Title -->
+                                <!-- END Search Styles Block -->
+                            </div>
+                            <div class="tab-pane" id="example-tabs2-recommendations">
+                                <!-- Responsive Full Block -->
+                                <!-- Search Styles Block -->
+                                <div class="block" style="background-color:white;color:black">
+                                    <!-- Search Styles Title -->
 
                                                         <!-- <div class="block-title text-center">
                                                             <h1 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations</h1>
