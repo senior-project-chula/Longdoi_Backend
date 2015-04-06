@@ -72,13 +72,13 @@
                                                 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
 =======
                                     --}}
-                                {!! Form::open(array('class')) !!}                                   
+                                {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>" margin-top: 0px; margin-bottom: 0px; ")) !!}                                   
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
-                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
->>>>>>> aa45c81a75c314572296e415de73a6a140621fda
+                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
                                         </div>
