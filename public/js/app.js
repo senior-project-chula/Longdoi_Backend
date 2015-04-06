@@ -18,6 +18,12 @@ var App = function() {
         var yearCopy = $('#year-copy'), d = new Date();
         if (d.getFullYear() === 2014) { yearCopy.html('2014'); } else { yearCopy.html('2014-' + d.getFullYear().toString().substr(2,2)); }
 
+
+        // added by user
+        // Initialize Datepicker
+        $('.input-datepicker, .input-daterange').datepicker({weekStart: 1});
+        $('.input-datepicker-close').datepicker({weekStart: 1}).on('changeDate', function(e){ $(this).datepicker('hide'); });
+
         // Initialize tabs
         $('[data-toggle="tabs"] a, .enable-tabs a').click(function(e){ e.preventDefault(); $(this).tab('show'); });
 

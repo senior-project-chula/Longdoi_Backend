@@ -171,9 +171,11 @@
                                                                             <th class="text-center" style="width: 5%;">DATE</th>
                                                                             <th class="text-center" style="width: 10%;">BROKER</th>
                                                                             <th class="text-center" style="width: 10%;">RECOMMENDATION</th>
+                                                                            
                                                                             <th class="text-center" style="width: 15%;">DESCRIPTION</th>
                                                                             <th class="text-center" style="width: 10%;">STOCK</th>
                                                                             <th class="text-center" style="width: 10%;">PRICE<br><small>(on released date)</small></th>
+                                                                            <th class="text-center" style="width: 10%;">ACCURACY</th>
                                                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
                                                                             
                                                                         </tr>
@@ -189,6 +191,7 @@
                                                                             <td class="text-center">
                                                                                 SELL
                                                                             </td>
+                                                                            
                                                                             <td class="text-center">
                                                                                 SELL description
                                                                             </td>
@@ -197,6 +200,10 @@
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 1.58
+                                                                            </td>
+                                                                            <td class="text-center">
+                                                                                correct
+
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 <a href="www.settrade.or.th">link to resource</a>
@@ -222,6 +229,9 @@
                                                                                 1.58
                                                                             </td>
                                                                             <td class="text-center">
+                                                                                correct
+                                                                            </td>
+                                                                            <td class="text-center">
                                                                                 <a href="www.settrade.or.th">link to resource</a>
                                                                             </td>
                                                                         </tr>
@@ -243,6 +253,9 @@
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 1.58
+                                                                            </td>
+                                                                            <td class="text-center">
+                                                                                correct
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 <a href="www.settrade.or.th">link to resource</a>
