@@ -7,8 +7,8 @@
 
 @section('js-backend')
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
-        {!! HTML::script('js2/plugins.js') !!}
-        {!! HTML::script('js2/app.js') !!}
+        {{-- {!! HTML::script('js2/plugins.js') !!} --}}
+        {{-- {!! HTML::script('js2/app.js') !!} --}}
 
          {!! HTML::script('js2/pages/compCharts2.js') !!}
         <script>$(function(){ CompCharts2.init(<?php echo $stock_id; ?>); });</script>
@@ -83,7 +83,7 @@
                                             </div>
                                             <label class="col-md-1 control-label hidden-sm hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;margin-bottom: 0px;padding-top: 0px;">DATE: </label>
                                             <div class="col-md-3 col-sm-4 col-xs-6" style=" margin-top: 3px; ">
-                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary" style=" margin-top: -1px; padding-top: 5px; padding-bottom: 5px;"><i class="fa fa-angle-right"></i> Go</button>
                                         </div>
