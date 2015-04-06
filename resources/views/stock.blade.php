@@ -77,7 +77,7 @@
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
                                             <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                             <div class="col-md-5">
-                                                <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                <input type="text" id="example-datepicker2" name="date" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
 
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
@@ -125,7 +125,7 @@
                                                     @foreach($sumRec as $stockName=>$recData)
                                                     <tr>
                                                         <td>
-                                                            <h3><a href="javascript:void(0)"><strong>{{$stockName}}</strong></a></h3>
+                                                            <h3><a href="{{$app->make('url')->to('/stock/'.$stockName)}}"><strong>{{$stockName}}</strong></a></h3>
                                                         </td>
                                                         <td class="text-center "
                                                         <h3 class="animation-pullDown">

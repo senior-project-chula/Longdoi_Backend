@@ -37,7 +37,23 @@ class StockResultController extends Controller {
 	public function index($stock_name)
 	{
 		$stock = Stock::where('Stock_Name','=',$stock_name)->first();
-		return view('stockResult')->with('stock_id',$stock->Stock_ID);
+		$Stock_Name = $stock->Stock_Name;
+		$lastPrice = $stock->getLastPrice();
+		$lastIndex=Price::getLastSetIndex();
+		$top3Array=Stock::getTopPick3();
+		$recSummary = $stock->getRecFromStockAll();
+		$recAll = $stock->getRecOfThsStockAll();
+
+		// dd($recAll);
+
+		
+		return view('stockResult')->with('stock_id',$stock->Stock_ID)
+				->with('Stock_Name',$Stock_Name)
+				->with('lastPrice',$lastPrice)
+				->with('lastIndex',$lastIndex)
+				->with('top3Array',$top3Array)
+				->with('recSummary',$recSummary)
+				->with('recAll',$recAll);
 	}
 
 

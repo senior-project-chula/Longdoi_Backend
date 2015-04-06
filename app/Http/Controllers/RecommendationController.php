@@ -22,7 +22,7 @@ class RecommendationController extends Controller {
 	{
 		//
 		$lastDate=Research::getMaxDate();
-		$query = Recommendation::getRecFromDate(date_format($lastDate,'Y-m-d'))->get();
+		$query = Recommendation::getRecByStockFromDate(date_format($lastDate,'Y-m-d'))->get();
 		// dd($query);
 		$sumRec = $this->getSummaryRecArray($query);
 		$query = Recommendation::getTodayRec();
@@ -38,9 +38,27 @@ class RecommendationController extends Controller {
 	{
 		if($request->has('date')){
 			$dateInput =  $request->input('date');
+			$d =DateTime::createFromFormat('d/m/y', $dateInput);
+			$dateOnly = $d->format('Y-m-d');
+			$query = Recommendation::getRecByStockFromDate($dateOnly)->get();
+			$allRec = $this->getSummaryRecArray($query);
+			$query = Recommendation::getRecFromDate($d);
+			$theDayRec = $this->getTodayRecArray($query);
+			$lastIndex=Price::getLastSetIndex();
+			$top3Array=Stock::getTopPick3();
+			// dd($todayRec);
+			return view('stock')->with(array('sumRec'=>$allRec,'todayRec'=>$theDayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
+	
+
+		} elseif ($request->has('input_stock')) {
+			# code...
+			$stockInput =  $request->input('input_stock');
+			return redirect('/stock/'.$stockInput);
+
 		} else {
-			return redirect("/");
+			return redirect("/recommendations");
 		}
+
 	}
 
 	/**
