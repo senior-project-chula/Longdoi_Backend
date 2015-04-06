@@ -57,7 +57,7 @@
             <header>
                 <div class="container">
                     <!-- Site Logo -->
-                    <a href="index.html" class="site-logo">
+                    <a href={{$app->make('url')->to('/')}} class="site-logo">
                         <i class="fa fa-area-chart"></i> Long<strong>DOI</strong>
                     </a>
                     <!-- Site Logo -->
