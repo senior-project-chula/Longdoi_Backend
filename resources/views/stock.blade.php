@@ -47,7 +47,7 @@
                         <h1 class="text-center" id="stock-head" style="color:black"><i class="hi hi-thumbs-up"></i> <strong>Daily Recommendations</strong></h1>
                         <!-- Block Tabs Title -->
                         <div class="block-title">
-                            <div class="block-options pull-right" style="width:30%">
+                            <div class="block-options pull-right" style="width:40%">
                                 <!-- Time and Date Pickers Content -->
                                     {{-- <form action="page_forms_components.html" method="post" class="form-horizontal form-bordered" onsubmit="return false;" style=" margin-top: 0px; margin-bottom: 0px; ">
 
@@ -75,8 +75,8 @@
                                 {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>" margin-top: 0px; margin-bottom: 0px; ")) !!}                                   
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                            <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
-                                            <div class="col-md-5">
+                                            <label class="col-md-3 col-xs-3 control-label  hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
+                                            <div class="col-md-5 col-xs-7">
                                                 <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
 
                                             </div>
@@ -94,7 +94,7 @@
                         <!-- END Block Tabs Title -->
 
                         <!-- Tabs Content -->
-                        <div class="tab-content">
+                        <div class="tab-content" style=" padding-left: 10px; padding-right: 10px; ">
                             <div class="tab-pane active" id="example-tabs2-summary">
                                 <!-- Responsive Full Block -->
                                 <!-- Search Styles Block -->
@@ -108,7 +108,7 @@
                                         <div class="tab-pane active" id="search-tab-projects">
 
                                             <!-- Projects Results -->
-                                            <table class="table table-striped table-vcenter">
+                                            <table class="table table-condensed table-hover table-striped table-vcenter">
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
@@ -209,23 +209,24 @@
                                                             <div class="tab-pane active" id="search-tab-projects">
 
                                                                 <!-- Projects Results -->
-                                                                <table class="table table-striped table-vcenter">
+                                                                <table class="table-responsive table-condensed table-hover table-striped table-vcenter">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th class="text-center" style="width: 5%;">DATE</th>
-                                                                            <th class="text-center" style="width: 10%;">BROKER</th>
-                                                                            <th class="text-center" style="width: 10%;">RECOMMENDATION</th>
-                                                                            <th class="text-center" style="width: 15%;">DESCRIPTION</th>
-                                                                            <th class="text-center" style="width: 10%;">STOCK</th>
-                                                                            <th class="text-center" style="width: 10%;">PRICE<br><small>(on released date)</small></th>
-                                                                            <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
+                                                                            <th class="text-center hidden-xs" >DATE</th>
+                                                                            <th class="text-center" >BROKER</th>
+                                                                            <th class="text-center " style="width: 10%;">RECOMMENDATION</th>
+                                                                          
+                                                                            <th class="text-center hidden-md hidden-sm hidden-xs" >DESCRIPTION</th>
+                                                                            <th class="text-center" >STOCK</th>
+                                                                            <th class="text-center hidden-xs">PRICE<br><small>(on released date)</small></th>
+                                                                            <th class="text-center">RESOURCE</th>
                                                                             
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         @foreach($todayRec as $arrayRec)
                                                                         <tr>
-                                                                            <td class="text-center">
+                                                                            <td class="text-center hidden-xs">
                                                                                 {{$arrayRec['Date']}}
                                                                             </td>
                                                                             <td class="text-center ">
@@ -234,13 +235,13 @@
                                                                             <td class="text-center">
                                                                                 {{$arrayRec['Recommendation']}}
                                                                             </td>
-                                                                            <td class="text-center">
+                                                                            <td class="text-center hidden-md hidden-sm hidden-xs">
                                                                                 {{$arrayRec['Description']}}
                                                                             </td>
                                                                             <td class="text-center">
                                                                                 {{$arrayRec['Stock_Name']}}
                                                                             </td>
-                                                                            <td class="text-center">
+                                                                            <td class="text-center hidden-xs">
                                                                                 {{$arrayRec['price']['Closing_Price']}}
                                                                             </td>
                                                                             <td class="text-center">

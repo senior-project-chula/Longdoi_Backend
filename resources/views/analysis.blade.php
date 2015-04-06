@@ -8,7 +8,7 @@
 @section('js-backend')
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {!! HTML::script('js2/plugins.js') !!}
-        {!! HTML::script('js2/app.js') !!}
+        {{-- {!! HTML::script('js2/app.js') !!} --}}
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/16353695-media_httpdldropboxco_pedhu2.jpg');">
     <div class="container">
-        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Do you wanna see more? <strong>Search</strong>!</h2>
         <div class="site-block text-center">
             {!! Form::open(array('action'=>'Analysis@search','method'=>'post','class'=>'form-horizontal')) !!}
@@ -55,14 +55,15 @@
                         <!-- Block Tabs Title -->
                         <div class="block-title" style="margin-bottom:20px">
                             <h1 class="text-center black" id="analysis-head" ><i class="gi gi-stats"></i> <strong>Daily Analysis</strong></h1>
-                            <div class="block-options pull-right" style="width:30%">
+                            <div class="block-options pull-right" style="width:40%">
                                 <!-- Time and Date Pickers Content -->
                                 
                                 {!! Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
-                                            <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
-                                            <div class="col-md-5">
+
+                                            <label class="col-md-3 col-xs-3 control-label  hidden-xs" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
+                                            <div class="col-md-5 col-xs-7">
                                                  @if(isset($broker_id)) <input name="broker_id" type="hidden" value="{!! $broker_id !!}" /> @endif
                                                 <input name="isOneBroker" type="hidden" value="{!! $isOneBroker !!}" />
                                                 <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
@@ -91,12 +92,12 @@
                             <div class="tab-pane active" id="search-tab-projects">
                                 @if(!empty($recommendations))
                                 <!-- Projects Results -->
-                                <table class="table table-striped table-vcenter black" style="table-layout:fixed">
+                                <table class="table-responsive table-striped table-condensed table-hover table-vcenter black" style="margin:20px auto;" >
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="min-width: 100px; width: 10%;">DATE</th>
-                                            <th class="text-center" style="width: 20%;">BROKER</th>
-                                            <th class="text-center" style="width: 60%;">RESEARCH</th>
+                                            <th class="text-center hidden-xs" >DATE</th>
+                                            <th class="text-center" >BROKER</th>
+                                            <th class="text-center" >RESEARCH</th>
                                         
                                         </tr>
                                     </thead>
@@ -105,7 +106,7 @@
                                         
                                         @foreach($recommendations as $recommendation => $data)
                                         <tr>
-                                            <td class="text-center">
+                                            <td class="text-center hidden-xs">
                                                 {{$data->Date}}
                                             </td>
                                             <td class="text-center">

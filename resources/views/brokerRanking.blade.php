@@ -21,7 +21,7 @@
 @section('js-backend')
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {!! HTML::script('js2/plugins.js') !!}
-        {!! HTML::script('js2/app.js') !!}
+        {{-- {!! HTML::script('js2/app.js') !!} --}}
 @stop
 
 @section('content')
@@ -48,13 +48,13 @@
                         <h1 class="text-center black" id="broker-head"><i class="fa fa-trophy"></i> <strong>Broker Ranking</strong></h1>
                         <!-- Block Tabs Title -->
                         <div class="block-title">
-                            <div class="block-options pull-right half-box">
+                            <div class="block-options pull-right" style="width:30%">
 {{--                                 <form action="" method="post" class="form-horizontal form-bordered" style=" margin-top: 0px; margin-bottom: 0px; "> --}}
                                     {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px;')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-top: 0px; padding-bottom: 0px; ">
-                                            <label class="col-md-8 control-label" style="color:black">SORT BY:</label>
-                                            <div class="col-md-4">
+                                            <label class="col-md-8 col-xs-6 control-label hidden-xs" style="color:black;padding-top: 7px;">SORT BY:</label>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
                                                 <select class="form-control" onchange="this.form.submit()" name="sortBy">
                                                     <option @if($selected=="Overall") {{"selected"}} @endif value="Overall">Overall</option>
                                                     <option @if($selected=="AGRO") {{"selected"}} @endif value="AGRO">AGRO</option>

@@ -117,7 +117,7 @@
                                                 <div class="tab-pane active" id="search-tab-projects">
 
                                                     <!-- Projects Results -->
-                                                    <table class="table table-striped table-vcenter">
+                                                    <table class="table table-condensed table-hover table-striped table-vcenter">
                                                         <thead>
                                                             <tr>
                                                                 <th><i class="hi hi-stats hidden-xs"></i> STOCK</th>
@@ -175,7 +175,7 @@
                                                 <div class="tab-pane active" id="search-tab-projects">
 
                                                     <!-- Projects Results -->
-                                                    <table class="table table-striped table-vcenter">
+                                                    <table class="table table-condensed table-hover table-striped table-vcenter">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-center" style="width: 5%;">DATE</th>
