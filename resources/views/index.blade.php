@@ -366,7 +366,7 @@
 
 
     <!-- Promo #3 -->
-    <section class="site-content site-section site-slide-content">
+    <section class="site-content site-section site-slide-content" style="padding-bottom:50px">
         <div class="container">
             <div class="row row-items text-center" style="margin: 30px 0px">
                 <div class="col-sm-4 col-md-4">

@@ -2,12 +2,13 @@
 
     @section('js-backend')
     {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
-    {!! HTML::script('js2/plugins.js') !!}
+    {{-- {!! HTML::script('js/plugins copy.js') !!} --}}
     {{-- {!! HTML::script('js2/app.js') !!} --}}
 
     @stop
 
     @section('content')
+
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
         <div class="container">
@@ -52,7 +53,7 @@
                                             <div class="form-group" style=" padding-bottom: 0px; padding-top: 0px; ">
                                                 <label class="col-md-3 control-label" for="example-datepicker" style="color:black;padding-right: 0px;">DATE: </label>
                                                 <div class="col-md-5">
-                                                    <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
+                                                    <input type="text" id="example-datepicker2" name="example-datepicker2" class="form-control input-datepicker-close" data-date-format="dd/mm/yy" placeholder="dd/mm/yy" style=" padding-top: 4px; padding-bottom: 4px; height: 30px; ">
                                                 </div>
                                                 <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Go</button>
                                             </div>
