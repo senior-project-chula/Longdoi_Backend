@@ -5,8 +5,6 @@
     {!! HTML::script('js2/plugins.js') !!}
     {!! HTML::script('js2/app.js') !!}
 
-    {!! HTML::script('js2/pages/compCharts.js') !!}
-    <script>$(function(){ CompCharts.init(); });</script>
     @stop
 
     @section('content')
@@ -21,7 +19,7 @@
                         <div class="col-md-6 col-md-offset-3">
                             <label class="sr-only" for="register-email">a stock..</label>
                             <div class="input-group input-group-lg">
-                                
+
                                 <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
@@ -77,6 +75,7 @@
                                     <div class="block white-bg black">
 
 
+
                                         <!-- Search Styles Content -->
                                         <div class="tab-content">
                                             <!-- Projects Search -->
@@ -87,7 +86,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-
+                                                            
                                                             <th class="text-center" style="width: 15%;">PRICE</th>
                                                             <th class="text-center" style="width: 10%;">BUY</th>
                                                             <th class="text-center" style="width: 10%;">HOLD</th>
@@ -96,64 +95,83 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+
+                                                        @foreach($sumRec as $stockName=>$recData)
                                                         <tr>
                                                             <td>
-                                                                <h3><a href="javascript:void(0)"><strong>BTS</strong></a></h3>
+                                                                <h3><a href="javascript:void(0)"><strong>{{$stockName}}</strong></a></h3>
                                                             </td>
-                                                            <td class="text-center ">
-                                                            <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
-                                                        </td>
+                                                            <td class="text-center "
+                                                            <h3 class="animation-pullDown">
+                                                                {{$recData['Price']['price']}}
+                                                                <br><small>(
+                                                                @if($recData['Price']['priceDiff']>=0)
+                                                                {{"+"}}
+                                                                @endif
+                                                                {{$recData['Price']['priceDiff']}}
+                                                                )<br>(
+                                                                @if($recData['Price']['percentDiff']>=0)
+                                                                {{"+"}}
+                                                                @endif
+                                                                {{$recData['Price']['percentDiff']}}
+                                                                )</small></h3>
+                                                            </td>
+                                                            
+                                                            <td class="text-center">
+                                                                <h3 class="animation-pullDown">
+                                                                    @if(isset($recData['BUY']))
+                                                                    {{$recData['BUY']}}
+                                                                    @else
+                                                                    0
+                                                                    @endif
+                                                                </h3>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <h3 class="animation-pullDown">
+                                                                    @if(isset($recData['HOLD']))
+                                                                    {{$recData['HOLD']}}
+                                                                    @else
+                                                                    0
+                                                                    @endif
+                                                                </h3>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <h3 class="animation-pullDown">
+                                                                    @if(isset($recData['SELL']))
+                                                                    {{$recData['SELL']}}
+                                                                    @else
+                                                                    0
+                                                                    @endif
+                                                                </h3>
+                                                            </td>
+                                                            <td class="text-center hidden-xs">
+                                                                <h3 class="animation-pullDown text-success"><strong>
+                                                                    @if(isset($recData['total']))
+                                                                    {{$recData['total']}}
+                                                                    @else
+                                                                    0
+                                                                    @endif
+                                                                </strong></h3>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                                <!-- END Projects Results -->
+                                            </div>
+                                            <!-- END Projects Search -->
 
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">4</h3>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">1</h3>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <h3 class="animation-pullDown">1</h3>
-                                                        </td>
-                                                        <td class="text-center hidden-xs">
-                                                            <h3 class="animation-pullDown text-success"><strong>6</strong></h3>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h3><a href="javascript:void(0)"><strong>BMCL</strong></a></h3>
-
-                                                        </td>
-                                                        <td class="text-center ">
-                                                        <h3 class="animation-pullDown">1.80<br><small>(+0.13)<br>(+0.82%)</small></h3>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <h3 class="animation-pullDown">2</h3>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <h3 class="animation-pullDown">0</h3>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <h3 class="animation-pullDown">0</h3>
-                                                    </td>
-                                                    <td class="text-center hidden-xs">
-                                                        <h3 class="animation-pullDown text-success"><strong>2</strong></h3>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <!-- END Projects Results -->
+                                        </div>
+                                        <!-- END Search Styles Content -->
                                     </div>
-                                    <!-- END Projects Search -->
-
+                                    <!-- END Search Styles Block -->
                                 </div>
-                                <!-- END Search Styles Content -->
-                            </div>
-                            <!-- END Search Styles Block -->
-                        </div>
-                        <div class="tab-pane" id="example-tabs2-recommendations">
-                            <!-- Responsive Full Block -->
-                            <!-- Search Styles Block -->
-                            <div class="block" style="background-color:white;color:black">
-                                <!-- Search Styles Title -->
+                                <div class="tab-pane" id="example-tabs2-recommendations">
+                                    <!-- Responsive Full Block -->
+                                    <!-- Search Styles Block -->
+                                    <div class="block" style="background-color:white;color:black">
+                                        <!-- Search Styles Title -->
+
                                                         <!-- <div class="block-title text-center">
                                                             <h1 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations</h1>
                                                         </div> -->
@@ -171,96 +189,39 @@
                                                                             <th class="text-center" style="width: 5%;">DATE</th>
                                                                             <th class="text-center" style="width: 10%;">BROKER</th>
                                                                             <th class="text-center" style="width: 10%;">RECOMMENDATION</th>
-                                                                            
                                                                             <th class="text-center" style="width: 15%;">DESCRIPTION</th>
                                                                             <th class="text-center" style="width: 10%;">STOCK</th>
                                                                             <th class="text-center" style="width: 10%;">PRICE<br><small>(on released date)</small></th>
-                                                                            <th class="text-center" style="width: 10%;">ACCURACY</th>
                                                                             <th class="text-center" style="min-width: 60px; width: 20%;">RESOURCE</th>
                                                                             
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
+                                                                        @foreach($todayRec as $arrayRec)
                                                                         <tr>
                                                                             <td class="text-center">
-                                                                                28/3/2015
+                                                                                {{$arrayRec['Date']}}
                                                                             </td>
                                                                             <td class="text-center ">
-                                                                                Maybank
+                                                                                {{$arrayRec['Broker_Name']}}
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                SELL
-                                                                            </td>
-                                                                            
-                                                                            <td class="text-center">
-                                                                                SELL description
+                                                                                {{$arrayRec['Recommendation']}}
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                BTS
+                                                                                {{$arrayRec['Description']}}
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                1.58
+                                                                                {{$arrayRec['Stock_Name']}}
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                correct
-
+                                                                                {{$arrayRec['price']['Closing_Price']}}
                                                                             </td>
                                                                             <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
+                                                                                <a href="{{$arrayRec['Link']}}">Link</a>
                                                                             </td>
                                                                         </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                UOB
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY description
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BTS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                correct
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">
-                                                                                28/3/2015
-                                                                            </td>
-                                                                            <td class="text-center ">
-                                                                                Krungsri Securities
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BUY description
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                BTS
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                1.58
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                correct
-                                                                            </td>
-                                                                            <td class="text-center">
-                                                                                <a href="www.settrade.or.th">link to resource</a>
-                                                                            </td>
-                                                                        </tr>
+                                                                        @endforeach
                                                                         
                                                                     </tbody>
                                                                 </table>
@@ -288,209 +249,258 @@
                     </section>
                     <!-- END Intro -->
 
-
-
-                    <!-- Promo #1 -->
+                    <!-- Promo #2 -->
                     <section class="site-content site-section site-slide-content">
+                        @if($lastIndex['ValueChange']>=0)
+                        <?php $color='text-success'; ?>
+                        @else
+                        <?php $color='text-danger'; ?>
+                        @endif
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-6 col-md-5 site-block TOTAL-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                                    <h1 class="col-md-6 font-big"><strong>SET</strong></h1><h1 class="col-md-6 text-right text-danger font-big" >1495.22</h1>
-                                    <p class="promo-content text-right text-danger">(-1.19)<br>(-0.02%)</p>
-                                    <h3 class="col-md-6">
-                                        <strong>Market Status</strong><br><br>
-                                        <strong>Volume(K)</strong><br><br>
-                                        <strong>Value(M)</strong>
-                                    </h3>
-                                    <h3 class="text-right">
-                                        <text class="text-muted">Closed</text><br><br>
-                                        7,941,280<br><br>
-                                        33,356.34
-                                    </h3>
-                                    
-                                </div>
-                                <div class="col-sm-6 col-md-offset-1 site-block TOTAL-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-                                    <!-- Testimonials Carousel -->
-                                    <div id="testimonials-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
-                                            <li data-target="#testimonials-carousel" data-slide-to="1"></li>
-                                            <li data-target="#testimonials-carousel" data-slide-to="2"></li>
-                                        </ol>
-                                        <!-- END Indicators -->
+                                <div class="col-sm-6 col-md-5 hidden-sm site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight hidden-xs" data-element-offset="-180">
+                                    <h1 class="col-xs-6 col-md-6 font-big" ><strong>SET</strong></h1><h1 class="col-xs-6 col-md-6 text-right 
+                                    {{$color}}
+                                    font-big" >
+                                    {{$lastIndex['Index']}}
+                                </h1>
+                                <p class="promo-content text-right {{$color}}">(
+                                    @if($lastIndex['ValueChange']>0){{"+"}}@endif
+                                    {{$lastIndex['ValueChange']}}
+                                    )<br>(
+                                    @if($lastIndex['PercentChange']>0){{"+"}}@endif
+                                    {{$lastIndex['PercentChange']}}
+                                    %)</p>
+                                    <h3 class="col-xs-6 col-md-6">
+                                        <strong>Last Updated</strong><br><br>
+                        {{-- <strong>Volume(K)</strong><br><br>
+                        <strong>Value(M)</strong> --}}
+                    </h3>
+                    <h3 class="text-right">
+                        <text class="text-muted">{{$lastIndex['Date']}}</text><br><br>
+                        {{-- 7,941,280<br><br>
+                        33,356.34 --}}
+                    </h3>
+                    <hr class="hidden-sm hidden-md hidden-lg">
+                </div>
+                <div class="col-md-6 col-md-offset-1 site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
+                    <!-- Testimonials Carousel -->
+                    <div id="testimonials-carousel" class="carousel slide carousel-html" data-ride="carousel" data-interval="4000">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#testimonials-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                            <li data-target="#testimonials-carousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- END Indicators -->
 
-                                        <!-- Wrapper for slides -->
-                                        <div class="carousel-inner">
-                                            <div class="active item">
-                                                <!-- Advanced Active Theme Color Widget Alternative -->
-                                                <div class="widget">
-                                                    <div class="widget-advanced widget-advanced-alt">
-                                                        <!-- Widget Header -->
-                                                        <div class="widget-header text-center">
-                                                            <div>
-                                                                <img src="img/icon/Custom-Icon-Design-Mini-4-Award-1.ico" alt="avatar" class="widget-image img-circle"><br>
-                                                                <h4><small class="text-warning">The first place of hot picks</small></h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget-header text-center" id="firstplace">
-                                                            <h3 class="widget-content-light h2 site-heading" style="">
-                                                                <strong><a href="page_ready_user_profile.html">SIRI</a></strong><br>
-                                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                                <small>(+12.00)</small> <small>(+2.00%)</small>
-                                                            </h3>
-                                                        </div>
-                                                        <!-- END Widget Header -->
-
-                                                        <!-- Widget Main -->
-                                                        <div class="widget-main">
-                                                            <div class="row text-center">
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>10</strong><br>
-                                                                        <small>BUY</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>80</strong><br>
-                                                                        <small>HOLD</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>60</strong><br>
-                                                                        <small>SELL</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3 class="text-success">
-                                                                        <strong>150</strong><br>
-                                                                        <small>TOTAL</small>
-                                                                    </h3>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- END Widget Main -->
-                                                    </div>
-                                                </div>
-                                                <!-- END Advanced Active Theme Color Widget Alternative -->
-                                            </div>
-                                            <div class="item">
-                                                <!-- Advanced Active Theme Color Widget Alternative -->
-                                                <div class="widget">
-                                                    <div class="widget-advanced widget-advanced-alt">
-                                                        <!-- Widget Header -->
-                                                        <div class="widget-header text-center">
-                                                            <div>
-                                                                <img src="img/icon/Custom-Icon-Design-Mini-4-Award-2.ico" alt="avatar" class="widget-image img-circle"><br>
-                                                                <h4><small class="text-warning">The second place of hot picks</small></h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget-header text-center" id="secondplace">
-                                                            <h3 class="widget-content-light h2 site-heading">
-                                                                <strong><a href="page_ready_user_profile.html">KBANK</a></strong><br>
-                                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                                <small>(+12.00)</small> <small>(+2.00%)</small>
-                                                            </h3>
-                                                        </div>
-                                                        <!-- END Widget Header -->
-
-                                                        <!-- Widget Main -->
-                                                        <div class="widget-main">
-                                                            <div class="row text-center">
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>10</strong><br>
-                                                                        <small>BUY</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>80</strong><br>
-                                                                        <small>HOLD</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>60</strong><br>
-                                                                        <small>SELL</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3 class="text-success">
-                                                                        <strong>20</strong><br>
-                                                                        <small>TOTAL</small>
-                                                                    </h3>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- END Widget Main -->
-                                                    </div>
-                                                </div>
-                                                <!-- END Advanced Active Theme Color Widget Alternative -->
-                                            </div>
-                                            <div class="item">
-                                                <!-- Advanced Active Theme Color Widget Alternative -->
-                                                <div class="widget">
-                                                    <div class="widget-advanced widget-advanced-alt">
-                                                        <!-- Widget Header -->
-                                                        <div class="widget-header text-center">
-                                                            <div>
-                                                                <img src="img/icon/Custom-Icon-Design-Mini-4-Award-3.ico" alt="avatar" class="widget-image img-circle"><br>
-                                                                <h4><small class="text-warning">The third place of hot picks</small></h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="widget-header text-center" id="thirdplace">
-                                                            <h3 class="widget-content-light h2 site-heading">
-                                                                <strong><a href="page_ready_user_profile.html">BTS</a></strong><br>
-                                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                                <small>(+12.00)</small> <small>(+2.00%)</small>
-                                                            </h3>
-                                                        </div>
-                                                        <!-- END Widget Header -->
-
-                                                        <!-- Widget Main -->
-                                                        <div class="widget-main">
-                                                            <div class="row text-center">
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>10</strong><br>
-                                                                        <small>BUY</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>80</strong><br>
-                                                                        <small>HOLD</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3>
-                                                                        <strong>60</strong><br>
-                                                                        <small>SELL</small>
-                                                                    </h3>
-                                                                </div>
-                                                                <div class="col-xs-6 col-lg-3">
-                                                                    <h3 class="text-success">
-                                                                        <strong>5</strong><br>
-                                                                        <small>TOTAL</small>
-                                                                    </h3>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- END Widget Main -->
-                                                    </div>
-                                                </div>
-                                                <!-- END Advanced Active Theme Color Widget Alternative -->
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <!-- Advanced Active Theme Color Widget Alternative -->
+                                <div class="widget">
+                                    <div class="widget-advanced widget-advanced-alt">
+                                        <!-- Widget Header -->
+                                        <div class="widget-header text-center">
+                                            <div>
+                                                {!! HTML::image('img/icon/Custom-Icon-Design-Mini-4-Award-1.ico', 'avatar', array('class' => 'widget-image img-circle')) !!}
+                                                <br>
+                                                <h4><small class="text-warning">The first place of hot picks</small></h4>
                                             </div>
                                         </div>
-                                        <!-- END Wrapper for slides -->
+                                        <div class="widget-header text-center" id="firstplace">
+                                            <h3 class="widget-content-light h2 site-heading">
+                                                <strong><a href="#">
+                                                    {{$top3Array[0]['Stock_Name']}}
+                                                </a></strong><br>
+                                                <i class="fa fa-money"></i> 
+                                                {{$top3Array[0]['lastPrice']['price']}}
+                                                <br>
+                                                <small>(
+                                                    @if($top3Array[0]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[0]['lastPrice']['priceDiff']}}
+                                                    )</small> <small>(
+                                                    @if($top3Array[0]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[0]['lastPrice']['percentDiff']}}
+                                                    %)</small>
+                                                </h3>
+                                            </div>
+                                            <!-- END Widget Header -->
+
+                                            <!-- Widget Main -->
+                                            <div class="widget-main">
+                                                <div class="row text-center">
+                                                    <div class="col-xs-6 col-lg-3">
+                                                        <h3>
+                                                            <strong>{{$top3Array[0]['recSummary']['BUY']}}</strong><br>
+                                                            <small>BUY</small>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-xs-6 col-lg-3">
+                                                        <h3>
+                                                            <strong>{{$top3Array[0]['recSummary']['HOLD']}}</strong><br>
+                                                            <small>HOLD</small>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-xs-6 col-lg-3">
+                                                        <h3>
+                                                            <strong>{{$top3Array[0]['recSummary']['SELL']}}</strong><br>
+                                                            <small>SELL</small>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-xs-6 col-lg-3">
+                                                        <h3 class="text-success">
+                                                            <strong>{{$top3Array[0]['recSummary']['total']}}</strong><br>
+                                                            <small>TOTAL</small>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Widget Main -->
+                                        </div>
                                     </div>
-                                    <!-- END Testimonials Carousel -->
+                                    <!-- END Advanced Active Theme Color Widget Alternative -->
                                 </div>
+                                <div class="item">
+                                    <!-- Advanced Active Theme Color Widget Alternative -->
+                                    <div class="widget">
+                                        <div class="widget-advanced widget-advanced-alt">
+                                            <!-- Widget Header -->
+                                            <div class="widget-header text-center">
+                                                <div>
+                                                    {!! HTML::image('img/icon/Custom-Icon-Design-Mini-4-Award-2.ico', 'avatar', array('class' => 'widget-image img-circle')) !!}
+                                                    <br>
+                                                    <h4><small class="text-warning">The second place of hot picks</small></h4>
+                                                </div>
+                                            </div>
+                                            <div class="widget-header text-center" id="secondplace">
+                                                <h3 class="widget-content-light h2 site-heading">
+                                                    <strong><a href="#">
+                                                        {{$top3Array[1]['Stock_Name']}}
+                                                    </a></strong><br>
+                                                    <i class="fa fa-money"></i> 
+                                                    {{$top3Array[1]['lastPrice']['price']}}
+                                                    <br>
+                                                    <small>(
+                                                        @if($top3Array[1]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                        {{$top3Array[1]['lastPrice']['priceDiff']}}
+                                                        )</small> <small>(
+                                                        @if($top3Array[1]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                        {{$top3Array[1]['lastPrice']['percentDiff']}}
+                                                        %)</small>
+                                                    </h3>
+                                                </div>
+                                                <!-- END Widget Header -->
+
+                                                <!-- Widget Main -->
+                                                <div class="widget-main">
+                                                    <div class="row text-center">
+                                                        <div class="col-xs-6 col-lg-3">
+                                                            <h3>
+                                                                <strong>{{$top3Array[1]['recSummary']['BUY']}}</strong><br>
+                                                                <small>BUY</small>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="col-xs-6 col-lg-3">
+                                                            <h3>
+                                                                <strong>{{$top3Array[1]['recSummary']['HOLD']}}</strong><br>
+                                                                <small>HOLD</small>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="col-xs-6 col-lg-3">
+                                                            <h3>
+                                                                <strong>{{$top3Array[1]['recSummary']['SELL']}}</strong><br>
+                                                                <small>SELL</small>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="col-xs-6 col-lg-3">
+                                                            <h3 class="text-success">
+                                                                <strong>{{$top3Array[1]['recSummary']['total']}}</strong><br>
+                                                                <small>TOTAL</small>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END Widget Main -->
+                                            </div>
+                                        </div>
+                                        <!-- END Advanced Active Theme Color Widget Alternative -->
+                                    </div>
+                                    <div class="item">
+                                        <!-- Advanced Active Theme Color Widget Alternative -->
+                                        <div class="widget">
+                                            <div class="widget-advanced widget-advanced-alt">
+                                                <!-- Widget Header -->
+                                                <div class="widget-header text-center">
+                                                    <div>
+                                                        {{-- <img src="img/icon/Custom-Icon-Design-Mini-4-Award-3.ico" alt="avatar" class="widget-image img-circle"> --}}
+                                                        {!! HTML::image('img/icon/Custom-Icon-Design-Mini-4-Award-3.ico', 'avatar', array('class' => 'widget-image img-circle')) !!}
+                                                        <br>
+                                                        <h4><small class="text-warning">The third place of hot picks</small></h4>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-header text-center" id="thirdplace">
+                                                    <h3 class="widget-content-light h2 site-heading">
+                                                        <strong><a href="#">
+                                                            {{$top3Array[2]['Stock_Name']}}
+                                                        </a></strong><br>
+                                                        <i class="fa fa-money"></i> 
+                                                        {{$top3Array[1]['lastPrice']['price']}}
+                                                        <br>
+                                                        <small>(
+                                                            @if($top3Array[2]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                            {{$top3Array[2]['lastPrice']['priceDiff']}}
+                                                            )</small> <small>(
+                                                            @if($top3Array[2]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                            {{$top3Array[2]['lastPrice']['percentDiff']}}
+                                                            %)</small>
+                                                        </h3>
+                                                    </div>
+                                                    <!-- END Widget Header -->
+
+                                                    <!-- Widget Main -->
+                                                    <div class="widget-main">
+                                                        <div class="row text-center">
+                                                            <div class="col-xs-6 col-lg-3">
+                                                                <h3>
+                                                                    <strong>{{$top3Array[2]['recSummary']['BUY']}}</strong><br>
+                                                                    <small>BUY</small>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="col-xs-6 col-lg-3">
+                                                                <h3>
+                                                                    <strong>{{$top3Array[2]['recSummary']['HOLD']}}</strong><br>
+                                                                    <small>HOLD</small>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="col-xs-6 col-lg-3">
+                                                                <h3>
+                                                                    <strong>{{$top3Array[2]['recSummary']['SELL']}}</strong><br>
+                                                                    <small>SELL</small>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="col-xs-6 col-lg-3">
+                                                                <h3 class="text-success">
+                                                                    <strong>{{$top3Array[2]['recSummary']['total']}}</strong><br>
+                                                                    <small>TOTAL</small>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END Widget Main -->
+                                                </div>
+                                            </div>
+                                            <!-- END Advanced Active Theme Color Widget Alternative -->
+                                        </div>
+                                    </div>
+                                    <!-- END Wrapper for slides -->
+                                </div>
+                                <!-- END Testimonials Carousel -->
                             </div>
                         </div>
-                    </section>
-                    <!-- END Promo #1 -->
-                    @stop
+                    </div>
+                </section>
+                <!-- END Promo #2 -->
+
+
+                @stop

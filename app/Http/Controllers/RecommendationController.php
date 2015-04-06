@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Recommendation;
 use App\Research;
 use App\Stock;
+use App\Price;
+use DateTime;
 
 
 use Illuminate\Http\Request;
@@ -21,16 +23,52 @@ class RecommendationController extends Controller {
 		//
 		$lastDate=Research::getMaxDate();
 		$query = Recommendation::getRecFromDate(date_format($lastDate,'Y-m-d'))->get();
-		$allRec = array();
+		// dd($query);
+		$sumRec = array();
 		foreach($query as $row){
-			$allRec[$row->Stock_Name] = array($row->Recommendation=>$row->count);
-			if(!isset($allRec[$row->Stock_Name]["Price"])){
-				$row->stock()->first()->getLastPrice();
+			if(!isset($sumRec[$row->Stock_Name])){
+				$sumRec[$row->Stock_Name] = array($row->Recommendation=>$row->count);
+				$sumRec[$row->Stock_Name]['total']=$row->count;
+
+			} else {
+				$sumRec[$row->Stock_Name][$row->Recommendation] = $row->count;
+				$sumRec[$row->Stock_Name]['total'] = $sumRec[$row->Stock_Name]['total']+$row->count;
+				// var_dump($sumRec[$row->Stock_Name]);
+				// echo $row->Stock_Name;
 				
 			}
-			// dd(Stock::find(1)->prices);
+			if(!isset($sumRec[$row->Stock_Name]["Price"])){
+				$sumRec[$row->Stock_Name]["Price"] = $row->stock()->first()->getLastPrice();
+				//return price Array with $priceArray['percentDiff'],['price'],['priceDiff']
+			}
+		}
+		// dd($sumRec);
+		$query = Recommendation::getTodayRec();
+		$todayRec = array();
+		foreach($query as $row){
+			$tempArray = $row->toArray();
+			$dateObj = new DateTime($row->Date);
+			$dateString = $dateObj->format('d/m/Y');
+			$tempArray['Date'] = $dateString;
+			$priceList = $row->stock()->first()->prices();
+			// $rowDate = new DateTime($row->Date);
+			$rowDate = new DateTime('2015-04-05');
+			$dateString = $rowDate->format('Y-m-d');
+			$price = $priceList->whereRaw("DATE(price.Date)='$dateString'")->first();
+			if($price==null){
+				//no price available, get the latest price
+				// echo "YO";
+				$price=$row->stock()->first()->prices()->orderBy('price.Date','DESC')->first();
+			}
+			// dd($price);
+			$tempArray['price'] = array('Closing_Price'=>$price->Closing_Price,'Date'=>$price->Date);
+			$todayRec[] = $tempArray;
 
 		}
+		$lastIndex=Price::getLastSetIndex();
+		$top3Array=Stock::getTopPick3();
+		// dd($todayRec);
+		return view('stock')->with(array('sumRec'=>$sumRec,'todayRec'=>$todayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
 	}
 
 	/**

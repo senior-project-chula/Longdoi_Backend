@@ -98,20 +98,35 @@
 
     <!-- Promo #2 -->
     <section class="site-content site-section site-slide-content">
+        @if($lastIndex['ValueChange']>=0)
+            <?php $color='text-success'; ?>
+        @else
+            <?php $color='text-danger'; ?>
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-md-5 hidden-sm site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight hidden-xs" data-element-offset="-180">
-                    <h1 class="col-xs-6 col-md-6 font-big" ><strong>SET</strong></h1><h1 class="col-xs-6 col-md-6 text-right text-danger font-big" >1495.22</h1>
-                    <p class="promo-content text-right text-danger">(-1.19)<br>(-0.02%)</p>
+                    <h1 class="col-xs-6 col-md-6 font-big" ><strong>SET</strong></h1><h1 class="col-xs-6 col-md-6 text-right 
+                    {{$color}}
+                     font-big" >
+                    {{$lastIndex['Index']}}
+                    </h1>
+                    <p class="promo-content text-right {{$color}}">(
+                        @if($lastIndex['ValueChange']>0){{"+"}}@endif
+                        {{$lastIndex['ValueChange']}}
+                        )<br>(
+                        @if($lastIndex['PercentChange']>0){{"+"}}@endif
+                        {{$lastIndex['PercentChange']}}
+                        %)</p>
                     <h3 class="col-xs-6 col-md-6">
                         <strong>Last Updated</strong><br><br>
-                        <strong>Volume(K)</strong><br><br>
-                        <strong>Value(M)</strong>
+                        {{-- <strong>Volume(K)</strong><br><br>
+                        <strong>Value(M)</strong> --}}
                     </h3>
                     <h3 class="text-right">
-                        <text class="text-muted">Closed</text><br><br>
-                        7,941,280<br><br>
-                        33,356.34
+                        <text class="text-muted">{{$lastIndex['Date']}}</text><br><br>
+                        {{-- 7,941,280<br><br>
+                        33,356.34 --}}
                     </h3>
                     <hr class="hidden-sm hidden-md hidden-lg">
                 </div>
@@ -135,16 +150,26 @@
                                         <!-- Widget Header -->
                                         <div class="widget-header text-center">
                                             <div>
-                                                {!! HTML::image('img/icon/Custom-Icon-Design-Mini-4-Award-2.ico', 'avatar', array('class' => 'widget-image img-circle')) !!}
+                                                {!! HTML::image('img/icon/Custom-Icon-Design-Mini-4-Award-1.ico', 'avatar', array('class' => 'widget-image img-circle')) !!}
                                                 <br>
                                                 <h4><small class="text-warning">The first place of hot picks</small></h4>
                                             </div>
                                         </div>
                                         <div class="widget-header text-center" id="firstplace">
                                             <h3 class="widget-content-light h2 site-heading">
-                                                <strong><a href="stockResult.html">SIRI</a></strong><br>
-                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                <small>(+0.35)</small> <small>(+2.00%)</small>
+                                                <strong><a href="#">
+                                                    {{$top3Array[0]['Stock_Name']}}
+                                                </a></strong><br>
+                                                <i class="fa fa-money"></i> 
+                                                {{$top3Array[0]['lastPrice']['price']}}
+                                                 <br>
+                                                <small>(
+                                                    @if($top3Array[0]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[0]['lastPrice']['priceDiff']}}
+                                                    )</small> <small>(
+                                                    @if($top3Array[0]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[0]['lastPrice']['percentDiff']}}
+                                                    %)</small>
                                             </h3>
                                         </div>
                                         <!-- END Widget Header -->
@@ -154,25 +179,25 @@
                                             <div class="row text-center">
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>10</strong><br>
+                                                        <strong>{{$top3Array[0]['recSummary']['BUY']}}</strong><br>
                                                         <small>BUY</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>80</strong><br>
+                                                        <strong>{{$top3Array[0]['recSummary']['HOLD']}}</strong><br>
                                                         <small>HOLD</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>60</strong><br>
+                                                        <strong>{{$top3Array[0]['recSummary']['SELL']}}</strong><br>
                                                         <small>SELL</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3 class="text-success">
-                                                        <strong>150</strong><br>
+                                                        <strong>{{$top3Array[0]['recSummary']['total']}}</strong><br>
                                                         <small>TOTAL</small>
                                                     </h3>
                                                 </div>
@@ -197,9 +222,19 @@
                                         </div>
                                         <div class="widget-header text-center" id="secondplace">
                                             <h3 class="widget-content-light h2 site-heading">
-                                                <strong><a href="page_ready_user_profile.html">KBANK</a></strong><br>
-                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                <small>(+0.21)</small> <small>(+2.00%)</small>
+                                                <strong><a href="#">
+                                                    {{$top3Array[1]['Stock_Name']}}
+                                                </a></strong><br>
+                                                <i class="fa fa-money"></i> 
+                                                {{$top3Array[1]['lastPrice']['price']}}
+                                                 <br>
+                                                <small>(
+                                                    @if($top3Array[1]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[1]['lastPrice']['priceDiff']}}
+                                                    )</small> <small>(
+                                                    @if($top3Array[1]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[1]['lastPrice']['percentDiff']}}
+                                                    %)</small>
                                             </h3>
                                         </div>
                                         <!-- END Widget Header -->
@@ -209,25 +244,25 @@
                                             <div class="row text-center">
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>10</strong><br>
+                                                        <strong>{{$top3Array[1]['recSummary']['BUY']}}</strong><br>
                                                         <small>BUY</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>80</strong><br>
+                                                        <strong>{{$top3Array[1]['recSummary']['HOLD']}}</strong><br>
                                                         <small>HOLD</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>60</strong><br>
+                                                        <strong>{{$top3Array[1]['recSummary']['SELL']}}</strong><br>
                                                         <small>SELL</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3 class="text-success">
-                                                        <strong>20</strong><br>
+                                                        <strong>{{$top3Array[1]['recSummary']['total']}}</strong><br>
                                                         <small>TOTAL</small>
                                                     </h3>
                                                 </div>
@@ -253,9 +288,19 @@
                                         </div>
                                         <div class="widget-header text-center" id="thirdplace">
                                             <h3 class="widget-content-light h2 site-heading">
-                                                <strong><a href="page_ready_user_profile.html">BTS</a></strong><br>
-                                                <i class="fa fa-money"></i> 1.81 <br>
-                                                <small>(+0.20)</small> <small>(+2.00%)</small>
+                                                <strong><a href="#">
+                                                    {{$top3Array[2]['Stock_Name']}}
+                                                </a></strong><br>
+                                                <i class="fa fa-money"></i> 
+                                                {{$top3Array[1]['lastPrice']['price']}}
+                                                 <br>
+                                                <small>(
+                                                    @if($top3Array[2]['lastPrice']['priceDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[2]['lastPrice']['priceDiff']}}
+                                                    )</small> <small>(
+                                                    @if($top3Array[2]['lastPrice']['percentDiff']>0){{"+"}}@endif
+                                                    {{$top3Array[2]['lastPrice']['percentDiff']}}
+                                                    %)</small>
                                             </h3>
                                         </div>
                                         <!-- END Widget Header -->
@@ -265,25 +310,25 @@
                                             <div class="row text-center">
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>10</strong><br>
+                                                        <strong>{{$top3Array[2]['recSummary']['BUY']}}</strong><br>
                                                         <small>BUY</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>80</strong><br>
+                                                        <strong>{{$top3Array[2]['recSummary']['HOLD']}}</strong><br>
                                                         <small>HOLD</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3>
-                                                        <strong>60</strong><br>
+                                                        <strong>{{$top3Array[2]['recSummary']['SELL']}}</strong><br>
                                                         <small>SELL</small>
                                                     </h3>
                                                 </div>
                                                 <div class="col-xs-6 col-lg-3">
                                                     <h3 class="text-success">
-                                                        <strong>5</strong><br>
+                                                        <strong>{{$top3Array[2]['recSummary']['total']}}</strong><br>
                                                         <small>TOTAL</small>
                                                     </h3>
                                                 </div>

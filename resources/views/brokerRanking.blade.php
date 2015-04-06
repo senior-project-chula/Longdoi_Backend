@@ -49,21 +49,22 @@
                         <!-- Block Tabs Title -->
                         <div class="block-title">
                             <div class="block-options pull-right half-box">
-                                <form action="" method="post" class="form-horizontal form-bordered" style=" margin-top: 0px; margin-bottom: 0px; ">
+{{--                                 <form action="" method="post" class="form-horizontal form-bordered" style=" margin-top: 0px; margin-bottom: 0px; "> --}}
+                                    {!! Form::open(array('class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px;')) !!}
                                     <fieldset>
                                         <div class="form-group" style=" padding-top: 0px; padding-bottom: 0px; ">
-                                            <label class="col-sm-8 control-label" style="color:black">SORT BY:</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control">
-                                                    <option value="overall">Overall</option>
-                                                    <option value="agro">AGRO</option>
-                                                    <option value="consump">CONSUMP</option>
-                                                    <option value="fincial">FINCIAL</option>
-                                                    <option value="indus">INDUS</option>
-                                                    <option value="propcon">PROPCON</option>
-                                                    <option value="resourc">RESOURC</option>
-                                                    <option value="service">SERVICE</option>
-                                                    <option value="tech">TECH</option>
+                                            <label class="col-md-8 control-label" style="color:black">SORT BY:</label>
+                                            <div class="col-md-4">
+                                                <select class="form-control" onchange="this.form.submit()" name="sortBy">
+                                                    <option @if($selected=="Overall") {{"selected"}} @endif value="Overall">Overall</option>
+                                                    <option @if($selected=="AGRO") {{"selected"}} @endif value="AGRO">AGRO</option>
+                                                    <option @if($selected=="CONSUMP") {{"selected"}} @endif value="CONSUMP">CONSUMP</option>
+                                                    <option @if($selected=="FINCIAL") {{"selected"}} @endif value="FINCIAL">FINCIAL</option>
+                                                    <option @if($selected=="INDUS") {{"selected"}} @endif value="INDUS">INDUS</option>
+                                                    <option @if($selected=="PROPCON") {{"selected"}} @endif value="PROPCON">PROPCON</option>
+                                                    <option @if($selected=="RESOURC") {{"selected"}} @endif value="RESOURC">RESOURC</option>
+                                                    <option @if($selected=="SERVICE") {{"selected"}} @endif value="SERVICE">SERVICE</option>
+                                                    <option @if($selected=="TECH") {{"selected"}} @endif value="TECH">TECH</option>
                                                 </select>
                                             </div>
                                         </div>
