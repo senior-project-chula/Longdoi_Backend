@@ -1,10 +1,19 @@
     @extends('main')
 
+    @section('js-backend')
+    {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+    {!! HTML::script('js2/plugins.js') !!}
+    {!! HTML::script('js2/app.js') !!}
+
+    {!! HTML::script('js2/pages/compCharts.js') !!}
+    <script>$(function(){ CompCharts.init(); });</script>
+    @stop
+
     @section('content')
     <!-- Intro -->
     <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/business_analysis_iStock_000003923536XSmall.jpg');">
         <div class="container">
-            <h1 class="text-center animation-slideDown"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
+            <h1 class="text-center animation-slideDown hidden-xs"><strong>Which stock is the hot picks now?</strong> Find out!</h1>
             <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
             <div class="site-block text-center">
                 <form action="stockResult.html" method="post" class="form-horizontal" >
@@ -12,7 +21,8 @@
                         <div class="col-md-6 col-md-offset-3">
                             <label class="sr-only" for="register-email">a stock..</label>
                             <div class="input-group input-group-lg">
-                                <input type="text" id="input_stock" name="input_stock" class="form-control" placeholder="a stock..">
+                                
+                                <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                                 </div>
@@ -25,7 +35,7 @@
             <div class="block full">
                 <!-- Working Tabs Title -->
                 <div class="block-title">
-                    
+
                 </div>
                 <!-- END Working Tabs Title -->
 
@@ -65,27 +75,12 @@
                                     <!-- Responsive Full Block -->
                                     <!-- Search Styles Block -->
                                     <div class="block white-bg black">
-                                      
+
 
                                         <!-- Search Styles Content -->
                                         <div class="tab-content">
                                             <!-- Projects Search -->
                                             <div class="tab-pane active" id="search-tab-projects">
-
-                                                <!-- Projects Results -->
-                                                <table class="table table-striped table-vcenter">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
-                                                            
-                                                            <th class="text-center" style="width: 15%;">PRICE</th>
-                                                            <th class="text-center" style="width: 10%;">BUY</th>
-                                                            <th class="text-center" style="width: 10%;">HOLD</th>
-                                                            <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
-                                                            <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
 
                                                         @foreach($sumRec as $stockName=>$recData)
                                                         <tr>

@@ -32,6 +32,8 @@ Route::get('/brokerRanking','Stockranking@index');
 Route::post('brokerRanking', 'Stockranking@search');
 Route::get('/recommendations','RecommendationController@index');
 Route::get('/analysis','Analysis@index');
+Route::post('/analysis','Analysis@search');
+
 Route::get('/team','IndexController@team');
 Route::get('/stockResult','IndexController@stockResult');
 

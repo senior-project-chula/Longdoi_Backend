@@ -1,11 +1,35 @@
 @extends('main')
 
+
+@section('button-to-top')
+    <a href="#" id="to-top"><i class="fa fa-angle-up"></i></a>
+@stop
+
+@section('css-backend')
+    <style type="text/css">
+        td a{
+            text-decoration: none;
+            color: black;
+        }
+        td a:hover{
+            text-decoration: none;
+            cursor: default;
+        }
+    </style>
+@stop
+
+@section('js-backend')
+         {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
+        {!! HTML::script('js2/plugins.js') !!}
+        {!! HTML::script('js2/app.js') !!}
+@stop
+
 @section('content')
 
 <!-- Intro -->
 <section class="site-section site-section-light site-section-top parallax-image" style="background-image: url('img/Research.gif');">
     <div class="container">
-        <h1 class="text-center animation-slideDown"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
+        <h1 class="text-center animation-slideDown hidden-xs"><strong>Let's get down the DOI, go LongDOI.</strong></h1>
         <h2 class="text-center animation-slideUp push hidden-xs">Success is how high you bounce when you hit bottom. -George S. Patton</h2>
 
         <!-- Working Tabs Block -->
@@ -69,64 +93,40 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th>Broker</th>
-                                                    <th>AGRO</th>
-                                                    <th>CONSUMP</th>
-                                                    <th>FINCIAL</th>
-                                                    <th>INDUS</th>
-                                                    <th>PROPCON</th>
-                                                    <th>RESOURC</th>
-                                                    <th>SERVICE</th>
-                                                    <th>TECH</th>
-                                                    <th>Overall</th>
-                                                    <th style="width: 150px;" class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             {{-- {!!dd($all)!!} --}}
-                                            <style type="text/css">
-                                                span.text-content span {
-                                                  display: table-cell;
-                                                  text-align: center;
-                                                  vertical-align: middle;
-                                                }
-                                                span.text-content {
-                                                  background: rgba(0,0,0,0.5);
-                                                  color: white;
-                                                  cursor: pointer;
-                                                  display: table;
-                                                  height: 150px;
-                                                  left: 0;
-                                                  position: absolute;
-                                                  top: 0;
-                                                  width: 150px;
-                                                  opacity: 0;
-                                                }
-                                                 
-                                                td:hover span.text-content {
-                                                  opacity: 1;
-                                                }
-                                            </style>
-                                            {!! $i=0 !!}
+                                            <?php $i=0; ?>
                                             @foreach($one as $brokerName=>$data)
-
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
+                                                    <td>{{$brokerName}}</td>
                                                     <td class="text-center">{{$data['AGRO']['percent']}}%
-                                                    <span class="text-content">test</span></td>
-                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
-                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    </td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['PROPCON']['acc']}}, Total: {{$data['PROPCON']['total']}}">{{$data['PROPCON']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['RESOURC']['acc']}}, Total: {{$data['RESOURC']['total']}}">{{$data['RESOURC']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['SERVICE']['acc']}}, Total: {{$data['SERVICE']['total']}}">{{$data['SERVICE']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['TECH']['acc']}}, Total: {{$data['TECH']['total']}}">{{$data['TECH']['percent']}}%</a></td>
+                                                    <td class="text-center text-success"><a  data-toggle="tooltip" title="Correct: {{$data['Overall']['acc']}}, Total: {{$data['Overall']['total']}}">{{$data['Overall']['percent']}}%</a></td>
                                                     <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
                                             @endforeach
@@ -148,21 +148,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th>Broker</th>
-                                                    <th>ARGO</th>
-                                                    <th>COMSUMP</th>
-                                                    <th>FINCIAL</th>
-                                                    <th>INDUS</th>
-                                                    <th>PROPCON</th>
-                                                    <th>RESOURC</th>
-                                                    <th>SERVICE</th>
-                                                    <th>TECH</th>
-                                                    <th>Overall</th>
-                                                    <th style="width: 150px;" class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -170,16 +170,17 @@
                                                 @foreach($three as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
-                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
-                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td>{{$brokerName}}</td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
+                                                    </a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['PROPCON']['acc']}}, Total: {{$data['PROPCON']['total']}}">{{$data['PROPCON']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['RESOURC']['acc']}}, Total: {{$data['RESOURC']['total']}}">{{$data['RESOURC']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['SERVICE']['acc']}}, Total: {{$data['SERVICE']['total']}}">{{$data['SERVICE']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['TECH']['acc']}}, Total: {{$data['TECH']['total']}}">{{$data['TECH']['percent']}}%</a></td>
+                                                    <td class="text-center text-success"><a  data-toggle="tooltip" title="Correct: {{$data['Overall']['acc']}}, Total: {{$data['Overall']['total']}}">{{$data['Overall']['percent']}}%</a></td>
                                                     <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
                                                 @endforeach
@@ -201,21 +202,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
-                                                    <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th>Broker</th>
-                                                    <th>ARGO</th>
-                                                    <th>COMSUMP</th>
-                                                    <th>FINCIAL</th>
-                                                    <th>INDUS</th>
-                                                    <th>PROPCON</th>
-                                                    <th>RESOURC</th>
-                                                    <th>SERVICE</th>
-                                                    <th>TECH</th>
-                                                    <th>Overall</th>
-                                                    <th style="width: 150px;" class="text-center">No. of Reports</th>
+                                                   <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -223,16 +224,17 @@
                                                 @foreach($six as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
-                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
-                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td>{{$brokerName}}</td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
+                                                    </a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['PROPCON']['acc']}}, Total: {{$data['PROPCON']['total']}}">{{$data['PROPCON']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['RESOURC']['acc']}}, Total: {{$data['RESOURC']['total']}}">{{$data['RESOURC']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['SERVICE']['acc']}}, Total: {{$data['SERVICE']['total']}}">{{$data['SERVICE']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['TECH']['acc']}}, Total: {{$data['TECH']['total']}}">{{$data['TECH']['percent']}}%</a></td>
+                                                    <td class="text-center text-success"><a  data-toggle="tooltip" title="Correct: {{$data['Overall']['acc']}}, Total: {{$data['Overall']['total']}}">{{$data['Overall']['percent']}}%</a></td>
                                                     <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
                                             @endforeach
@@ -255,21 +257,21 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped">
+                                        <table class="table table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
-                                                    <th>Broker</th>
-                                                    <th>ARGO</th>
-                                                    <th>COMSUMP</th>
-                                                    <th>FINCIAL</th>
-                                                    <th>INDUS</th>
-                                                    <th>PROPCON</th>
-                                                    <th>RESOURC</th>
-                                                    <th>SERVICE</th>
-                                                    <th>TECH</th>
-                                                    <th>Overall</th>
-                                                    <th style="width: 150px;" class="text-center">No. of Reports</th>
+                                                    <th width="7%"><span>Broker</span></th>
+                                                    <th width="7%"><span>AGRO</span></th>
+                                                    <th width="7%"><span>CONSUMP</span></th>
+                                                    <th width="7%"><span>FINCIAL</span></th>
+                                                    <th width="7%"><span>INDUS</span></th>
+                                                    <th width="7%"><span>PROPCON</span></th>
+                                                    <th width="7%"><span>RESOURC</span></th>
+                                                    <th width="7%"><span>SERVICE</span></th>
+                                                    <th width="7%"><span>TECH</span></th>
+                                                    <th width="7%"><span>Overall</span></th>
+                                                    <th class="text-center"><span>No. of Researches</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -277,16 +279,17 @@
                                                 @foreach($all as $brokerName=>$data)
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
-                                                    <td><a href="#">{{$brokerName}}</a></td>
-                                                    <td class="text-center">{{$data['AGRO']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['CONSUMP']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['FINCIAL']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['INDUS']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['PROPCON']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['RESOURC']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['SERVICE']['percent']}}%</td>
-                                                    <td class="text-center">{{$data['TECH']['percent']}}%</td>
-                                                    <td class="text-center text-success">{{$data['Overall']['percent']}}%</td>
+                                                    <td>{{$brokerName}}</td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
+                                                    </a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['FINCIAL']['acc']}}, Total: {{$data['FINCIAL']['total']}}">{{$data['FINCIAL']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['INDUS']['acc']}}, Total: {{$data['INDUS']['total']}}">{{$data['INDUS']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['PROPCON']['acc']}}, Total: {{$data['PROPCON']['total']}}">{{$data['PROPCON']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['RESOURC']['acc']}}, Total: {{$data['RESOURC']['total']}}">{{$data['RESOURC']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['SERVICE']['acc']}}, Total: {{$data['SERVICE']['total']}}">{{$data['SERVICE']['percent']}}%</a></td>
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['TECH']['acc']}}, Total: {{$data['TECH']['total']}}">{{$data['TECH']['percent']}}%</a></td>
+                                                    <td class="text-center text-success"><a  data-toggle="tooltip" title="Correct: {{$data['Overall']['acc']}}, Total: {{$data['Overall']['total']}}">{{$data['Overall']['percent']}}%</a></td>
                                                     <td class="text-center">{{$data['Overall']['total']}}</td>
                                                 </tr>
                                             @endforeach

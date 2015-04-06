@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Input;
 use App\Broker;
-use App\Recommendation;
+use App\Research;
 class Analysis extends Controller {
 
 	/**
@@ -24,22 +24,22 @@ class Analysis extends Controller {
 			->take(1)->get();
 			if(sizeof($broker)>0){
 				$broker_id=$broker[0]->Broker_ID;
-				$recommendations=Recommendation::getRecFrom($broker_id);
+				$recommendations=Research::getResearchFrom($broker_id);
 				echo "search<br>";
-				return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
+				return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations)->with('isOneBroker',1)->with('broker_id',$broker_id);
 			}else{ 
-				$recommendations=Recommendation::getTodayRec();
-				return view('analysis')->with('input_analysis',$input_analysis." not found.")->with('recommendations',$recommendations);
+				$recommendations=Research::getTodayResearch();
+				return view('analysis')->with('input_analysis',$input_analysis." not found.")->with('recommendations',$recommendations)->with('isOneBroker',0);
 			}
 		}
 		else{
-			$recommendations=Recommendation::getTodayRec();
+			$recommendations=Research::getTodayResearch();
              // dd($recommendations);
-			return view('analysis')->with('recommendations',$recommendations);
+			return view('analysis')->with('recommendations',$recommendations)->with('isOneBroker',0);
 		}
 		// in view:::
 		// foreach ($recommendations as $recommendation => $value) {}
-		// useable attribute: Description, Recommendation, Date, Link, Brker_Name, Stock_Name, Price
+		// useable attribute: Date, PDF_Name, Link, Broker_Name
 	}
 
 	/**
@@ -93,20 +93,6 @@ class Analysis extends Controller {
 	public function update($id)
 	{
 		//
-		if(Input::has('input_analysis')){
-			$input_analysis = Input::post('input_analysis');
-			$broker=Broker::where('Broker_Name','LIKE',"%$input_analysis%")
-			->take(1)->get();
-			$broker_id=$broker[0]->Broker_ID;
-			$recommendations=Recommendation::getRecFrom($broker_id);
-			echo "search<br>";
-			return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations);
-		}
-		else{
-			$recommendations=Recommendation::getTodayRec();
-             // dd($recommendations);
-			return view('analysis')->with('recommendations',$recommendations);
-		}
 	}
 
 	/**
@@ -118,6 +104,38 @@ class Analysis extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function search(Request $request)
+	{
+		if($request->has('input_analysis')){
+			$input_analysis = $request->input('input_analysis');
+			$input_analysis=strtoupper($input_analysis);
+			$broker=Broker::where('Broker_Name','LIKE',"%$input_analysis%")
+			->take(1)->get();
+			if(sizeof($broker)>0){
+				$broker_id=$broker[0]->Broker_ID;
+				$recommendations=Research::getResearchFrom($broker_id);
+				return view('analysis')->with('input_analysis',$input_analysis)->with('recommendations',$recommendations)->with('isOneBroker',1)->with('broker_id',$broker_id);
+			}else{ 
+				$recommendations=Research::getTodayResearch();
+				return view('analysis')->with('input_analysis',$input_analysis." not found.")->with('recommendations',$recommendations)->with('isOneBroker',0);
+			}
+		}
+		if($request->has('example-datepicker2')){
+
+			$date = $request->input('example-datepicker2');
+			if($request->input('isOneBroker')==1){
+				$broker_id=$request->input('broker_id');
+				$recommendations=Research::getResearchFromSpecDate($broker_id,$date);
+				return view('analysis')->with('input_analysis',Broker::find($broker_id)->Broker_Name." ".$date)->with('recommendations',$recommendations)->with('isOneBroker',1)->with('broker_id',$broker_id);
+			}else{
+				$recommendations=Research::getResearchSpecDate($date);
+				return view('analysis')->with('input_analysis',$date)->with('recommendations',$recommendations)->with('isOneBroker',0);
+			}
+		}
+		$recommendations=Research::getTodayResearch();
+		return view('analysis')->with('recommendations',$recommendations)->with('isOneBroker',0);
 	}
 
 }
