@@ -117,4 +117,16 @@ class Recommendation extends Model {
 		
 		return $recommendations;
 	}
+	public static function getRecOfSpecDate($stock_id,$date){
+
+		return Recommendation::select('Stock_ID','recommendation')
+		->where('Stock_ID','=',$stock_id)
+		->whereHas('research',function($query2) use ($date)
+			{
+				// $today = new DateTime($date);
+				// $ending_today=new DateTime($d->format('Y-m-d'));
+				// $ending_today->modify('+23 hours +59 minutes +59 seconds');	
+				$query2->whereRaw("DATE(Date)=DATE('$date')");
+			})->get();
+	}
 }

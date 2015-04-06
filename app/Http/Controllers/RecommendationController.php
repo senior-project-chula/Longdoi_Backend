@@ -24,6 +24,22 @@ class RecommendationController extends Controller {
 		$lastDate=Research::getMaxDate();
 		$query = Recommendation::getRecFromDate(date_format($lastDate,'Y-m-d'))->get();
 		// dd($query);
+		$sumRec = $this->getSummaryRecArray($query);
+		$query = Recommendation::getTodayRec();
+		
+		$todayRec = $this->getTodayRecArray($query);
+		$lastIndex=Price::getLastSetIndex();
+		$top3Array=Stock::getTopPick3();
+		// dd($todayRec);
+		return view('stock')->with(array('sumRec'=>$sumRec,'todayRec'=>$todayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function getSummaryRecArray($query){
 		$sumRec = array();
 		foreach($query as $row){
 			if(!isset($sumRec[$row->Stock_Name])){
@@ -42,8 +58,10 @@ class RecommendationController extends Controller {
 				//return price Array with $priceArray['percentDiff'],['price'],['priceDiff']
 			}
 		}
-		// dd($sumRec);
-		$query = Recommendation::getTodayRec();
+		return $sumRec;
+	}
+
+	public function getTodayRecArray($query){
 		$todayRec = array();
 		foreach($query as $row){
 			$tempArray = $row->toArray();
@@ -65,17 +83,9 @@ class RecommendationController extends Controller {
 			$todayRec[] = $tempArray;
 
 		}
-		$lastIndex=Price::getLastSetIndex();
-		$top3Array=Stock::getTopPick3();
-		// dd($todayRec);
-		return view('stock')->with(array('sumRec'=>$sumRec,'todayRec'=>$todayRec,'lastIndex'=>$lastIndex,'top3Array'=>$top3Array));
+		return $todayRec;
 	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+	
 	public function create()
 	{
 		//

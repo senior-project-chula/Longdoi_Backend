@@ -61,8 +61,8 @@ class IndexController extends Controller {
 	{
 		return view('team');
 	}
-	public function stockResult()
+	public function stockResult($Stock_ID)
 	{
-		return view('stockResult');
+		return view('stockResult')->with('Stock_ID',$Stock_ID);
 	}
 }
