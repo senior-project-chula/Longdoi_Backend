@@ -55,7 +55,7 @@
                         <!-- Block Tabs Title -->
                         <div class="block-title" style="margin-bottom:20px">
                             <h1 class="text-center black" id="analysis-head" ><i class="gi gi-stats"></i> <strong>Daily Analysis</strong></h1>
-                            <div class="block-options pull-right" style="width:40%">
+                            <div class="block-options pull-right" style="width:50%">
                                 <!-- Time and Date Pickers Content -->
                                 
                                 {!! Form::open(array('action' => 'Analysis@search','method'=>'post','class'=>'form-horizontal form-bordered','style'=>'margin-top: 0px; margin-bottom: 0px; ')) !!}
@@ -113,7 +113,8 @@
                                                 {{$data->Broker_Name}}
                                             </td>
                                             <td >
-                                                <a href="{{$data->Link}}">{{$data->PDF_Name}}</a>
+                                                <a class="hidden-xs" href="{{$data->Link}}">{{$data->PDF_Name}}</a>
+                                                <a class="text-center visible-xs" href="{{$data->Link}}">Link</a>
                                             </td>
                                           
                                         </tr>

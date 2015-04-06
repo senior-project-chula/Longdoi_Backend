@@ -73,9 +73,12 @@
                             </div>
                             <ul class="nav nav-tabs" data-toggle="tabs">
                                 <li class="active"><a href="#example-tabs2-overall">Overall</a></li>
-                                <li><a href="#example-tabs2-6months">6 months</a></li>
-                                <li><a href="#example-tabs2-3months">3 months</a></li>
-                                <li><a href="#example-tabs2-1month">1 month</a></li> 
+                                <li class="hidden-xs"><a href="#example-tabs2-6months">6 months</a></li>
+                                <li class="visible-xs"><a href="#example-tabs2-6months" data-toggle="tooltip" title="6 months">6 m</a></li>
+                                <li class="hidden-xs"><a href="#example-tabs2-3months" >3 months</a></li>
+                                <li class="visible-xs"><a href="#example-tabs2-3months" data-toggle="tooltip" title="3 months">3 m</a></li>
+                                <li class="hidden-xs"><a href="#example-tabs2-1month" >1 months</a></li>
+                                <li class="visible-xs"><a href="#example-tabs2-1month" data-toggle="tooltip" title="1 month">1 m</a></li>
                             </ul>
                         </div>
                         <!-- END Block Tabs Title -->
@@ -92,8 +95,8 @@
                                         <p></p>
                                     </div>
                                     <!-- Responsive Full Content -->
-                                    <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped" >
+                                    <div class="table-responsive ">
+                                        <table class="table table-hover table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
@@ -149,7 +152,7 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped" >
+                                        <table class="table table-hover table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
@@ -203,7 +206,7 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped" >
+                                        <table class="table table-hover table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                    <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>
@@ -258,7 +261,7 @@
                                     </div>
                                     <!-- Responsive Full Content -->
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter table-striped" >
+                                        <table class="table table-hover table-vcenter table-striped" >
                                             <thead  class="text-center">
                                                 <tr>
                                                     <th style="width: 50px;" class="text-center"><i class="gi gi-crown"></i></th>

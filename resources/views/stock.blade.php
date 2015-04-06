@@ -87,14 +87,14 @@
                             </div>
                             <ul class="nav nav-tabs" data-toggle="tabs">
                                 <li class="active"><a href="#example-tabs2-summary">Summary</a></li>
-                                <li><a href="#example-tabs2-recommendations">Recommendations</a></li>
-
+                                <li class="hidden-xs"><a href="#example-tabs2-recommendations">Recommendations</a></li>
+                                <li class="visible-xs"><a href="#example-tabs2-recommendations" data-toggle="tooltip" title="Recommendations" ><i class="gi gi-conversation"></i></a></li>
                             </ul>
                         </div>
                         <!-- END Block Tabs Title -->
 
                         <!-- Tabs Content -->
-                        <div class="tab-content" style=" padding-left: 10px; padding-right: 10px; ">
+                        <div class="tab-content" style=" padding-left: 0px; padding-right: 0px; ">
                             <div class="tab-pane active" id="example-tabs2-summary">
                                 <!-- Responsive Full Block -->
                                 <!-- Search Styles Block -->
@@ -113,11 +113,11 @@
                                                     <tr>
                                                         <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
 
-                                                        <th class="text-center" style="width: 15%;">PRICE</th>
-                                                        <th class="text-center" style="width: 10%;">BUY</th>
-                                                        <th class="text-center" style="width: 10%;">HOLD</th>
-                                                        <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
-                                                        <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
+                                                        <th class="text-center hidden-xs" >PRICE</th>
+                                                        <th class="text-center" >BUY</th>
+                                                        <th class="text-center" >HOLD</th>
+                                                        <th class="text-center" >SELL</th>
+                                                        <th class="text-center hidden-xs" >TOTAL</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -127,7 +127,7 @@
                                                         <td>
                                                             <h3><a href="{{$app->make('url')->to('/stock/'.$stockName)}}"><strong>{{$stockName}}</strong></a></h3>
                                                         </td>
-                                                        <td class="text-center "
+                                                        <td class="text-center hidden-xs">
                                                         <h3 class="animation-pullDown">
                                                             {{$recData['Price']['price']}}
                                                             <br><small>(
@@ -206,10 +206,10 @@
                                                         <!-- Search Styles Content -->
                                                         <div class="tab-content">
                                                             <!-- Projects Search -->
-                                                            <div class="tab-pane active" id="search-tab-projects">
+                                                            <div class="tab-pane active table-responsive" id="search-tab-projects">
 
                                                                 <!-- Projects Results -->
-                                                                <table class="table-responsive table-condensed table-hover table-striped table-vcenter">
+                                                                <table class="table table-condensed table-hover table-striped table-vcenter">
                                                                     <thead>
                                                                         <tr>
                                                                             <th class="text-center hidden-xs" >DATE</th>
