@@ -9,9 +9,13 @@
          {!! HTML::script('js2/vendor/bootstrap.min.js') !!}
         {{-- {!! HTML::script('js2/plugins.js') !!} --}}
         {{-- {!! HTML::script('js2/app.js') !!} --}}
-
          {!! HTML::script('js2/pages/compCharts2.js') !!}
-        <script>$(function(){ CompCharts2.init(<?php echo $stock_id; ?>); });</script>
+         {{-- {!! HTML::script('js2/pages/compCharts.js') !!} --}}
+        
+        <script>$(function(){ 
+            // CompCharts.init();
+            CompCharts2.init(<?php echo $stock_id; ?>); 
+        });</script>
 @stop
 
 @section('content')
@@ -28,9 +32,9 @@
             <form action="stockResult.html" method="post" class="form-horizontal" >
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-3">
-                        <label class="sr-only" for="register-email">a stock..</label>
+                        
                         <div class="input-group input-group-lg">
-                            <input type="text" id="input_stock" name="input_stock" class="form-control" placeholder="a stock..">
+                            <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
                             </div>

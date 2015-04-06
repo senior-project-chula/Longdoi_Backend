@@ -19,7 +19,7 @@
         <div class="container">
             <h1 class="animation-slideDown hidden-xs font-big">Let's get down the DOI, go <strong style="color:#9AFEFF">LongDOI</strong>.</h1>
             <h1 class="text-center animation-slideDown hidden-lg hidden-md hidden-sm font-big"><strong>Let's get down the DOI</strong></h1>
-            <h2 class="text-right animation-slideUp push font-small">Are you tired to read numerous investment researches in the morning?</h2>
+            <h2 class="text-right animation-slideUp push font-small">Are you sick of reading numerous investment researches in the morning?</h2>
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-4">

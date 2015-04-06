@@ -8,6 +8,7 @@ var CompCharts2 = function() {
 
     return {
         init: function(obj) {
+            
             /*
              * Flot Jquery plugin is used for charts
              *
@@ -43,8 +44,16 @@ var CompCharts2 = function() {
                             return obj.price > max ? obj.price : max;
                         }, 0);
                         var data1=[];
+
+
+
+                        console.log(obj.price);
+                        console.log(maxy);
+                        maxy=maxy+0.01;
+                        console.log(maxy);
                         // data.forEach(function(obj) { data1.push([obj.time,obj.price,"BUY: "+obj.BUY+" HOLD: "+obj.HOLD+" SELL: "+obj.SELL]); });
                         data.forEach(function(obj) { data1.push([obj.time,obj.price,0,obj.BUY,obj.HOLD,obj.SELL]); });
+                        console.log(data1);
                         var options = {
                             lines: {
                                 show: true
@@ -68,15 +77,16 @@ var CompCharts2 = function() {
                             legend: {show: true, position: 'nw', margin: [15, 10]},
                             grid: {borderWidth: 0, hoverable: true, clickable: true},
                             yaxis: {
-                                // ticks: 4, 
-                                // tickColor: '#eeeeee',
+                                ticks: 4, 
+                                tickColor: '#eeeeee',
                                 // axisLabel: "Stock Price in Baht",
                                 // axisLabelUseCanvas: true,
                                 // axisLabelFontSizePixels: 12,
                                 // axisLabelFontFamily: 'Verdana, Arial',
                                 // axisLabelPadding: 5,
-                                min: miny-miny*0.05,
-                                max: maxy+maxy*0.05
+                                min: miny-miny*0.01,
+                                max: parseFloat(maxy)+parseFloat(maxy)*0.01
+                               
                             },
                             xaxis: {mode: "time", 
                                 timeformat:"%d %b %y",
@@ -87,6 +97,7 @@ var CompCharts2 = function() {
                                 max: maxx
                             }
                         };
+
                         var data2=[
                             {
                                 label: 'Price',
