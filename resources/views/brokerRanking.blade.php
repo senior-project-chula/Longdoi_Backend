@@ -117,7 +117,7 @@
                                                 <tr>
                                                     <td class="text-center">{{++$i}}</td>
                                                     <td>{{$brokerName}}</td>
-                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['AGRO']['percent']}}%
+                                                    <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['AGRO']['acc']}}, Total: {{$data['AGRO']['total']}}">{{$data['AGRO']['percent']}}%
                                                     </a>
                                                     </td>
                                                     <td class="text-center"><a  data-toggle="tooltip" title="Correct: {{$data['CONSUMP']['acc']}}, Total: {{$data['CONSUMP']['total']}}">{{$data['CONSUMP']['percent']}}%</a></td>
