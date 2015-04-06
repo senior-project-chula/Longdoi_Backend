@@ -5,8 +5,6 @@
     {!! HTML::script('js2/plugins.js') !!}
     {!! HTML::script('js2/app.js') !!}
 
-    {!! HTML::script('js2/pages/compCharts.js') !!}
-    <script>$(function(){ CompCharts.init(); });</script>
     @stop
 
     @section('content')
@@ -21,7 +19,7 @@
                         <div class="col-md-6 col-md-offset-3">
                             <label class="sr-only" for="register-email">a stock..</label>
                             <div class="input-group input-group-lg">
-                                
+
                                 <input type="text" id="input_stock" name="input_stock" class="form-control input-typeahead-stocks" autocomplete="off" placeholder="Search Stocks..">
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-primary"><i class="hi hi-search"></i> Search</button>
@@ -77,10 +75,26 @@
                                     <div class="block white-bg black">
 
 
+
                                         <!-- Search Styles Content -->
                                         <div class="tab-content">
                                             <!-- Projects Search -->
                                             <div class="tab-pane active" id="search-tab-projects">
+
+                                                <!-- Projects Results -->
+                                                <table class="table table-striped table-vcenter">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 10%;"><i class="hi hi-stats"></i> STOCK</th>
+                                                            
+                                                            <th class="text-center" style="width: 15%;">PRICE</th>
+                                                            <th class="text-center" style="width: 10%;">BUY</th>
+                                                            <th class="text-center" style="width: 10%;">HOLD</th>
+                                                            <th class="text-center" style="min-width: 60px; width: 10%;">SELL</th>
+                                                            <th class="text-center hidden-xs" style="width: 10%;">TOTAL</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
 
                                                         @foreach($sumRec as $stockName=>$recData)
                                                         <tr>
@@ -157,6 +171,7 @@
                                     <!-- Search Styles Block -->
                                     <div class="block" style="background-color:white;color:black">
                                         <!-- Search Styles Title -->
+
                                                         <!-- <div class="block-title text-center">
                                                             <h1 id="stock-head"><i class="hi hi-thumbs-up"></i>  Recommendations</h1>
                                                         </div> -->
@@ -233,8 +248,6 @@
                         </div>
                     </section>
                     <!-- END Intro -->
-
-
 
                     <!-- Promo #2 -->
                     <section class="site-content site-section site-slide-content">
@@ -488,4 +501,6 @@
                     </div>
                 </section>
                 <!-- END Promo #2 -->
+
+
                 @stop

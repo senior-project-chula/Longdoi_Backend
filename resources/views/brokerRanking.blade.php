@@ -58,7 +58,7 @@
                                                 <select class="form-control" onchange="this.form.submit()" name="sortBy">
                                                     <option @if($selected=="Overall") {{"selected"}} @endif value="Overall">Overall</option>
                                                     <option @if($selected=="AGRO") {{"selected"}} @endif value="AGRO">AGRO</option>
-                                                    <option @if($selected=="COMSUMP") {{"selected"}} @endif value="COMSUMP">COMSUMP</option>
+                                                    <option @if($selected=="CONSUMP") {{"selected"}} @endif value="CONSUMP">CONSUMP</option>
                                                     <option @if($selected=="FINCIAL") {{"selected"}} @endif value="FINCIAL">FINCIAL</option>
                                                     <option @if($selected=="INDUS") {{"selected"}} @endif value="INDUS">INDUS</option>
                                                     <option @if($selected=="PROPCON") {{"selected"}} @endif value="PROPCON">PROPCON</option>
