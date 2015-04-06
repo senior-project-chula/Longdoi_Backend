@@ -216,7 +216,7 @@
                                                                             <th class="text-center" >BROKER</th>
                                                                             <th class="text-center " style="width: 10%;">RECOMMENDATION</th>
                                                                           
-                                                                            <th class="text-center hidden-md hidden-sm hidden-xs" >DESCRIPTION</th>
+                                                                            <th class="text-center visible-lg" >DESCRIPTION</th>
                                                                             <th class="text-center" >STOCK</th>
                                                                             <th class="text-center hidden-xs">PRICE<br><small>(on released date)</small></th>
                                                                             <th class="text-center">RESOURCE</th>
@@ -235,7 +235,7 @@
                                                                             <td class="text-center">
                                                                                 {{$arrayRec['Recommendation']}}
                                                                             </td>
-                                                                            <td class="text-center hidden-md hidden-sm hidden-xs">
+                                                                            <td class="text-center visible-lg">
                                                                                 {{$arrayRec['Description']}}
                                                                             </td>
                                                                             <td class="text-center">
