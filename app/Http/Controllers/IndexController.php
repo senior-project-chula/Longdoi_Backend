@@ -65,4 +65,8 @@ class IndexController extends Controller {
 	{
 		return view('stockResult')->with('Stock_ID',$Stock_ID);
 	}
+	public function stockMock()
+	{
+		return (view('stockResult'));
+	}
 }
