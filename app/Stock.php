@@ -50,19 +50,19 @@ class Stock extends Model {
 		// echo $maxResearchDate;
 		// get 3 stocks having max recommendation
 		$top3 = DB::select("SELECT *
-							FROM (SELECT `Stock_ID`,SUM(Cat_Total) AS Total, GROUP_CONCAT(Recommendation,' ',Cat_Total) _Cat_Total
-								FROM (SELECT `Stock_ID`,`Recommendation`,COUNT(*) AS Cat_Total
-									FROM `recommendation`
-									INNER JOIN ((SELECT * 
-	            								FROM `research`
-	            								WHERE DATE(`research`.`Date`) = DATE('$maxResearchDate') ) AS r1)
-									ON `recommendation`.`Research_ID`= `r1`.`Research_ID`
-									GROUP BY `Stock_ID`,`Recommendation`) AS r2
-								GROUP BY `Stock_ID`
-								ORDER BY Total DESC
-								LIMIT 3) AS r3
-							INNER JOIN `stock`
-							ON `r3`.Stock_ID=`stock`.Stock_ID");
+			FROM (SELECT `Stock_ID`,SUM(Cat_Total) AS Total, GROUP_CONCAT(Recommendation,' ',Cat_Total) _Cat_Total
+				FROM (SELECT `Stock_ID`,`Recommendation`,COUNT(*) AS Cat_Total
+					FROM `recommendation`
+					INNER JOIN ((SELECT * 
+						FROM `research`
+						WHERE DATE(`research`.`Date`) = DATE('$maxResearchDate') ) AS r1)
+		ON `recommendation`.`Research_ID`= `r1`.`Research_ID`
+		GROUP BY `Stock_ID`,`Recommendation`) AS r2
+		GROUP BY `Stock_ID`
+		ORDER BY Total DESC
+		LIMIT 3) AS r3
+		INNER JOIN `stock`
+		ON `r3`.Stock_ID=`stock`.Stock_ID");
 		$top3Array = array();
 		foreach($top3 as $member){
 			$stockMember = array();
@@ -91,11 +91,16 @@ class Stock extends Model {
 
 	}
 	public function getRecFromStockOnDate($date){
-		$dateTime = new DateTime($date);
+		if(gettype($date)=='string'){
+			$dateTime = new DateTime($date);
+		} else {
+			$dateTime = $date;
+		}
+			
 		$dateString = $dateTime->format('Y-m-d');
 		$rec = $this->recommendations()
-					->join('research','recommendation.Research_ID','=','research.Research_ID')
-					->whereRaw("DATE(Date)='$dateString'")->select('Stock_ID','Recommendation','Date')->get();
+		->join('research','recommendation.Research_ID','=','research.Research_ID')
+		->whereRaw("DATE(Date)='$dateString'")->select('Stock_ID','Recommendation','Date')->get();
 		$recSummary = array('BUY'=>0,'SELL'=>0,'HOLD'=>0);
 		foreach($rec as $r){
 			$recSummary[$r->Recommendation] = $recSummary[$r->Recommendation]+1;
@@ -103,9 +108,89 @@ class Stock extends Model {
 		$recSummary['total'] = $recSummary['BUY']+$recSummary['SELL']+$recSummary['HOLD'];
 		return $recSummary;
 	}
-		
 
-		
+	public function getRecFromStockAll(){
+		// $dateTime = new DateTime($date);
+		// $dateString = $dateTime->format('Y-m-d');
+		$rec = $this->recommendations()
+		->join('research','recommendation.Research_ID','=','research.Research_ID')
+		->select('Stock_ID','Recommendation','Date')->get();
+		$recSummary = array('BUY'=>0,'SELL'=>0,'HOLD'=>0);
+		foreach($rec as $r){
+			$recSummary[$r->Recommendation] = $recSummary[$r->Recommendation]+1;
+		}
+		$recSummary['total'] = $recSummary['BUY']+$recSummary['SELL']+$recSummary['HOLD'];
+		return $recSummary;
+	}
+
+	public function getRecOfThsStockOnDate($date){
+		if(gettype($date)=='string'){
+			$dateTime = new DateTime($date);
+		} else {
+			$dateTime = $date;
+		}
+		$dateString = $dateTime->format('Y-m-d');
+
+		$rec = $this->recommendations()
+		->join('research','recommendation.Research_ID','=','research.Research_ID')
+		->join('broker','research.Broker_ID','=','broker.Broker_ID')
+		->select('Stock_ID','Recommendation','Date','PDF_Name','Link','Broker_Name')
+		->whereRaw("DATE(Date) = '$dateString'")
+		->orderBy('Date','DESC')
+		->take(100)->get();
+		// dd($rec);
+		$outputArray = array();
+		foreach($rec as $r){
+			$rowArray = $r->toArray();
+			// $brokerName = $ro->broker
+			$date = new DateTime($r->Date);
+			$dateString = $date->format('Y-m-d');
+			$price = $this->prices()->whereRaw("DATE(price.Date) = '$dateString'")->first();
+			$rowArray['Date'] = $date->format('d/m/Y');
+			// dd($price);
+			if($price == null){
+				//this mean price for today is not available
+				$rowArray['price'] = '-';
+			} else {
+				$rowArray['price'] = $price->Closing_Price;
+			}
+			$outputArray[] = $rowArray;
+		}
+		return $outputArray;
+
+	}
+
+	public function getRecOfThsStockAll(){
+		$rec = $this->recommendations()
+		->join('research','recommendation.Research_ID','=','research.Research_ID')
+		->join('broker','research.Broker_ID','=','broker.Broker_ID')
+		->select('Stock_ID','Recommendation','Date','PDF_Name','Link','Broker_Name')
+		->orderBy('Date','DESC')
+		->take(100)->get();
+		// dd($rec);
+		$outputArray = array();
+		foreach($rec as $r){
+			$rowArray = $r->toArray();
+			// $brokerName = $ro->broker
+			$date = new DateTime($r->Date);
+			$dateString = $date->format('Y-m-d');
+			$price = $this->prices()->whereRaw("DATE(price.Date) = '$dateString'")->first();
+			$rowArray['Date'] = $date->format('d/m/Y');
+			// dd($price);
+			if($price == null){
+				//this mean price for today is not available
+				$rowArray['price'] = '-';
+			} else {
+				$rowArray['price'] = $price->Closing_Price;
+			}
+			$outputArray[] = $rowArray;
+		}
+		return $outputArray;
+
+	}
+
+
+
 
 }
 

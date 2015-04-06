@@ -6,6 +6,8 @@ use App\Recommendation;
 use App\Price;
 use DB;
 
+use Illuminate\Http\Request;
+
 class IndexController extends Controller {
 
 	/*
@@ -68,5 +70,18 @@ class IndexController extends Controller {
 	public function stockMock()
 	{
 		return (view('stockResult'));
+	}
+
+	public function searchStock(Request $request)
+	{
+		# code...
+		if($request->has('input_stock')){
+			$stockInput =  $request->input('input_stock');
+			return redirect('/stock/'.$stockInput);
+		} else {
+			return redirect('/');
+		}
+		
+
 	}
 }

@@ -5,6 +5,9 @@ use App\Recommendation;
 use App\Stock;
 use Json;
 use Input;
+use DateTime;
+
+use Illuminate\Http\Request;
 
 class StockResultController extends Controller {
 
@@ -37,9 +40,57 @@ class StockResultController extends Controller {
 	public function index($stock_name)
 	{
 		$stock = Stock::where('Stock_Name','=',$stock_name)->first();
-		return view('stockResult')->with('stock_id',$stock->Stock_ID);
+		$Stock_Name = $stock->Stock_Name;
+		$lastPrice = $stock->getLastPrice();
+		$lastIndex=Price::getLastSetIndex();
+		$top3Array=Stock::getTopPick3();
+		$recSummary = $stock->getRecFromStockAll();
+		$recAll = $stock->getRecOfThsStockAll();
+
+		// dd($recAll);
+
+		
+		return view('stockResult')->with('stock_id',$stock->Stock_ID)
+		->with('Stock_Name',$Stock_Name)
+		->with('lastPrice',$lastPrice)
+		->with('lastIndex',$lastIndex)
+		->with('top3Array',$top3Array)
+		->with('recSummary',$recSummary)
+		->with('recAll',$recAll);
 	}
 
+	public function withDate(Request $request, $stock_name)
+	{
+		if($request->has('date')){
+			$date = $request->input('date');
+			$d =DateTime::createFromFormat('d/m/y', $date);
+
+			$stock = Stock::where('Stock_Name','=',$stock_name)->first();
+			$Stock_Name = $stock->Stock_Name;
+			$lastPrice = $stock->getLastPrice();
+			$lastIndex=Price::getLastSetIndex();
+			$top3Array=Stock::getTopPick3();
+			$recSummary = $stock->getRecFromStockOnDate($d);
+			$recAll = $stock->getRecOfThsStockOnDate($d);
+
+			$dateString = $d->format('d/m/Y');
+		// dd($recAll);
+
+
+			return view('stockResult')->with('stock_id',$stock->Stock_ID)
+			->with('Stock_Name',$Stock_Name)
+			->with('lastPrice',$lastPrice)
+			->with('lastIndex',$lastIndex)
+			->with('top3Array',$top3Array)
+			->with('recSummary',$recSummary)
+			->with('recAll',$recAll)
+			->with('dateSearch',$dateString);
+
+		} else {
+			// echo $stock_name;
+			return redirect('/stock/'.$stock_name);
+		}
+	}
 
 	public function GetPriceOf()
 	{
@@ -67,7 +118,7 @@ class StockResultController extends Controller {
 			$time = strtotime($row->Date)*1000;
 			$priceJason[]=array("time"=>$time, "price"=>$row->Opening_Price,"BUY"=>$buy,"HOLD"=>$hold,"SELL"=>$sell);
 		}
-	    return json_encode($priceJason);
+		return json_encode($priceJason);
 	}
 
 }

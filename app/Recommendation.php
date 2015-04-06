@@ -44,7 +44,7 @@ class Recommendation extends Model {
 	public function stock(){
 		return $this->hasOne('App\Stock','Stock_ID','Stock_ID');
 	}
-	public static function getRecFromDate($date){
+	public static function getRecByStockFromDate($date){
 		return Recommendation::join('stock','recommendation.Stock_ID','=','stock.Stock_ID')
 			->join('research','recommendation.Research_ID','=','research.Research_ID')
 			->whereRaw("DATE(research.Date)='$date'")->groupBy('recommendation.Stock_ID','recommendation.Recommendation')
@@ -102,6 +102,23 @@ class Recommendation extends Model {
 		$yesterday=$dateList[1];
 		$today=$dateList[0];
 		$stringDate = $today->format('Y-m-d');
+		// dd($today);
+		// $ending_today->modify('+23 hours +59 minutes +59 seconds');	
+		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
+		->select('Description','Recommendation','Research_ID','Stock_ID')
+		->whereRaw("DATE(research.Date) = '$stringDate'")
+		->select('research.Date','research.Link','research.Broker_ID')
+		->join('broker','broker.Broker_ID','=','research.Broker_ID')
+		->select('broker.Broker_Name')
+		->join('stock','stock.Stock_ID','=','recommendation.Stock_ID')
+		->select('Description','Recommendation','research.Date','research.Link','broker.Broker_Name','Stock_Name','stock.Stock_ID')
+		->orderBy('research.Date','DESC')
+		->get();
+		
+		return $recommendations;
+	}
+	public static function getRecFromDate($date){
+		$stringDate = $date->format('Y-m-d');
 		// dd($today);
 		// $ending_today->modify('+23 hours +59 minutes +59 seconds');	
 		$recommendations=Recommendation::join('research','research.Research_ID','=','recommendation.Research_ID')
