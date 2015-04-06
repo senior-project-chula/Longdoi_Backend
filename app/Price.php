@@ -39,7 +39,7 @@ class Price extends Model {
 	}
 
 	public static function getLastSetIndex(){
-		$query = Price::where('Stock_ID','=','102')->orderBy('Date','asc')->take(2)->get();
+		$query = Price::where('Stock_ID','=','102')->orderBy('Date','DESC')->take(2)->get();
 		$todayIndex = $query[0]->Closing_Price;
 		$ytdIndex = $query[1]->Closing_Price;
 		// echo $query[1];
