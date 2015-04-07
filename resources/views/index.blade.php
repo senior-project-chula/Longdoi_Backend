@@ -37,12 +37,12 @@
     <section class="site-content site-section site-slide-content" >
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-6 ">
+                <div class="col-md-6 col-sm-12 ">
                     <div id="extracting_hype_container" class="visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideDown" style="margin:auto;position:relative;width:600px;height:400px;overflow:hidden;" aria-live="polite">
                         {!! HTML::script('hype/extracting.hyperesources/extracting_hype_generated_script.js?39270', array('charset' => 'utf-8')) !!}
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-8 col-sm-offset-1">
+                <div class="col-md-5 col-sm-12">
                     <br>
                     <h1 class="text-right animation-slideUp visibility-none" style="font-size:60px;margin-bottom:50px;">Extracting and Summarizing <small>investment researches.</small></h1>
                 </div>
@@ -73,10 +73,10 @@
     <section class="site-content site-section site-slide-content" style="height:500px;overflow:hidden;">
         <div class="container">
             <div class="row" >
-                <div class="col-sm-4 site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideDown" data-element-offset="-180">
+                <div class="col-sm-12 site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideDown" data-element-offset="-180">
                     <h1 class="site-heading site-heading-promo" style="font-size:60px;">Feed recommendations every day</h1>
                 </div>
-                <div class="col-sm-8 col-md-8 site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideUp" data-element-offset="-180">
+                <div class="col-sm-12 col-md-8 site-block TOTAL-none visibility-none" data-toggle="animation-appear" data-animation-class="animation-slideUp" data-element-offset="-180">
                     {{-- <img src="img/daily-recommend.png" alt="Recommendations" class="img-responsive"> --}}
                     {!! HTML::image('img/daily-recommend.png', 'Recommendations', array('class' => 'img-responsive daily-recommend')) !!}
                 </div>
